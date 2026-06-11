@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate Loan EMI Manually | Loan Calculator</title>
+<meta name="description" content="Learn how to calculate loan EMI manually using the EMI formula. Step-by-step guide with examples for home, car and personal loans. Free loan calculator tool.">
+<meta name="keywords" content="how to calculate loan emi manually, emi formula, loan emi calculation, manual emi calculation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://agecalculatorweb.com/how-to-calculate-loan-emi-manually.html">
+<meta property="og:title" content="How to Calculate Loan EMI Manually | Loan Calculator">
+<meta property="og:description" content="Learn how to calculate loan EMI manually using the EMI formula. Step-by-step guide with examples for home, car and personal loans. Free loan calculator tool.">
+<meta property="og:url" content="https://agecalculatorweb.com/how-to-calculate-loan-emi-manually.html">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;--bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;--cream:#f0ead8;--muted:#777;--light:#bbb;}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0;}
+.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0;}
+.nav-pills{display:flex;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px);}
+.nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s;}
+.nav-pill:hover{color:var(--cream);}
+.nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3);}
+.nav-pill svg{width:16px;height:16px;flex-shrink:0;}
+@media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
+.wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:48px 24px 80px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:600;line-height:1.2;color:var(--cream);margin-bottom:16px;}
+h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold-l);margin:36px 0 12px;}
+p{margin-bottom:18px;line-height:1.8;color:var(--light);font-size:16px;}
+ul,ol{margin:10px 0 18px 28px;}
+li{margin-bottom:8px;color:var(--light);font-size:16px;line-height:1.7;}
+strong{color:var(--cream);font-weight:600;}
+a{color:var(--gold);}
+a:hover{color:var(--gold-l);}
+.updated{color:var(--muted);font-size:14px;font-family:'DM Sans',sans-serif;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.2);}
+.tag{display:inline-block;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-size:11px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:20px;}
+.highlight{background:rgba(201,168,76,.06);border-left:3px solid var(--gold);padding:20px 24px;margin:28px 0;border-radius:0 6px 6px 0;}
+.highlight p{margin:0;color:var(--light);}
+table{width:100%;border-collapse:collapse;margin:24px 0;}
+th{background:rgba(201,168,76,.15);color:var(--gold-l);padding:12px 16px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border-bottom:1px solid rgba(201,168,76,.3);}
+td{padding:12px 16px;border-bottom:1px solid rgba(201,168,76,.1);font-size:15px;color:var(--light);}
+tr:nth-child(even) td{background:rgba(201,168,76,.03);}
+.cta-box{background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1px solid rgba(201,168,76,.3);text-align:center;padding:40px 24px;border-radius:6px;margin:48px 0 0;position:relative;}
+.cta-box::before,.cta-box::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(201,168,76,.5);border-style:solid;}
+.cta-box::before{top:12px;left:12px;border-width:1px 0 0 1px;}
+.cta-box::after{bottom:12px;right:12px;border-width:0 1px 1px 0;}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:12px;color:var(--cream);}
+.cta-box p{color:var(--muted);margin-bottom:24px;font-size:15px;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;text-decoration:none;padding:14px 32px;border-radius:4px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;}
+.back-link{display:inline-block;margin-bottom:32px;color:var(--muted);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:14px;}
+.back-link:hover{color:var(--gold);}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid rgba(201,168,76,.15);color:#aaa;text-align:center;padding:32px 20px;font-family:'DM Sans',sans-serif;font-size:13px;}
+footer a{color:#ccc;text-decoration:none;margin:0 8px;}
+footer a:hover{color:var(--gold);}
+footer p{margin-bottom:8px;}
+</style>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-pills">
+    <a href="https://agecalculatorweb.com/index.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Age Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/loan-calculator.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Loan Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/bmi-calculator.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+      BMI Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/blog.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Blog
+    </a>
+  </div>
+</nav>
+<div class="wrap">
+<a href="https://agecalculatorweb.com/blog.html" class="back-link">← Back to Blog</a>
+<span class="tag">💰 Finance</span>
+<h1>How to Calculate Loan EMI Manually — Step by Step Guide</h1>
+<div class="meta">June 2026 · 5 min read · By Age Calculator Team</div>
+
+<p>Calculating your loan EMI (Equated Monthly Instalment) manually helps you understand exactly how much you will pay each month before taking any loan. This guide explains the EMI formula in simple steps.</p>
+<h2>The EMI Formula</h2>
+<p>The standard EMI formula used by all banks worldwide is:</p>
+<div class="highlight"><p><strong>EMI = P × r × (1 + r)^n ÷ [(1 + r)^n − 1]</strong><br><br>Where:<br>P = Principal loan amount<br>r = Monthly interest rate (annual rate ÷ 12 ÷ 100)<br>n = Total number of monthly instalments</p></div>
+<h2>Step-by-Step Example</h2>
+<p>Let us say you take a loan of <strong>$10,000</strong> at <strong>12% annual interest</strong> for <strong>2 years (24 months)</strong>.</p>
+<ol>
+<li>P = 10,000</li>
+<li>r = 12 ÷ 12 ÷ 100 = 0.01</li>
+<li>n = 24</li>
+<li>EMI = 10,000 × 0.01 × (1.01)^24 ÷ [(1.01)^24 − 1]</li>
+<li>EMI = <strong>$470.73 per month</strong></li>
+</ol>
+<h2>EMI Comparison Table</h2>
+<table>
+<tr><th>Loan Amount</th><th>Interest Rate</th><th>Duration</th><th>Monthly EMI</th></tr>
+<tr><td>$5,000</td><td>10%</td><td>1 year</td><td>$439</td></tr>
+<tr><td>$10,000</td><td>12%</td><td>2 years</td><td>$471</td></tr>
+<tr><td>$25,000</td><td>8%</td><td>5 years</td><td>$507</td></tr>
+<tr><td>$50,000</td><td>7%</td><td>10 years</td><td>$581</td></tr>
+</table>
+<h2>What Affects Your EMI?</h2>
+<ul>
+<li><strong>Principal Amount</strong> — Higher loan = higher EMI</li>
+<li><strong>Interest Rate</strong> — Higher rate = higher EMI</li>
+<li><strong>Loan Duration</strong> — Longer duration = lower EMI but more total interest paid</li>
+</ul>
+<h2>Why Calculate EMI Before Taking a Loan?</h2>
+<p>Knowing your EMI in advance helps you plan your monthly budget. Many people take loans without calculating the EMI first and then struggle with repayments. Always calculate before signing any loan agreement.</p>
+<div class="highlight"><p>A longer loan duration reduces your monthly EMI but significantly increases the total interest you pay over time. Always choose the shortest duration you can comfortably afford.</p></div>
+<h2>Use Our Free Loan Calculator</h2>
+<p>Instead of calculating manually every time, use our free online loan calculator. Simply enter the loan amount, interest rate and duration — and get your exact EMI instantly.</p>
+
+<div class="cta-box">
+<h3>Free Loan Calculator</h3>
+<p>Calculate your exact monthly payment instantly — no signup needed.</p>
+<a href="https://agecalculatorweb.com/loan-calculator.html" class="cta-btn">Use Free Loan Calculator</a>
+</div>
+</div>
+<footer>
+  <p>
+    <a href="https://agecalculatorweb.com/">Home</a>
+    <a href="https://agecalculatorweb.com/blog.html">Blog</a>
+    <a href="https://agecalculatorweb.com/about.html">About</a>
+    <a href="https://agecalculatorweb.com/privacy-policy.html">Privacy Policy</a>
+    <a href="https://agecalculatorweb.com/contact.html">Contact</a>
+  </p>
+  <p style="margin-top:8px;">© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</p>
+</footer>
+</body>
+</html>
