@@ -1,3 +1,4 @@
+cat > /home/claude/blog-fixed.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,101 +11,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;--bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;--cream:#f0ead8;--muted:#777;--light:#bbb;}
+:root{--gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;--bg:#080808;--bg2:#101010;--bg3:#181818;--cream:#f0ead8;--muted:#777;--light:#bbb;}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
-body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0;}
-.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0;}
-.nav-pills{display:flex;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px);}
-.nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;font-size:14px;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0;}
+.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:20px 16px 0;}
+.nav-pills{display:flex;flex-wrap:wrap;justify-content:center;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:5px;gap:3px;backdrop-filter:blur(10px);}
+.nav-pill{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s;}
 .nav-pill:hover{color:var(--cream);}
-.nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3);}
-.nav-pill svg{width:16px;height:16px;flex-shrink:0;}
-@media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
-.hero{position:relative;z-index:1;text-align:center;padding:60px 24px 52px;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.12) 0%,transparent 70%);border-bottom:1px solid rgba(201,168,76,.2);margin-top:32px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,56px);font-weight:600;color:var(--cream);margin-bottom:14px;}
+.nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;}
+.nav-pill svg{width:14px;height:14px;flex-shrink:0;}
+.hero{position:relative;z-index:1;text-align:center;padding:40px 20px 36px;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.1) 0%,transparent 70%);border-bottom:1px solid rgba(201,168,76,.15);margin-top:24px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(24px,5vw,40px);font-weight:600;color:var(--cream);margin-bottom:10px;}
 .hero h1 em{font-style:italic;color:var(--gold-l);}
-.hero p{color:var(--muted);font-size:16px;max-width:520px;margin:0 auto;}
-.blog-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:56px 24px 80px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
-.card{background:var(--bg2);border:1px solid rgba(201,168,76,.15);border-radius:6px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;}
-.card::before,.card::after{content:'';position:absolute;width:14px;height:14px;border-color:rgba(201,168,76,.4);border-style:solid;}
-.card::before{top:10px;left:10px;border-width:1px 0 0 1px;}
-.card::after{bottom:10px;right:10px;border-width:0 1px 1px 0;}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.4);border-color:rgba(201,168,76,.35);}
-.card-body{padding:24px;}
-.card-tag{display:inline-block;font-size:10px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.card h2{font-family:'Playfair Display',serif;font-size:19px;line-height:1.35;margin-bottom:12px;color:var(--cream);}
-.card p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:16px;}
-.card-meta{font-size:12px;font-family:'DM Sans',sans-serif;color:var(--muted);margin-bottom:16px;opacity:.7;}
-.read-link{display:inline-block;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.03em;}
+.hero p{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto;}
+.blog-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:36px 16px 60px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.card{background:var(--bg2);border:1px solid rgba(201,168,76,.12);border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);border-color:rgba(201,168,76,.3);}
+.card-body{padding:18px;}
+.card-tag{display:inline-block;font-size:9px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.card h2{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;line-height:1.4;margin-bottom:8px;color:var(--cream);}
+.card p{color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:10px;}
+.card-meta{font-size:11px;color:var(--muted);margin-bottom:10px;opacity:.6;}
+.read-link{display:inline-block;color:var(--gold);font-size:12px;font-weight:600;text-decoration:none;}
 .read-link:hover{color:var(--gold-l);text-decoration:underline;}
-footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid rgba(201,168,76,.15);color:#aaa;text-align:center;padding:32px 20px;font-family:'DM Sans',sans-serif;font-size:13px;}
-footer a{color:#ccc;text-decoration:none;margin:0 8px;}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid rgba(201,168,76,.12);color:#aaa;text-align:center;padding:24px 16px;font-size:12px;}
+footer a{color:#ccc;text-decoration:none;margin:0 6px;}
 footer a:hover{color:var(--gold);}
-footer p{margin-bottom:8px;}
+footer p{margin-bottom:6px;}
 </style>
 </head>
 <body>
 <nav class="nav-bar">
   <div class="nav-pills">
-    <a href="https://agecalculatorweb.com/index.html" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Age Calculator
-    </a>
-    <a href="https://agecalculatorweb.com/loan-calculator.html" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      Loan Calculator
-    </a>
-    <a href="https://agecalculatorweb.com/bmi-calculator.html" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-      BMI Calculator
-< truncated lines 62-92 >
+    <a href="https://agecalculatorweb.com/index.html" class="nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Age Calculator</a>
+    <a href="https://agecalculatorweb.com/loan-calculator.html" class="nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Loan Calculator</a>
+    <a href="https://agecalculatorweb.com/bmi-calculator.html" class="nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>BMI Calculator</a>
+    <a href="https://agecalculatorweb.com/blog.html" class="nav-pill active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Blog</a>
+  </div>
+</nav>
 
-    <div class="card"><div class="card-body"><span class="card-tag">📅 History</span><h2>A Brief History of Calendars and How We Measure Time</h2><p>From ancient Egypt to the Gregorian Calendar — thousands of years of human effort to accurately measure time and calculate age.</p><div class="card-meta">May 2026 · 5 min read</div><a href="/history-of-calendars.html" class="read-link">Read Article →</a></div></div>
+<div class="hero">
+  <h1>Blog & <em>Articles</em></h1>
+  <p>Interesting facts, tips and guides about age calculation, birthdays and zodiac signs</p>
+</div>
 
-    <div class="card"><div class="card-body"><span class="card-tag">🎯 Tips</span><h2>5 Times You Urgently Need to Know Your Exact Age</h2><p>Most of us think about our age once a year. But there are moments when knowing your exact age — to the day — can make a real difference.</p><div class="card-meta">May 2026 · 3 min read</div><a href="/5-times-you-need-exact-age.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">👶 Milestones</span><h2>The Most Important Age Milestones in a Human Life</h2><p>From your first birthday to legal adulthood at 18, full brain development at 25, and the extraordinary milestone of 100 years.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/age-milestones-human-life.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">🪐 Fun</span><h2>How to Calculate Your Age on Other Planets</h2><p>On Mercury, a year lasts only 88 Earth days. A 25-year-old on Earth would be over 103 on Mercury. Explore your age across the solar system.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/calculate-age-on-other-planets.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">✈️ Visa Guide</span><h2>Age Calculator for Visa Application – Get Your Exact Age Instantly</h2><p>Many visa categories have strict age requirements. Learn how to get your exact age in years, months and days for UK, USA, Canada and Australia visa applications.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/age-calculator-for-visa-application.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">📅 Days Counter</span><h2>How Many Days Old Am I Today? Your Exact Age in Days</h2><p>A 25-year-old has lived over 9,000 days. Find your exact total days lived, milestone day counts like 10,000 days, and watch your age in live seconds.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/how-many-days-old-am-i.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💪 BMI Guide</span><h2>BMI Calculator KG and CM – Free Metric Body Mass Index Calculator</h2><p>Calculate your BMI using kilograms and centimetres. Includes WHO standard categories, ideal weight ranges, and a full reference table for common heights and weights.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/bmi-calculator-kg-cm.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">✅ UK Guide</span><h2>Age Calculator UK – Free Online Age Calculator for United Kingdom</h2><p>The most accurate free age calculator for UK users. Calculate your exact age for passport applications, NHS screenings, school admissions and more.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-uk-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">🇺🇸 USA Guide</span><h2>Age Calculator USA – Free Online Age Calculator for United States</h2><p>Free age calculator for US residents. Get your exact age for visa applications, Social Security, driver's licence, Medicare and other official US requirements.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-usa-online-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">🍁 Canada</span><h2>Age Calculator Canada – Free Online Age Calculator for Canadians</h2><p>Calculate your exact age for Canadian visa applications, working holiday IEC programme, CPP pension eligibility and school admissions — free and instant.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-canada-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan EMI Calculator Online Free – Calculate Monthly Loan Payments</h2><p>Calculate your exact monthly loan instalment (EMI) instantly. Works for personal loans, car loans, home loans and any fixed-rate borrowing — completely free.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/loan-emi-calculator-online-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">⏱️ Guide</span><h2>Age Calculator in Years Months Days and Seconds – Exact Age Online</h2><p>Get your precise age in years, months, days, hours, minutes and live real-time seconds. The most complete free age calculator available online — no signup needed.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-in-years-months-days-seconds.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Calculate Loan EMI Manually — Step by Step Guide</h2><p>Learn how to calculate loan EMI manually using the EMI formula. Step-by-step guide with examples for home, car and personal loans.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-calculate-loan-emi-manually.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan EMI Calculator Pakistan — Calculate Monthly Payments in PKR</h2><p>Free loan EMI calculator for Pakistan. Calculate monthly payments for HBL, MCB, UBL and other Pakistani bank loans. Instant results in PKR.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/loan-emi-calculator-pakistan.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Home Loan Calculator UAE — Free Mortgage Calculator for Dubai</h2><p>Free home loan and mortgage calculator for UAE. Calculate monthly payments in AED for Dubai, Abu Dhabi and all UAE banks. Instant results.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/home-loan-calculator-uae-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Car Loan Calculator UK — Free Monthly Payment Calculator in GBP</h2><p>Free car loan calculator for UK. Calculate monthly payments in GBP for any car finance deal. Compare HP, PCP and personal loan options instantly.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/car-loan-calculator-uk-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Personal Loan Interest Rate Calculator — Find Your Monthly Payment</h2><p>Calculate personal loan interest rate, monthly payments and total interest with our free online calculator. Compare rates and find the best personal loan.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/personal-loan-interest-rate-calculator.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Reduce Your Loan EMI Amount — 7 Proven Ways</h2><p>Learn 7 proven ways to reduce your loan EMI amount. Lower your monthly payments on home loans, car loans and personal loans with these practical tips.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-reduce-loan-emi-amount.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan Calculator for Students — Calculate Education Loan EMI</h2><p>Free education loan calculator for students. Calculate monthly EMI for student loans in USA, UK, Australia and other countries. Plan your repayments easily.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/loan-calculator-for-students.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Business Loan Calculator Online Free — Calculate SME Loan EMI</h2><p>Free business loan calculator online. Calculate monthly EMI for small business loans, SME loans and startup loans. Instant results for any loan amount.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/business-loan-calculator-online-free.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Mortgage Calculator USA — Calculate Monthly Home Loan Payment</h2><p>Free USA mortgage calculator. Calculate monthly home loan payments including principal, interest, taxes and insurance. Instant results for any US state.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/mortgage-calculator-usa-monthly-payment.html" class="read-link">Read Article →</a></div></div>
-
-    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Pay Off Your Loan Faster — 8 Smart Strategies That Work</h2><p>Learn 8 smart strategies to pay off your loan faster and save thousands in interest. Works for home loans, car loans, personal loans and student loans.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-pay-off-loan-faster.html" class="read-link">Read Article →</a></div></div>
-
+<div class="blog-wrap">
+  <div class="grid">
+    <div class="card"><div class="card-body"><span class="card-tag">🔢 Guide</span><h2>How to Calculate Your Exact Age in Years, Months and Days</h2><p>Most people know their age in years — but do you know your exact months, days, hours and seconds?</p><div class="card-meta">May 2026 · 4 min read</div><a href="/how-to-calculate-your-exact-age.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🎂 Fun Facts</span><h2>10 Surprising Facts About Your Birthday You Never Knew</h2><p>From the Birthday Paradox to leap day birthdays and the billion-second milestone.</p><div class="card-meta">May 2026 · 5 min read</div><a href="/10-surprising-birthday-facts.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">⭐ Zodiac</span><h2>What Your Zodiac Sign Says About Your Personality</h2><p>Your date of birth determines your zodiac sign. Discover the traits of all 12 signs of the Western zodiac.</p><div class="card-meta">May 2026 · 6 min read</div><a href="/zodiac-sign-personality.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">📋 Official Use</span><h2>Why Knowing Your Exact Age Matters for Official Documents</h2><p>From passport applications to school admissions and medical screenings.</p><div class="card-meta">May 2026 · 3 min read</div><a href="/why-exact-age-matters-official-documents.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🌍 World Records</span><h2>The Oldest People in the World and How Age is Measured</h2><p>The oldest verified person ever lived to 122 years and 164 days. The science behind longevity records.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/oldest-people-world-age-measured.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">⏱️ Interesting</span><h2>How Many Seconds Old Are You? The Fascinating Math of Age</h2><p>If you are 25 years old, you have lived over 788 million seconds.</p><div class="card-meta">May 2026 · 3 min read</div><a href="/how-many-seconds-old-are-you.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🗺️ Countries</span><h2>How Different Countries Calculate Age Differently</h2><p>In some countries, you are considered 1 year old the moment you are born.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/how-different-countries-calculate-age.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🧠 Science</span><h2>What Science Says About the Brain at Different Ages</h2><p>Your brain changes dramatically with age — from explosive growth in childhood to wisdom in your 40s.</p><div class="card-meta">May 2026 · 5 min read</div><a href="/brain-science-different-ages.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">📅 History</span><h2>A Brief History of Calendars and How We Measure Time</h2><p>From ancient Egypt to the Gregorian Calendar — thousands of years of human effort.</p><div class="card-meta">May 2026 · 5 min read</div><a href="/history-of-calendars.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🎯 Tips</span><h2>5 Times You Urgently Need to Know Your Exact Age</h2><p>Moments when knowing your exact age — to the day — can make a real difference.</p><div class="card-meta">May 2026 · 3 min read</div><a href="/5-times-you-need-exact-age.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">👶 Milestones</span><h2>The Most Important Age Milestones in a Human Life</h2><p>From your first birthday to legal adulthood at 18, full brain development at 25.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/age-milestones-human-life.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🪐 Fun</span><h2>How to Calculate Your Age on Other Planets</h2><p>On Mercury, a year lasts only 88 Earth days. Explore your age across the solar system.</p><div class="card-meta">May 2026 · 4 min read</div><a href="/calculate-age-on-other-planets.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">✈️ Visa Guide</span><h2>Age Calculator for Visa Application – Get Your Exact Age Instantly</h2><p>Many visa categories have strict age requirements. For UK, USA, Canada and Australia.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/age-calculator-for-visa-application.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">📅 Days Counter</span><h2>How Many Days Old Am I Today? Your Exact Age in Days</h2><p>A 25-year-old has lived over 9,000 days. Find your exact total days lived.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/how-many-days-old-am-i.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💪 BMI Guide</span><h2>BMI Calculator KG and CM – Free Metric Body Mass Index Calculator</h2><p>Calculate your BMI using kilograms and centimetres. Includes WHO standard categories.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/bmi-calculator-kg-cm.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">✅ UK Guide</span><h2>Age Calculator UK – Free Online Age Calculator for United Kingdom</h2><p>Calculate your exact age for passport applications, NHS screenings and school admissions.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-uk-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🇺🇸 USA Guide</span><h2>Age Calculator USA – Free Online Age Calculator for United States</h2><p>Get your exact age for visa applications, Social Security, Medicare and other US requirements.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-usa-online-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">🍁 Canada</span><h2>Age Calculator Canada – Free Online Age Calculator for Canadians</h2><p>Calculate your exact age for Canadian visa applications and CPP pension eligibility.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-canada-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan EMI Calculator Online Free – Calculate Monthly Loan Payments</h2><p>Calculate your exact monthly loan instalment instantly. Works for all loan types.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/loan-emi-calculator-online-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">⏱️ Guide</span><h2>Age Calculator in Years Months Days and Seconds – Exact Age Online</h2><p>Get your precise age in years, months, days, hours, minutes and live real-time seconds.</p><div class="card-meta">June 2026 · 4 min read</div><a href="/age-calculator-in-years-months-days-seconds.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Calculate Loan EMI Manually — Step by Step Guide</h2><p>Learn how to calculate loan EMI manually using the EMI formula with examples.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-calculate-loan-emi-manually.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan EMI Calculator Pakistan — Calculate Monthly Payments in PKR</h2><p>Free loan EMI calculator for Pakistan. For HBL, MCB, UBL and other Pakistani banks.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/loan-emi-calculator-pakistan.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Home Loan Calculator UAE — Free Mortgage Calculator for Dubai</h2><p>Calculate monthly payments in AED for Dubai, Abu Dhabi and all UAE banks.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/home-loan-calculator-uae-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Car Loan Calculator UK — Free Monthly Payment Calculator in GBP</h2><p>Calculate monthly payments in GBP. Compare HP, PCP and personal loan options.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/car-loan-calculator-uk-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Personal Loan Interest Rate Calculator — Find Your Monthly Payment</h2><p>Calculate personal loan interest rate, monthly payments and total interest instantly.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/personal-loan-interest-rate-calculator.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Reduce Your Loan EMI Amount — 7 Proven Ways</h2><p>Learn 7 proven ways to lower your monthly payments on home loans, car loans and personal loans.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-reduce-loan-emi-amount.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Loan Calculator for Students — Calculate Education Loan EMI</h2><p>Free education loan calculator for USA, UK, Australia and other countries.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/loan-calculator-for-students.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Business Loan Calculator Online Free — Calculate SME Loan EMI</h2><p>Calculate monthly EMI for small business loans, SME loans and startup loans.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/business-loan-calculator-online-free.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>Mortgage Calculator USA — Calculate Monthly Home Loan Payment</h2><p>Calculate monthly home loan payments including principal, interest, taxes and insurance.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/mortgage-calculator-usa-monthly-payment.html" class="read-link">Read Article →</a></div></div>
+    <div class="card"><div class="card-body"><span class="card-tag">💰 Finance</span><h2>How to Pay Off Your Loan Faster — 8 Smart Strategies That Work</h2><p>Learn 8 smart strategies to pay off your loan faster and save thousands in interest.</p><div class="card-meta">June 2026 · 5 min read</div><a href="/how-to-pay-off-loan-faster.html" class="read-link">Read Article →</a></div></div>
   </div>
 </div>
 
@@ -120,3 +104,5 @@ footer p{margin-bottom:8px;}
 </footer>
 </body>
 </html>
+EOF
+echo "Done" && wc -l /home/claude/blog-fixed.html
