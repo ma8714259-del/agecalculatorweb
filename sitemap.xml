@@ -66,5 +66,9 @@
   <loc>https://www.agecalculatorweb.com/how-to-calculate-personal-loan-interest-rate.html</loc>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
-</url>
+  </url>
+  <loc>https://www.agecalculatorweb.com/life-milestones-by-age-complete-guide.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  </url>
 </urlset>
