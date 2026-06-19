@@ -45,8 +45,6 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
-
-/* BACKGROUND */
 .bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
 .bg-wrap::before{content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
@@ -54,17 +52,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
   radial-gradient(ellipse 50% 50% at 50% 50%,rgba(201,168,76,.03) 0,transparent 70%)}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* DECO */
 .deco-t,.deco-b{position:fixed;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);z-index:5}
 .deco-t{top:50px}.deco-b{bottom:50px}
 .deco-l,.deco-r{position:fixed;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,168,76,.4),transparent);z-index:5}
 .deco-l{left:50px}.deco-r{right:50px}
-
-/* WRAP */
 .wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 100px}
-
-/* NAV */
 .nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0}
 .nav-pills{display:flex;align-items:center;gap:8px;padding:10px;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px}
 .nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--cream);text-decoration:none;transition:all .25s}
@@ -72,8 +64,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .nav-pill:hover{color:var(--gold)}
 .nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 20px rgba(201,168,76,.45)}
 @media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
-
-/* HEADER */
 header{text-align:center;padding:40px 20px 24px;position:relative;z-index:10}
 .brand-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px;animation:fadeD .8s ease}
 .brand-line{background:linear-gradient(90deg,var(--gold),transparent);height:1px;max-width:80px;flex:1}
@@ -82,14 +72,10 @@ header{text-align:center;padding:40px 20px 24px;position:relative;z-index:10}
 header h1{font-family:'Playfair Display',serif;font-size:clamp(36px,7vw,78px);font-weight:400;line-height:1.06;color:var(--cream)}
 header h1 em{font-style:italic;color:var(--gold)}
 header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);animation:fadeD .8s .25s ease both}
-
-/* CARD */
 .card{background:linear-gradient(145deg,var(--bg3),var(--bg2));border:1px solid rgba(201,168,76,.18);border-radius:6px;padding:36px 32px;position:relative;overflow:hidden;margin-top:32px}
 .card::before,.card::after,.c-tr,.c-bl{content:'';position:absolute;width:22px;height:22px;border-color:rgba(201,168,76,.5);border-style:solid}
 .c-tr{top:14px;right:14px;border-width:1px 1px 0 0}.c-bl{bottom:14px;left:14px;border-width:0 0 1px 1px}
 .card::before{top:14px;left:14px;border-width:1px 0 0 1px}.card::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
-
-/* CURRENCY */
 .field-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .currency-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
 .df{display:flex;flex-direction:column;gap:8px}
@@ -98,47 +84,30 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .df input:focus,.df select:focus{border-color:var(--gold);background:rgba(201,168,76,.06);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
 .df option{background:#1a1a1a;color:var(--cream)}
 .df input::placeholder{color:rgba(201,168,76,.25)}
-
-/* RATE SLIDER */
 .rate-wrap{margin-bottom:20px}
 .rate-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .rate-val{color:var(--gold);font-family:'Playfair Display',serif;font-size:18px}
+.slider-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:1px}
 input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold) var(--pct,50%),var(--bg4) var(--pct,50%));outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.5);border:2px solid var(--bg)}
-input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);cursor:pointer}
-
-/* TERM BUTTONS */
-.term-row{display:flex;gap:10px;margin-bottom:20px}
-.term-btn{flex:1;padding:14px;border:1px solid rgba(201,168,76,.2);border-radius:4px;background:var(--bg4);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;text-align:center}
-.term-btn.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;border-color:var(--gold)}
-.term-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
-
-/* BUTTONS */
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.5);border:2px solid var(--bg)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);cursor:pointer}
 .btn-row{display:flex;gap:12px;margin-top:8px}
 .btn-calc{flex:1;padding:20px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold));color:#000;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 12px 40px rgba(201,168,76,.45)}
 .btn-calc:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(201,168,76,.55)}
 .btn-reset{padding:20px 28px;border:1px solid rgba(201,168,76,.2);border-radius:4px;background:transparent;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s}
 .btn-reset:hover{border-color:var(--gold);background:rgba(201,168,76,.06)}
-
-/* ERROR */
 .err{font-size:11px;letter-spacing:2px;color:var(--red);text-align:center;margin-top:12px;display:none;animation:fadeU .3s ease}
 .err.show{display:block}
-
-/* RESULTS */
 .results{display:none;margin-top:24px;animation:fadeU .7s ease both}
 .results.show{display:block}
 .res-head{text-align:center;margin-bottom:32px}
 .res-head h2{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .res-head .dob-txt{font-size:12px;letter-spacing:2px;color:var(--muted)}
-
-/* TRIO */
 .age-trio{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid rgba(201,168,76,.12);border-radius:4px;overflow:hidden;margin-bottom:24px}
 .trio-block{text-align:center;padding:28px 16px;position:relative}
 .trio-block:not(:last-child){border-right:1px solid rgba(201,168,76,.12)}
-.trio-num{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:400;color:var(--gold-l);display:block;margin-bottom:8px}
+.trio-num{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,42px);font-weight:400;color:var(--gold-l);display:block;margin-bottom:8px}
 .trio-unit{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-top:10px}
-
-/* BREAKDOWN */
 .breakdown-section{margin-top:24px}
 .breakdown-section h3{font-family:'Playfair Display',serif;font-size:12px;color:var(--gold);letter-spacing:6px;text-transform:uppercase;text-align:center;margin-bottom:16px}
 .bar-wrap{height:12px;border-radius:6px;overflow:hidden;background:var(--bg4);margin-bottom:8px}
@@ -150,8 +119,6 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .bar-legend span::before{content:'';width:10px;height:10px;border-radius:2px;flex-shrink:0}
 .bar-legend .l-p::before{background:var(--gold)}
 .bar-legend .l-i::before{background:#e05555}
-
-/* SCHEDULE TABLE */
 .schedule-wrap{margin-top:24px;overflow:hidden}
 .schedule-wrap h3{font-family:'Playfair Display',serif;font-size:12px;color:var(--gold);letter-spacing:6px;text-transform:uppercase;text-align:center;margin-bottom:16px}
 .tbl-wrap{overflow-x:auto}
@@ -164,39 +131,28 @@ tr:hover td{background:rgba(201,168,76,.04)}
 .show-more{width:100%;padding:12px;background:transparent;border:1px solid rgba(201,168,76,.2);border-radius:4px;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;margin-top:12px;transition:all .25s}
 .show-more:hover{background:rgba(201,168,76,.06)}
 .hidden-row{display:none}
-
-/* SEO SECTION */
 .seo-wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 40px;animation:fadeU .9s .5s ease both}
 .seo-box{background:var(--bg2);border:1px solid rgba(201,168,76,.1);border-radius:6px;padding:48px}
 .seo-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:var(--cream);margin-bottom:18px}
 .seo-box p{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:0}
-.faq{border-top:1px solid rgba(201,168,76,.1);padding-top:22px 0}
+.faq{margin-top:22px;padding-top:22px;border-top:1px solid rgba(201,168,76,.1)}
 .faq h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold-l);margin-bottom:8px}
 .faq p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}
-
-/* FOOTER */
 footer{position:relative;z-index:10;text-align:center;padding:40px 20px 60px;border-top:1px solid rgba(201,168,76,.08)}
 .f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:16px}
-.f-links{display:flex;justify-content:center;gap:28px;margin-bottom:14px}
+.f-links{display:flex;justify-content:center;gap:28px;margin-bottom:14px;flex-wrap:wrap}
 .f-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
 .f-links a:hover{color:var(--gold)}
 footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-transform:uppercase}
-
-/* ANIMATIONS */
 @keyframes fadeD{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-/* RESPONSIVE */
 @media(max-width:640px){
   .deco-l,.deco-r{display:none}
   .card{padding:28px 20px}
-  .age-trio{grid-template-columns:1fr 1fr 1fr}
   .btn-row{flex-direction:column}
   .btn-reset{order:-1}
   .seo-box{padding:32px 22px}
   .currency-grid{grid-template-columns:1fr}
-}
-@media(max-width:400px){
   .age-trio{grid-template-columns:1fr}
   .trio-block:not(:last-child){border-right:none;border-bottom:1px solid rgba(201,168,76,.12)}
 }
@@ -209,7 +165,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
 <div class="deco-t"></div><div class="deco-b"></div>
 <div class="deco-l"></div><div class="deco-r"></div>
 
-<!-- NAV -->
 <nav class="nav-bar">
   <div class="nav-pills">
     <a href="index.html" class="nav-pill">
@@ -231,7 +186,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
   </div>
 </nav>
 
-<!-- HEADER -->
 <header>
   <div class="brand-row">
     <div class="brand-line"></div>
@@ -242,12 +196,10 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
   <p class="sub">Mortgage Calculator &nbsp;·&nbsp; Monthly Payment &nbsp;·&nbsp; Total Interest &nbsp;·&nbsp; Amortization</p>
 </header>
 
-<!-- MAIN CARD -->
 <div class="wrap">
   <div class="card">
     <div class="c-tr"></div><div class="c-bl"></div>
 
-    <!-- CURRENCY -->
     <label class="field-lbl">Select Your Currency</label>
     <div class="df" style="margin-bottom:20px">
       <select id="iCurr" onchange="updateCurr()">
@@ -274,7 +226,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </select>
     </div>
 
-    <!-- INPUTS -->
     <label class="field-lbl">Enter Your Mortgage Details</label>
     <div class="currency-grid">
       <div class="df">
@@ -287,7 +238,7 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </div>
     </div>
 
-    <!-- RATE SLIDER -->
+    <!-- INTEREST RATE SLIDER -->
     <div class="rate-wrap">
       <div class="rate-row">
         <label class="field-lbl" style="margin:0">Annual Interest Rate</label>
@@ -295,20 +246,34 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </div>
       <input type="range" id="iRate" min="0.1" max="20" step="0.1" value="6.5"
         oninput="updateRate(this.value)" style="--pct:31.5%">
+      <div class="slider-labels">
+        <span>0.1%</span>
+        <span>5%</span>
+        <span>10%</span>
+        <span>15%</span>
+        <span>20%</span>
+      </div>
     </div>
 
-    <!-- LOAN TERM -->
-    <label class="field-lbl">Loan Term</label>
-    <div class="term-row">
-      <button class="term-btn" onclick="setTerm(10,this)">10 Years</button>
-      <button class="term-btn" onclick="setTerm(15,this)">15 Years</button>
-      <button class="term-btn active" onclick="setTerm(30,this)">30 Years</button>
+    <!-- LOAN TERM SLIDER -->
+    <div class="rate-wrap">
+      <div class="rate-row">
+        <label class="field-lbl" style="margin:0">Loan Term</label>
+        <span class="rate-val" id="termDisplay">30 Years</span>
+      </div>
+      <input type="range" id="iTerm" min="1" max="30" step="1" value="30"
+        oninput="updateTerm(this.value)" style="--pct:100%">
+      <div class="slider-labels">
+        <span>1 Yr</span>
+        <span>5 Yrs</span>
+        <span>10 Yrs</span>
+        <span>20 Yrs</span>
+        <span>30 Yrs</span>
+      </div>
     </div>
 
-    <!-- ERROR -->
     <div class="err" id="errMsg">⚠ &nbsp; Please enter valid mortgage details</div>
 
-    <!-- BUTTONS -->
     <div class="btn-row">
       <button class="btn-reset" onclick="resetAll()">✕ Reset</button>
       <button class="btn-calc" onclick="calculate()">
@@ -316,14 +281,12 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </button>
     </div>
 
-    <!-- RESULTS -->
     <div class="results" id="results">
       <div class="res-head">
         <h2>Your Mortgage</h2>
         <p class="dob-txt" id="dobTxt"></p>
       </div>
 
-      <!-- TRIO -->
       <div class="age-trio">
         <div class="trio-block">
           <span class="trio-num" id="rMonthly">$0</span>
@@ -339,7 +302,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
         </div>
       </div>
 
-      <!-- BREAKDOWN BAR -->
       <div class="breakdown-section">
         <h3>Principal vs Interest Breakdown</h3>
         <div class="bar-wrap">
@@ -354,7 +316,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
         </div>
       </div>
 
-      <!-- SCHEDULE -->
       <div class="schedule-wrap">
         <h3>Yearly Repayment Schedule</h3>
         <div class="tbl-wrap">
@@ -374,39 +335,37 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
           Show All Years ▼
         </button>
       </div>
-    </div><!-- /results -->
-  </div><!-- /card -->
-</div><!-- /wrap -->
-
-<!-- SEO SECTION -->
-<div class="seo-wrap">
-  <div class="seo-box">
-    <h2>Mortgage Calculator – Free Online Tool</h2>
-    <p>Our free Mortgage Calculator helps you instantly calculate your monthly mortgage payment, total interest, and complete amortization schedule for any home loan. Whether you are buying your first home in the USA, UK, Canada, UAE, or anywhere else, simply enter your home price, down payment, interest rate, and loan term to get accurate results in seconds. All calculations run privately in your browser — no data is stored or shared.</p>
-
-    <div class="faq" style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(201,168,76,.1)">
-      <h3>What is a mortgage calculator?</h3>
-      <p>A mortgage calculator is a tool that computes your monthly home loan payment based on the loan amount (home price minus down payment), annual interest rate, and loan term. It also shows the total interest paid and the complete repayment schedule over the life of the loan.</p>
-    </div>
-
-    <div class="faq" style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(201,168,76,.1)">
-      <h3>How is the monthly mortgage payment calculated?</h3>
-      <p>Using the standard amortization formula: M = P[r(1+r)^n] / [(1+r)^n−1], where P is the loan principal (home price minus down payment), r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of monthly payments (years × 12).</p>
-    </div>
-
-    <div class="faq" style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(201,168,76,.1)">
-      <h3>What is a good mortgage interest rate?</h3>
-      <p>In 2026, a good mortgage rate in the USA is generally between 6% and 7% for a 30-year fixed loan. In the UK, rates typically range from 4% to 6%. Rates vary based on your credit score, loan term, down payment, and the lender. A larger down payment and shorter term generally result in a lower rate.</p>
-    </div>
-
-    <div class="faq" style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(201,168,76,.1)">
-      <h3>Is my financial data stored?</h3>
-      <p>Never. All calculations run entirely in your browser. No personal or financial data is collected, stored, or transmitted to any server. Your privacy is fully protected at all times.</p>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<div class="seo-wrap">
+  <div class="seo-box">
+    <h2>Mortgage Calculator – Free Online Tool</h2>
+    <p>Our free Mortgage Calculator helps you instantly calculate your monthly mortgage payment, total interest, and complete amortization schedule for any home loan. Whether you are buying your first home in the USA, UK, Canada, UAE, or anywhere else, simply enter your home price, down payment, interest rate, and loan term to get accurate results in seconds. All calculations run privately in your browser — no data is stored or shared.</p>
+    <div class="faq">
+      <h3>What is a mortgage calculator?</h3>
+      <p>A mortgage calculator is a tool that computes your monthly home loan payment based on the loan amount (home price minus down payment), annual interest rate, and loan term. It also shows the total interest paid and the complete repayment schedule over the life of the loan.</p>
+    </div>
+    <div class="faq">
+      <h3>How is the monthly mortgage payment calculated?</h3>
+      <p>Using the standard amortization formula: M = P[r(1+r)^n] / [(1+r)^n−1], where P is the loan principal (home price minus down payment), r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of monthly payments (years × 12).</p>
+    </div>
+    <div class="faq">
+      <h3>What is a good mortgage interest rate?</h3>
+      <p>In 2026, a good mortgage rate in the USA is generally between 6% and 7% for a 30-year fixed loan. In the UK, rates typically range from 4% to 6%. Rates vary based on your credit score, loan term, down payment, and the lender. A larger down payment and shorter term generally result in a lower rate.</p>
+    </div>
+    <div class="faq">
+      <h3>Is my financial data stored?</h3>
+      <p>Never. All calculations run entirely in your browser. No personal or financial data is collected, stored, or transmitted to any server. Your privacy is fully protected at all times.</p>
+    </div>
+    <div class="faq">
+      <h3>What is the difference between a 15-year and 30-year mortgage?</h3>
+      <p>A 15-year mortgage has higher monthly payments but you pay significantly less total interest and own your home in half the time. A 30-year mortgage has lower monthly payments, making it more affordable month-to-month, but you pay much more interest over the life of the loan. Use the loan term slider above to compare both options instantly.</p>
+    </div>
+  </div>
+</div>
+
 <footer>
   <span class="f-brand">Age Calculator</span>
   <div class="f-links">
@@ -428,19 +387,20 @@ function updateCurr(){
 }
 
 function updateRate(v){
-  document.getElementById('rateDisplay').textContent=v+'%';
+  document.getElementById('rateDisplay').textContent=parseFloat(v).toFixed(1)+'%';
   const pct=((v-0.1)/(20-0.1)*100).toFixed(1);
   document.getElementById('iRate').style.setProperty('--pct',pct+'%');
 }
 
-function setTerm(t,btn){
-  term=t;
-  document.querySelectorAll('.term-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+function updateTerm(v){
+  term=parseInt(v);
+  document.getElementById('termDisplay').textContent=v+' Year'+(v>1?'s':'');
+  const pct=((v-1)/(30-1)*100).toFixed(1);
+  document.getElementById('iTerm').style.setProperty('--pct',pct+'%');
 }
 
 function fmt(n){
-  return n>=10000?n.toLocaleString():n>=1000?n.toLocaleString():n;
+  return Math.round(n).toLocaleString();
 }
 
 function calculate(){
@@ -457,48 +417,42 @@ function calculate(){
   const P=home-down;
   const r=rate/100/12;
   const n=term*12;
-  const M=P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+  const M=r===0?P/n:P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
   const totalPay=M*n;
   const totalInt=totalPay-P;
   const pPct=Math.round((P/totalPay)*100);
   const iPct=100-pPct;
 
   document.getElementById('dobTxt').textContent=
-    `Home: ${sym}${fmt(Math.round(home))} · Down: ${sym}${fmt(Math.round(down))} · Loan: ${sym}${fmt(Math.round(P))} · ${rate}% for ${term} years`;
-  document.getElementById('rMonthly').textContent=sym+fmt(Math.round(M));
-  document.getElementById('rInterest').textContent=sym+fmt(Math.round(totalInt));
-  document.getElementById('rTotal').textContent=sym+fmt(Math.round(totalPay));
+    `Home: ${sym}${fmt(home)} · Down: ${sym}${fmt(down)} · Loan: ${sym}${fmt(P)} · ${rate}% for ${term} year${term>1?'s':''}`;
+  document.getElementById('rMonthly').textContent=sym+fmt(M);
+  document.getElementById('rInterest').textContent=sym+fmt(totalInt);
+  document.getElementById('rTotal').textContent=sym+fmt(totalPay);
 
   document.getElementById('barP').style.width=pPct+'%';
   document.getElementById('barI').style.width=iPct+'%';
   document.getElementById('legP').textContent='Principal '+pPct+'%';
   document.getElementById('legI').textContent='Interest '+iPct+'%';
 
-  // Amortization table
   const tbody=document.getElementById('schedBody');
   tbody.innerHTML='';
   let bal=P;
-  let allRows=[];
   for(let y=1;y<=term;y++){
     let yPrin=0,yInt=0;
     for(let m=0;m<12;m++){
       const intPay=bal*r;
       const prinPay=M-intPay;
       yInt+=intPay;yPrin+=prinPay;
-      bal-=prinPay;
+      bal-=prinPay;if(bal<0)bal=0;
     }
-    if(bal<0)bal=0;
-    allRows.push(`<tr class="${y>5?'hidden-row':''}">
-      <td>${y}</td>
-      <td>${sym}${fmt(Math.round(yPrin))}</td>
-      <td>${sym}${fmt(Math.round(yInt))}</td>
-      <td>${sym}${fmt(Math.round(bal))}</td>
-    </tr>`);
+    const tr=document.createElement('tr');
+    if(y>5)tr.className='hidden-row';
+    tr.innerHTML=`<td>${y}</td><td>${sym}${fmt(yPrin)}</td><td>${sym}${fmt(yInt)}</td><td>${sym}${fmt(bal)}</td>`;
+    tbody.appendChild(tr);
   }
-  tbody.innerHTML=allRows.join('');
+
   const btn=document.getElementById('showMoreBtn');
   btn.style.display=term>5?'block':'none';
-  btn.textContent='Show All Years ▼';
 
   const res=document.getElementById('results');
   res.classList.add('show');
@@ -506,7 +460,7 @@ function calculate(){
 }
 
 function showAll(){
-  document.querySelectorAll('.hidden-row').forEach(r=>r.style.display='');
+  document.querySelectorAll('.hidden-row').forEach(r=>r.style.display='table-row');
   document.getElementById('showMoreBtn').style.display='none';
 }
 
@@ -515,10 +469,8 @@ function resetAll(){
   document.getElementById('iDown').value='';
   document.getElementById('iRate').value=6.5;
   updateRate(6.5);
-  term=30;
-  document.querySelectorAll('.term-btn').forEach((b,i)=>{
-    b.classList.toggle('active',i===2);
-  });
+  document.getElementById('iTerm').value=30;
+  updateTerm(30);
   document.getElementById('errMsg').classList.remove('show');
   document.getElementById('results').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
