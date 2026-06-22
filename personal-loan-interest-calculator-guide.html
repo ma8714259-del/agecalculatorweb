@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Loan Interest Calculator – Calculate Monthly Payment Free (2026)</title>
+  <meta name="description" content="Free personal loan interest calculator. Calculate your exact monthly payment, total interest, and compare personal loan interest rates. Works for USA, UK, Canada and Pakistan." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.agecalculatorweb.com/personal-loan-interest-calculator-guide.html" />
+  <meta property="og:title" content="Personal Loan Interest Calculator – Calculate Monthly Payment Free (2026)" />
+  <meta property="og:description" content="Free personal loan interest calculator. Calculate your exact monthly payment, total interest, and compare personal loan interest rates." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.agecalculatorweb.com/personal-loan-interest-calculator-guide.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #080808;
+      color: #e8e8e8;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #c9a84c; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      background: #0f0f0f;
+      border-bottom: 1px solid #1e1e1e;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      min-height: 56px;
+    }
+    nav a {
+      color: #c9a84c;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background: #1a1a1a; text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1208 100%);
+      border-bottom: 1px solid #1e1e1e;
+      padding: 48px 20px 40px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #1a1208;
+      border: 1px solid #c9a84c;
+      color: #c9a84c;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 42px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      max-width: 780px;
+      margin: 0 auto 16px;
+    }
+    .hero h1 span { color: #c9a84c; }
+    .hero p {
+      font-size: 17px;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 12px;
+    }
+    .hero .meta { font-size: 13px; color: #666; }
+
+    /* LAYOUT */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* CALCULATOR BOX */
+    .calc-box {
+      background: #0f0f0f;
+      border: 1px solid #c9a84c;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 36px 0;
+    }
+    .calc-box h2 {
+      color: #c9a84c;
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .form-group input {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 14px;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { outline: none; border-color: #c9a84c; }
+    .calc-btn {
+      width: 100%;
+      background: #c9a84c;
+      color: #080808;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      cursor: pointer;
+      margin-top: 8px;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .calc-btn:hover { opacity: 0.88; }
+    .calc-result {
+      display: none;
+      margin-top: 24px;
+      background: #1a1208;
+      border: 1px solid #2a2010;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .calc-result .big-num {
+      font-size: 38px;
+      font-weight: 700;
+      color: #c9a84c;
+    }
+    .calc-result .label { font-size: 13px; color: #888; margin-bottom: 16px; }
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .result-item {
+      background: #111;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .result-item .r-val { font-size: 20px; font-weight: 700; color: #fff; }
+    .result-item .r-lab { font-size: 12px; color: #666; margin-top: 2px; }
+
+    /* ARTICLE CONTENT */
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 40px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    h3 { font-size: 18px; font-weight: 600; color: #c9a84c; margin: 28px 0 10px; }
+    p { margin-bottom: 16px; color: #ccc; }
+    ul, ol { margin: 0 0 16px 24px; color: #ccc; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th {
+      background: #1a1208;
+      color: #c9a84c;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-bottom: 1px solid #2a2010;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #1a1a1a;
+      color: #ccc;
+    }
+    tr:hover td { background: #0f0f0f; }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: #1a1208;
+      border-left: 3px solid #c9a84c;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: #ccc;
+    }
+    .highlight strong { color: #c9a84c; }
+
+    /* FORMULA BOX */
+    .formula-box {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-family: monospace;
+      font-size: 15px;
+      color: #c9a84c;
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .faq-a { color: #aaa; font-size: 15px; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, #1a1208 0%, #0f0f0f 100%);
+      border: 1px solid #c9a84c;
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .cta-box h3 { color: #fff; font-size: 20px; margin-bottom: 10px; }
+    .cta-box p { color: #aaa; margin-bottom: 20px; font-size: 15px; }
+    .cta-btn {
+      display: inline-block;
+      background: #c9a84c;
+      color: #080808;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      background: #0f0f0f;
+      border-top: 1px solid #1e1e1e;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #555;
+    }
+    footer a { color: #c9a84c; margin: 0 8px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.agecalculatorweb.com/index.html">🎂 Age Calculator</a>
+  <a href="https://www.agecalculatorweb.com/loan-calculator.html">💲 Loan Calculator</a>
+  <a href="https://www.agecalculatorweb.com/bmi-calculator.html">⚖️ BMI Calculator</a>
+  <a href="https://www.agecalculatorweb.com/blog.html">📋 Blog</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">💰 Finance Guide</div>
+  <h1>Personal Loan <span>Interest Calculator</span> – Calculate Your Monthly Payment Free</h1>
+  <p>Find your exact monthly payment, total interest cost, and compare personal loan interest rates — instantly and for free.</p>
+  <div class="meta">June 2026 · 7 min read · By Age Calculator Team</div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <p>A <strong>personal loan interest calculator</strong> helps you find out exactly how much you will pay each month before you borrow. Whether you need a loan for home renovation, medical expenses, a wedding, or debt consolidation — knowing your monthly payment and total interest cost in advance helps you make a smarter financial decision.</p>
+
+  <!-- INLINE CALCULATOR -->
+  <div class="calc-box">
+    <h2>💲 Personal Loan Interest Calculator</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Loan Amount ($)</label>
+        <input type="number" id="loanAmount" placeholder="e.g. 10000" min="100" />
+      </div>
+      <div class="form-group">
+        <label>Annual Interest Rate (%)</label>
+        <input type="number" id="interestRate" placeholder="e.g. 12" step="0.1" min="0.1" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Loan Term (Months)</label>
+        <input type="number" id="loanTerm" placeholder="e.g. 36" min="1" max="360" />
+      </div>
+      <div class="form-group" style="display:flex;align-items:flex-end;">
+        <button class="calc-btn" onclick="calculateLoan()">Calculate Now →</button>
+      </div>
+    </div>
+    <div class="calc-result" id="calcResult">
+      <div class="big-num" id="emiResult">$0</div>
+      <div class="label">Monthly Payment (EMI)</div>
+      <div class="result-grid">
+        <div class="result-item">
+          <div class="r-val" id="totalPayment">$0</div>
+          <div class="r-lab">Total Amount Paid</div>
+        </div>
+        <div class="result-item">
+          <div class="r-val" id="totalInterest">$0</div>
+          <div class="r-lab">Total Interest Cost</div>
+        </div>
+        <div class="result-item">
+          <div class="r-val" id="principalAmt">$0</div>
+          <div class="r-lab">Principal Amount</div>
+        </div>
+        <div class="result-item">
+          <div class="r-val" id="monthlyRate">0%</div>
+          <div class="r-lab">Monthly Interest Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What Is a Personal Loan Interest Calculator?</h2>
+  <p>A <strong>personal loan interest calculator</strong> is a free online tool that calculates your exact monthly instalment (EMI), total interest paid, and total repayment amount. You enter three things — loan amount, interest rate, and loan term — and the calculator does all the maths in seconds.</p>
+  <p>It uses the standard EMI formula that all banks and lenders worldwide use to determine monthly repayments on fixed-rate personal loans.</p>
+
+  <h2>How to Calculate Personal Loan Interest</h2>
+  <p>The formula used by every bank to calculate monthly loan payments is:</p>
+  <div class="formula-box">
+    EMI = P × r × (1 + r)^n ÷ [(1 + r)^n – 1]<br/>
+    <span style="font-size:13px; color:#888;">
+      P = Principal | r = Monthly rate (Annual rate ÷ 12 ÷ 100) | n = Total months
+    </span>
+  </div>
+
+  <h3>Step-by-Step Example</h3>
+  <p>Let's say you borrow <strong>$10,000</strong> at <strong>12% per year</strong> for <strong>3 years (36 months)</strong>:</p>
+  <ol>
+    <li>Monthly rate r = 12 ÷ 12 ÷ 100 = <strong>0.01</strong></li>
+    <li>EMI = 10,000 × 0.01 × (1.01)^36 ÷ [(1.01)^36 – 1]</li>
+    <li>EMI = 10,000 × 0.01 × 1.4308 ÷ 0.4308</li>
+    <li><strong>Monthly Payment = $332.14</strong></li>
+    <li>Total Paid = $11,957 | Total Interest = <strong>$1,957</strong></li>
+  </ol>
+
+  <div class="highlight">
+    <strong>💡 Tip:</strong> Instead of calculating manually, use the free personal loan interest calculator above. Enter your numbers and get your exact monthly payment in one click.
+  </div>
+
+  <h2>How to Calculate Monthly Interest Rate on a Loan</h2>
+  <p>Many people ask how to calculate the monthly interest rate on a loan. It is simple:</p>
+  <div class="formula-box">
+    Monthly Interest Rate = Annual Interest Rate ÷ 12 ÷ 100
+  </div>
+  <p>Examples:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Annual Rate</th><th>Monthly Rate</th><th>Daily Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>6% per year</td><td>0.5% per month</td><td>0.0164% per day</td></tr>
+        <tr><td>12% per year</td><td>1.0% per month</td><td>0.0329% per day</td></tr>
+        <tr><td>18% per year</td><td>1.5% per month</td><td>0.0493% per day</td></tr>
+        <tr><td>24% per year</td><td>2.0% per month</td><td>0.0658% per day</td></tr>
+        <tr><td>36% per year</td><td>3.0% per month</td><td>0.0986% per day</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Personal Loan Interest Rates by Country (2026)</h2>
+  <p>Personal loan interest rates vary significantly around the world. Here are the typical ranges for major countries:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Typical APR Range</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🇺🇸 United States</td><td>8% – 36%</td><td>Credit score drives rate significantly</td></tr>
+        <tr><td>🇬🇧 United Kingdom</td><td>6% – 30%</td><td>Representative APR required by law</td></tr>
+        <tr><td>🇨🇦 Canada</td><td>7% – 32%</td><td>Varies by province and lender type</td></tr>
+        <tr><td>🇦🇺 Australia</td><td>7% – 25%</td><td>Comparison rate includes fees</td></tr>
+        <tr><td>🇦🇪 UAE</td><td>6% – 20%</td><td>Based on reducing balance method</td></tr>
+        <tr><td>🇵🇰 Pakistan</td><td>20% – 35%</td><td>SBP policy rate affects all bank rates</td></tr>
+        <tr><td>🇮🇳 India</td><td>10% – 24%</td><td>RBI repo rate linked products available</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How Loan Term Affects Your Monthly Payment</h2>
+  <p>The loan term is one of the biggest factors affecting your monthly payment. A longer term means smaller monthly payments — but you pay far more interest overall. See how a <strong>$10,000 loan at 12% APR</strong> changes with different terms:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Loan Term</th><th>Monthly Payment</th><th>Total Interest</th><th>Total Paid</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>12 months</td><td>$888</td><td>$662</td><td>$10,662</td></tr>
+        <tr><td>24 months</td><td>$471</td><td>$1,298</td><td>$11,298</td></tr>
+        <tr><td>36 months</td><td>$332</td><td>$1,957</td><td>$11,957</td></tr>
+        <tr><td>48 months</td><td>$263</td><td>$2,632</td><td>$12,632</td></tr>
+        <tr><td>60 months</td><td>$222</td><td>$3,347</td><td>$13,347</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <strong>Key takeaway:</strong> Choosing 36 months instead of 60 months on a $10,000 loan saves you <strong>$1,390 in interest</strong> — just by paying $110 more per month.
+  </div>
+
+  <h2>What Affects Your Personal Loan Interest Rate?</h2>
+  <p>Lenders use several factors to decide the interest rate they offer you:</p>
+  <ul>
+    <li><strong>Credit score</strong> — the most important factor. A higher score always means a lower rate.</li>
+    <li><strong>Income and employment stability</strong> — lenders want to see steady, sufficient income.</li>
+    <li><strong>Debt-to-income ratio (DTI)</strong> — the percentage of your income already committed to debt payments.</li>
+    <li><strong>Loan amount</strong> — very large or very small loans sometimes attract higher rates.</li>
+    <li><strong>Loan term</strong> — longer terms can carry slightly higher rates due to increased risk.</li>
+    <li><strong>Lender type</strong> — banks, credit unions, and online lenders offer different rate ranges.</li>
+    <li><strong>Existing relationship</strong> — your own bank may offer a loyalty discount.</li>
+  </ul>
+
+  <h2>Personal Loan Interest Rate by Credit Score</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Credit Score</th><th>Rating</th><th>Typical APR (USA)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>720 – 850</td><td>Excellent</td><td>6% – 12%</td></tr>
+        <tr><td>680 – 719</td><td>Good</td><td>12% – 18%</td></tr>
+        <tr><td>640 – 679</td><td>Fair</td><td>18% – 25%</td></tr>
+        <tr><td>580 – 639</td><td>Poor</td><td>25% – 36%</td></tr>
+        <tr><td>Below 580</td><td>Bad</td><td>36%+ or declined</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>7 Ways to Get a Lower Personal Loan Interest Rate</h2>
+  <ol>
+    <li><strong>Check your credit score first</strong> — know your starting position before applying anywhere.</li>
+    <li><strong>Improve your credit score</strong> — pay off small balances, clear missed payments, reduce credit utilisation.</li>
+    <li><strong>Compare at least 5 lenders</strong> — rates vary significantly. Never accept the first offer.</li>
+    <li><strong>Choose a shorter loan term</strong> — lenders often reward shorter terms with better rates.</li>
+    <li><strong>Use pre-qualification</strong> — check rates with a soft inquiry that does not affect your score.</li>
+    <li><strong>Apply with a co-signer</strong> — a co-signer with excellent credit can unlock significantly lower rates.</li>
+    <li><strong>Negotiate</strong> — especially if you are an existing customer. Banks often have rate flexibility.</li>
+  </ol>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>💲 Try Our Full Loan Calculator</h3>
+    <p>Enter any loan amount, interest rate, and term. Get your exact monthly payment instantly — with a full repayment breakdown.</p>
+    <a href="https://www.agecalculatorweb.com/loan-calculator.html" class="cta-btn">Open Loan Calculator →</a>
+  </div>
+
+  <!-- FAQ -->
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">What is a personal loan interest calculator?</div>
+    <div class="faq-a">A personal loan interest calculator is a free online tool that calculates your monthly EMI, total interest, and total repayment amount based on your loan amount, interest rate, and loan term.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do personal loan interest calculators work?</div>
+    <div class="faq-a">Personal loan interest calculators use the EMI formula: EMI = P × r × (1+r)^n ÷ [(1+r)^n – 1]. You enter your principal, annual rate, and term in months, and the calculator applies this formula instantly.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I calculate the monthly interest rate on a loan?</div>
+    <div class="faq-a">Divide the annual interest rate by 12 and then by 100. For example, a 12% annual rate equals a monthly rate of 12 ÷ 12 ÷ 100 = 0.01 (or 1% per month).</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What is a good interest rate on a personal loan?</div>
+    <div class="faq-a">In the USA and UK, anything below 12% APR is considered good. Borrowers with excellent credit (720+) can often qualify for 6%–10% APR. Rates above 20% are considered high.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Are personal loans interest rates calculators accurate?</div>
+    <div class="faq-a">Yes, if you enter the correct loan amount, annual interest rate, and term. The calculation is based on the standard EMI formula used by all banks worldwide. The result matches what your bank statement will show.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does a personal loan affect my credit score?</div>
+    <div class="faq-a">Formally applying for a personal loan triggers a hard credit inquiry, which may lower your score by 2–5 points temporarily. Making all payments on time will improve your score over the loan term.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is it better to get a shorter or longer loan term?</div>
+    <div class="faq-a">A shorter term means higher monthly payments but much less total interest paid. A longer term is easier month-to-month but costs significantly more overall. Use the calculator above to compare both options side by side.</div>
+  </div>
+
+  <p style="margin-top:40px; font-size:14px; color:#555;">
+    <strong>Related:</strong>
+    <a href="https://www.agecalculatorweb.com/loan-calculator.html">Free Loan Calculator</a> ·
+    <a href="https://www.agecalculatorweb.com/loan-emi-calculator-online-free.html">EMI Calculator Online</a> ·
+    <a href="https://www.agecalculatorweb.com/how-to-calculate-loan-emi-manually.html">How to Calculate EMI Manually</a> ·
+    <a href="https://www.agecalculatorweb.com/blog.html">More Finance Articles</a>
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 AgeCalculatorWeb.com — All Calculations Done In Your Browser — No Data Stored</p>
+  <p style="margin-top:10px;">
+    <a href="https://www.agecalculatorweb.com/about.html">About</a>
+    <a href="https://www.agecalculatorweb.com/blog.html">Blog</a>
+    <a href="https://www.agecalculatorweb.com/privacy-policy.html">Privacy Policy</a>
+    <a href="https://www.agecalculatorweb.com/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  function calculateLoan() {
+    const P = parseFloat(document.getElementById('loanAmount').value);
+    const annualRate = parseFloat(document.getElementById('interestRate').value);
+    const n = parseInt(document.getElementById('loanTerm').value);
+
+    if (!P || !annualRate || !n || P <= 0 || annualRate <= 0 || n <= 0) {
+      alert('Please enter valid values for all three fields.');
+      return;
+    }
+
+    const r = annualRate / 12 / 100;
+    const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    const totalPaid = emi * n;
+    const totalInterest = totalPaid - P;
+
+    document.getElementById('emiResult').textContent = '$' + emi.toFixed(2);
+    document.getElementById('totalPayment').textContent = '$' + totalPaid.toFixed(2);
+    document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(2);
+    document.getElementById('principalAmt').textContent = '$' + P.toFixed(2);
+    document.getElementById('monthlyRate').textContent = (annualRate / 12).toFixed(3) + '%';
+
+    document.getElementById('calcResult').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
