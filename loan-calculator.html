@@ -232,3 +232,86 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
   </div>
 </div>
 </div>
+  <div class="seo-wrap">
+  <div class="seo-box">
+    <h2>Loan Calculator – Free Monthly EMI Calculator Online</h2>
+    <p>Our free Loan Calculator instantly computes your exact monthly EMI payment, total interest, and complete yearly repayment schedule. Whether you need a personal loan calculator, car loan calculator, or home loan calculator — this tool handles all loan types in multiple currencies including USD, GBP, EUR, PKR, INR, AED, CAD, and AUD.</p>
+    <p>Simply enter your loan amount, annual interest rate, and loan term in years — and get accurate results in seconds. The built-in amortization schedule shows exactly how much principal and interest you pay each year. All calculations run privately in your browser with zero data stored.</p>
+    <div class="faq"><h3>How is the monthly EMI payment calculated?</h3><p>The standard amortization formula is used: M = P[r(1+r)^n] / [(1+r)^n−1], where P is the loan principal, r is the monthly interest rate, and n is the total number of monthly payments. This gives your fixed monthly EMI to fully repay the loan over the chosen term.</p></div>
+    <div class="faq"><h3>What is a good interest rate for a personal loan?</h3><p>A good personal loan interest rate is typically between 5% and 10% annually in the USA and UK. Rates below 7% are considered excellent. In Pakistan and India, personal loan rates usually range from 12% to 24% per year. Your credit score and income are the main factors lenders use to determine your rate.</p></div>
+    <div class="faq"><h3>How can I reduce my total loan interest?</h3><p>The most effective ways to reduce total interest are: choose a shorter loan term, make extra payments toward the principal whenever possible, negotiate a lower interest rate by improving your credit score, and avoid missing payments which can trigger penalty interest charges.</p></div>
+    <div class="faq"><h3>Which currencies does this loan calculator support?</h3><p>This loan calculator supports nine major currencies: USD (US Dollar), GBP (British Pound), EUR (Euro), CAD (Canadian Dollar), AUD (Australian Dollar), PKR (Pakistani Rupee), INR (Indian Rupee), AED (UAE Dirham), and SAR (Saudi Riyal). Simply select your currency before entering loan details.</p></div>
+    <div class="faq"><h3>Can I use this for a mortgage or car loan?</h3><p>Yes. This calculator works for all standard loan types — home mortgages, car loans, personal loans, student loans, and business loans. For a more detailed mortgage calculation including property taxes and insurance, try our dedicated Mortgage Calculator.</p></div>
+    <div class="faq"><h3>Is my financial data stored or shared?</h3><p>Never. All loan calculations run entirely within your browser using JavaScript. No personal or financial data is collected, stored, or transmitted to any server at any time. Your privacy is fully protected.</p></div>
+    <div class="faq"><h3>What is the difference between a loan EMI and total payment?</h3><p>Your monthly EMI is the fixed amount you pay each month. The total payment is the sum of all EMIs over the full loan term, which includes the original principal plus all interest charges. The difference between total payment and loan amount is your total interest cost.</p></div>
+    <div class="faq"><h3>How does loan term length affect my monthly payment?</h3><p>A longer loan term gives you a lower monthly EMI but results in paying significantly more total interest over time. A shorter loan term means higher monthly payments but much less total interest paid. Use our calculator to compare different term lengths and find the right balance for your budget.</p></div>
+  </div>
+</div>
+<footer>
+  <span class="f-brand">Age Calculator</span>
+  <div class="f-links">
+    <a href="index.html">Age Calculator</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</p>
+</footer>
+<script>
+const pWrap=document.getElementById('particles');
+for(let i=0;i<25;i++){const p=document.createElement('div');p.className='p';p.style.cssText=`left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px`;pWrap.appendChild(p);}
+let curSym='$';let curCode='USD';
+function setCurrency(code,sym){curSym=sym;curCode=code;document.querySelectorAll('.cur-btn').forEach(b=>b.classList.remove('active'));document.getElementById('cur-'+code).classList.add('active');document.getElementById('symLabel').textContent=sym;document.getElementById('iAmount').placeholder='e.g. '+(code==='PKR'?'500,000':code==='INR'?'500,000':'10,000');}
+const slider=document.getElementById('iRateSlider');
+const rateInput=document.getElementById('iRate');
+function updateSlider(v){const pct=((v-0.1)/(30-0.1))*100;slider.style.setProperty('--pct',pct+'%');document.getElementById('rateDisplay').textContent=parseFloat(v).toFixed(1)+'%';}
+slider.addEventListener('input',()=>{rateInput.value=slider.value;updateSlider(slider.value);});
+rateInput.addEventListener('input',()=>{if(rateInput.value>=0.1&&rateInput.value<=30){slider.value=rateInput.value;updateSlider(rateInput.value);}});
+updateSlider(5.5);
+function fmt(n){return curSym+Math.round(n).toLocaleString('en-US');}
+function fmtD(n){return curSym+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function animVal(el,target,dur=900){const s=performance.now();(function step(now){const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=curSym+Math.round(e*target).toLocaleString('en-US');if(p<1)requestAnimationFrame(step);})(performance.now());}
+let fullTable=[];let showingAll=false;
+function calculate(){
+  const amount=parseFloat(document.getElementById('iAmount').value);
+  const term=parseFloat(document.getElementById('iTerm').value);
+  const rate=parseFloat(document.getElementById('iRate').value);
+  const err=document.getElementById('errMsg');
+  err.classList.remove('show');
+  if(!amount||!term||!rate||amount<1||term<1||term>30||rate<0.1||rate>50){err.classList.add('show');return;}
+  const mr=rate/100/12;const n=term*12;
+  const monthly=amount*(mr*Math.pow(1+mr,n))/(Math.pow(1+mr,n)-1);
+  const totalPayment=monthly*n;const totalInterest=totalPayment-amount;
+  const iPct=((totalInterest/amount)*100).toFixed(1);
+  animVal(document.getElementById('rMonthly'),monthly);
+  animVal(document.getElementById('rInterest'),totalInterest);
+  animVal(document.getElementById('rTotal'),totalPayment);
+  document.getElementById('rInterestPct').textContent=iPct+'% of loan amount';
+  document.getElementById('rTermDisplay').textContent='over '+term+' year'+(term>1?'s':'');
+  const pPct=(amount/totalPayment*100).toFixed(1);const intPct=(totalInterest/totalPayment*100).toFixed(1);
+  setTimeout(()=>{document.getElementById('barPrincipal').style.width=pPct+'%';document.getElementById('barInterest').style.width=intPct+'%';},100);
+  document.getElementById('legPrincipal').textContent=fmt(amount)+' ('+pPct+'%)';
+  document.getElementById('legInterest').textContent=fmt(totalInterest)+' ('+intPct+'%)';
+  let bal=amount;fullTable=[];
+  for(let y=1;y<=term;y++){let yP=0,yI=0;for(let m=0;m<12;m++){const i=bal*mr;const pr=monthly-i;yI+=i;yP+=pr;bal-=pr;}fullTable.push({year:y,principal:yP,interest:yI,balance:Math.max(0,bal)});}
+  renderTable(false);
+  const res=document.getElementById('results');res.classList.add('show');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+function renderTable(all){
+  const rows=all?fullTable:fullTable.slice(0,5);
+  const tbody=document.getElementById('amortBody');
+  tbody.innerHTML=rows.map(r=>`<tr><td>Year ${r.year}</td><td>${fmtD(r.principal)}</td><td>${fmtD(r.interest)}</td><td>${r.balance<1?curSym+'0.00':fmtD(r.balance)}</td></tr>`).join('');
+  const tP=fullTable.reduce((a,r)=>a+r.principal,0);const tI=fullTable.reduce((a,r)=>a+r.interest,0);
+  tbody.innerHTML+=`<tr class="total-row"><td>Total</td><td>${fmtD(tP)}</td><td>${fmtD(tI)}</td><td>${curSym}0.00</td></tr>`;
+  const btn=document.getElementById('showMoreBtn');
+  if(fullTable.length>5){btn.style.display='block';btn.textContent=all?'Show Less ▲':'Show All '+fullTable.length+' Years ▼';}else{btn.style.display='none';}
+  showingAll=all;
+}
+function toggleTable(){renderTable(!showingAll);}
+function resetAll(){['iAmount','iTerm'].forEach(id=>document.getElementById(id).value='');document.getElementById('iRate').value='5.5';slider.value=5.5;updateSlider(5.5);document.getElementById('errMsg').classList.remove('show');document.getElementById('results').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+document.addEventListener('keydown',e=>{if(e.key==='Enter')calculate();});
+</script>
+</body>
+</html>
