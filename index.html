@@ -36,7 +36,6 @@
 }
 </script>
 
-<!-- Favicon SVG inline -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>🎂</text></svg>">
 
 <title>Age Calculator – Calculate Your Exact Age Online Free (2026)</title>
@@ -56,7 +55,6 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
 
-/* ── BACKGROUND ── */
 .bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
 .bg-wrap::before{content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
@@ -65,28 +63,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* Floating particles */
 .particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 .p{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:float linear infinite}
 @keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-20px) scale(1.5);opacity:0}}
 
-/* Deco borders */
 .deco-t,.deco-b{position:fixed;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);z-index:2}
 .deco-t{top:50px}.deco-b{bottom:50px}
 .deco-l,.deco-r{position:fixed;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,168,76,.15),transparent);z-index:2}
 .deco-l{left:50px}.deco-r{right:50px}
 
-/* ── WRAPPER ── */
 .wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 100px}
 
 /* ── NAV BAR ── */
 .nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0}
-.nav-pills{display:flex;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px)}
+.nav-pills{display:flex;flex-wrap:wrap;justify-content:center;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px)}
 .nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s}
 .nav-pill:hover{color:var(--cream)}
 .nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3)}
 .nav-pill svg{width:16px;height:16px;flex-shrink:0}
-@media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
+@media(max-width:600px){.nav-pill{padding:8px 14px;font-size:11px;gap:5px}}
 
 /* ── HEADER ── */
 header{text-align:center;padding:40px 20px 24px;position:relative;z-index:10}
@@ -98,7 +93,6 @@ header h1{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,80px);fo
 header h1 em{font-style:italic;color:var(--gold-l)}
 header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);animation:fadeD .8s .25s ease both}
 
-/* ── DIVIDER ── */
 .div{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px 0}
 .div::before,.div::after{content:'';width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
 .div::after{background:linear-gradient(90deg,var(--gold-d),transparent)}
@@ -111,8 +105,6 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .card::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
 .c-tr{top:14px;right:14px;border-width:1px 1px 0 0}
 .c-bl{bottom:14px;left:14px;border-width:0 0 1px 1px}
-
-/* Card shimmer line */
 .card-shimmer{position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(201,168,76,.03),transparent);animation:shimmer 4s 2s infinite}
 @keyframes shimmer{0%{left:-100%}100%{left:200%}}
 
@@ -121,19 +113,11 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .date-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:6px}
 .df{display:flex;flex-direction:column;gap:8px}
 .df span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-align:center}
-
-.df input,.df select{
-  background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:4px;
-  color:var(--cream);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:300;
-  text-align:center;padding:17px 10px;outline:none;width:100%;
-  transition:border-color .3s,box-shadow .3s,background .3s;
-  -webkit-appearance:none;appearance:none;cursor:pointer
-}
+.df input,.df select{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:4px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:300;text-align:center;padding:17px 10px;outline:none;width:100%;transition:border-color .3s,box-shadow .3s,background .3s;-webkit-appearance:none;appearance:none;cursor:pointer}
 .df input::placeholder{color:rgba(201,168,76,.25)}
 .df input::-webkit-inner-spin-button,.df input::-webkit-outer-spin-button{-webkit-appearance:none}
 .df input:focus,.df select:focus{border-color:var(--gold);background:rgba(201,168,76,.06);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
 .df select option{background:var(--bg3);color:var(--cream)}
-
 .err{font-size:11px;letter-spacing:2px;color:var(--red);text-align:center;margin-top:12px;display:none;animation:fadeU .4s ease}
 .err.show{display:block}
 
@@ -152,21 +136,18 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .res-head h2{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .res-head .dob-txt{font-size:12px;letter-spacing:2px;color:var(--muted)}
 
-/* Primary: Years Months Days */
 .age-trio{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid rgba(201,168,76,.12);border-radius:4px;overflow:hidden;margin-bottom:20px}
 .trio-block{text-align:center;padding:30px 16px;position:relative}
 .trio-block:not(:last-child){border-right:1px solid rgba(201,168,76,.12)}
 .trio-num{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,64px);font-weight:400;color:var(--gold-l);display:block;line-height:1}
 .trio-unit{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:block;margin-top:10px}
 
-/* Live seconds ticker */
 .live-strip{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.18);border-radius:4px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .live-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
 .live-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse-dot 1.2s ease infinite}
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 .live-seconds{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--green)}
 
-/* Stats grid */
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
 .stat{background:var(--bg4);border:1px solid rgba(201,168,76,.1);border-radius:4px;padding:22px 18px;text-align:center;position:relative;overflow:hidden;transition:border-color .3s,transform .2s}
 .stat::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
@@ -175,7 +156,6 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .stat-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--cream);display:block;margin-bottom:6px}
 .stat-l{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
 
-/* Birthday box */
 .bday-box{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.3);border-radius:4px;padding:28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden}
 .bday-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.06),transparent 70%)}
 .bday-icon{font-size:36px;display:block;margin-bottom:10px}
@@ -183,7 +163,6 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .bday-txt{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--cream)}
 .bday-sub{font-size:11px;color:var(--muted);margin-top:6px;display:block;letter-spacing:1px}
 
-/* Zodiac */
 .zodiac-bar{display:flex;align-items:center;gap:20px;background:var(--bg4);border:1px solid rgba(201,168,76,.1);border-radius:4px;padding:22px 24px;margin-bottom:28px}
 .z-icon{font-size:38px;flex-shrink:0}
 .z-name{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold-l);display:block;margin-bottom:4px}
@@ -193,13 +172,11 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 /* ── AGE CARD ── */
 .age-card-section{margin-top:8px}
 .age-card-section h3{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:20px}
-
 .age-card{background:linear-gradient(135deg,#1a1408,#0f0c04,#1a1408);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:36px 32px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
 .age-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.12),transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(201,168,76,.08),transparent 50%)}
 .card-deco-tl,.card-deco-br{position:absolute;width:50px;height:50px;border-color:rgba(201,168,76,.4);border-style:solid}
 .card-deco-tl{top:12px;left:12px;border-width:2px 0 0 2px}
 .card-deco-br{bottom:12px;right:12px;border-width:0 2px 2px 0}
-
 .ac-brand{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:24px;text-align:center}
 .ac-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--muted);text-align:center;margin-bottom:6px;letter-spacing:2px}
 .ac-age{font-family:'Playfair Display',serif;font-size:clamp(48px,10vw,80px);font-weight:700;text-align:center;line-height:1;background:linear-gradient(135deg,var(--gold-d),var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
@@ -217,17 +194,35 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 .gift-tag:hover{background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.4)}
 .ac-footer{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,.4);text-align:center;margin-top:24px}
 
-/* Share buttons */
-.share-section{margin-top:24px}
-.share-lbl{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-align:center;display:block;margin-bottom:16px}
-.share-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.share-btn{display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;transition:all .3s;text-decoration:none}
-.share-wa{background:#25d366;color:#fff}.share-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.4)}
-.share-tw{background:#1da1f2;color:#fff}.share-tw:hover{background:#0d8ed9;transform:translateY(-2px);box-shadow:0 8px 20px rgba(29,161,242,.4)}
-.share-fb{background:#1877f2;color:#fff}.share-fb:hover{background:#0d65d9;transform:translateY(-2px);box-shadow:0 8px 20px rgba(24,119,242,.4)}
-.share-copy{background:var(--bg4);color:var(--gold);border:1px solid rgba(201,168,76,.3)}.share-copy:hover{background:rgba(201,168,76,.1);transform:translateY(-2px)}
+/* ── SHARE ── */
+.share-big-section{margin-top:32px;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.04));border:2px solid rgba(201,168,76,.35);border-radius:8px;padding:30px 28px;position:relative;overflow:hidden}
+.share-big-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(201,168,76,.1),transparent 60%)}
+.share-big-header{display:flex;align-items:center;gap:14px;margin-bottom:22px;position:relative}
+.share-pulse-ring{position:relative;width:14px;height:14px;flex-shrink:0}
+.share-pulse-ring::before,.share-pulse-ring::after{content:'';position:absolute;inset:0;border-radius:50%}
+.share-pulse-ring::before{background:var(--gold)}
+.share-pulse-ring::after{background:rgba(201,168,76,.4);animation:ring-pulse 1.5s ease-out infinite}
+@keyframes ring-pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(3);opacity:0}}
+.share-big-icon{font-size:28px;flex-shrink:0}
+.share-big-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--gold-l);margin-bottom:3px}
+.share-big-sub{font-size:11px;letter-spacing:2px;color:var(--muted)}
+.share-big-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+.sbtn{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:transform .25s,box-shadow .25s,filter .25s;position:relative;overflow:hidden}
+.sbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s}
+.sbtn:hover{transform:translateY(-4px)}
+.sbtn:hover::before{opacity:1}
+.sbtn:active{transform:translateY(-1px)}
+.sbtn span{font-size:13px;font-weight:600}
+.sbtn-wa{background:linear-gradient(135deg,#128c7e,#25d366);color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25)}
+.sbtn-wa:hover{box-shadow:0 10px 30px rgba(37,211,102,.5);filter:brightness(1.1)}
+.sbtn-tw{background:linear-gradient(135deg,#0d1117,#1da1f2);color:#fff;box-shadow:0 4px 20px rgba(29,161,242,.25)}
+.sbtn-tw:hover{box-shadow:0 10px 30px rgba(29,161,242,.5);filter:brightness(1.1)}
+.sbtn-fb{background:linear-gradient(135deg,#0a3d8f,#1877f2);color:#fff;box-shadow:0 4px 20px rgba(24,119,242,.25)}
+.sbtn-fb:hover{box-shadow:0 10px 30px rgba(24,119,242,.5);filter:brightness(1.1)}
+.sbtn-copy{background:linear-gradient(135deg,var(--bg3),var(--bg4));color:var(--gold-l);border:1px solid rgba(201,168,76,.4)!important;box-shadow:0 4px 20px rgba(201,168,76,.1)}
+.sbtn-copy:hover{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.1));box-shadow:0 10px 30px rgba(201,168,76,.3);border-color:var(--gold)!important}
 
-/* ── SEO SECTION ── */
+/* ── SEO ── */
 .seo-wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 40px;animation:fadeU .9s .5s ease both}
 .seo-box{background:var(--bg2);border:1px solid rgba(201,168,76,.1);border-radius:6px;padding:48px}
 .seo-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:var(--cream);margin-bottom:18px}
@@ -239,7 +234,7 @@ header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var
 /* ── FOOTER ── */
 footer{position:relative;z-index:10;text-align:center;padding:40px 20px 60px;border-top:1px solid rgba(201,168,76,.08)}
 .f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:14px}
-.f-links{display:flex;justify-content:center;gap:28px;margin:14px 0}
+.f-links{display:flex;justify-content:center;gap:28px;margin:14px 0;flex-wrap:wrap}
 .f-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
 .f-links a:hover{color:var(--gold)}
 footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-transform:uppercase}
@@ -247,106 +242,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
 /* ── ANIMATIONS ── */
 @keyframes fadeD{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── BIG SHARE SECTION ── */
-.share-big-section{
-  margin-top:32px;
-  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.04));
-  border:2px solid rgba(201,168,76,.35);
-  border-radius:8px;
-  padding:30px 28px;
-  position:relative;
-  overflow:hidden;
-}
-.share-big-section::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at top left,rgba(201,168,76,.1),transparent 60%);
-}
-.share-big-header{
-  display:flex;align-items:center;gap:14px;margin-bottom:22px;
-  position:relative;
-}
-.share-pulse-ring{
-  position:relative;width:14px;height:14px;flex-shrink:0;
-}
-.share-pulse-ring::before,.share-pulse-ring::after{
-  content:'';position:absolute;inset:0;border-radius:50%;
-}
-.share-pulse-ring::before{background:var(--gold);}
-.share-pulse-ring::after{
-  background:rgba(201,168,76,.4);
-  animation:ring-pulse 1.5s ease-out infinite;
-}
-@keyframes ring-pulse{
-  0%{transform:scale(1);opacity:1}
-  100%{transform:scale(3);opacity:0}
-}
-.share-big-icon{font-size:28px;flex-shrink:0;}
-.share-big-title{
-  font-family:'Playfair Display',serif;
-  font-size:18px;font-weight:600;color:var(--gold-l);
-  margin-bottom:3px;
-}
-.share-big-sub{font-size:11px;letter-spacing:2px;color:var(--muted);}
-
-.share-big-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  position:relative;
-}
-
-.sbtn{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  padding:16px 20px;border-radius:6px;
-  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
-  letter-spacing:1px;text-transform:uppercase;
-  cursor:pointer;border:none;text-decoration:none;
-  transition:transform .25s,box-shadow .25s,filter .25s;
-  position:relative;overflow:hidden;
-}
-.sbtn::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.sbtn:hover{transform:translateY(-4px);}
-.sbtn:hover::before{opacity:1;}
-.sbtn:active{transform:translateY(-1px);}
-.sbtn span{font-size:13px;font-weight:600;}
-
-.sbtn-wa{
-  background:linear-gradient(135deg,#128c7e,#25d366);
-  color:#fff;
-  box-shadow:0 4px 20px rgba(37,211,102,.25);
-}
-.sbtn-wa:hover{box-shadow:0 10px 30px rgba(37,211,102,.5);filter:brightness(1.1);}
-
-.sbtn-tw{
-  background:linear-gradient(135deg,#0d1117,#1da1f2);
-  color:#fff;
-  box-shadow:0 4px 20px rgba(29,161,242,.25);
-}
-.sbtn-tw:hover{box-shadow:0 10px 30px rgba(29,161,242,.5);filter:brightness(1.1);}
-
-.sbtn-fb{
-  background:linear-gradient(135deg,#0a3d8f,#1877f2);
-  color:#fff;
-  box-shadow:0 4px 20px rgba(24,119,242,.25);
-}
-.sbtn-fb:hover{box-shadow:0 10px 30px rgba(24,119,242,.5);filter:brightness(1.1);}
-
-.sbtn-copy{
-  background:linear-gradient(135deg,var(--bg3),var(--bg4));
-  color:var(--gold-l);
-  border:1px solid rgba(201,168,76,.4)!important;
-  box-shadow:0 4px 20px rgba(201,168,76,.1);
-}
-.sbtn-copy:hover{
-  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.1));
-  box-shadow:0 10px 30px rgba(201,168,76,.3);
-  border-color:var(--gold)!important;
-}
 
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
@@ -369,7 +264,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
 }
 </style>
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19EQBEBP6G"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -380,14 +274,13 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
 </head>
 <body>
 
-<!-- Background -->
 <div class="bg-wrap"></div>
 <div class="grain"></div>
 <div class="particles" id="particles"></div>
 <div class="deco-t"></div><div class="deco-b"></div>
 <div class="deco-l"></div><div class="deco-r"></div>
 
-<!-- Nav Bar -->
+<!-- ══ NAV BAR — FIXED ══ -->
 <nav class="nav-bar">
   <div class="nav-pills">
     <a href="index.html" class="nav-pill active">
@@ -397,16 +290,20 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
     <a href="loan-calculator.html" class="nav-pill">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       Loan Calculator
-   </a>
+    </a>
     <a href="bmi-calculator.html" class="nav-pill">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
       BMI Calculator
     </a>
+    <a href="mortgage-calculator.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Mortgage
+    </a>
+    <a href="blog.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Blog
+    </a>
   </div>
-  <a href="mortgage-calculator.html" class="nav-pill">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-  Mortgage Calculator
-</a>
 </nav>
 
 <!-- Header -->
@@ -417,16 +314,14 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
     <div class="brand-line r"></div>
   </div>
   <h1>Discover Your <em>Exact</em><br>Age, Instantly</h1>
-  <p class="sub">Age Calculator &nbsp;·&nbsp; Years · Months · Days · Seconds</p>
+  <p class="sub">Age Calculator &nbsp;&middot;&nbsp; Years &middot; Months &middot; Days &middot; Seconds</p>
 </header>
 
-<!-- Main Card -->
 <div class="wrap">
 <div class="card">
   <div class="c-tr"></div><div class="c-bl"></div>
   <div class="card-shimmer"></div>
 
-  <!-- Inputs -->
   <label class="field-lbl">Enter Your Date of Birth</label>
   <div class="date-grid">
     <div class="df"><span>Day</span>
@@ -447,23 +342,20 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       <input type="number" id="iYear" placeholder="YYYY" min="1900" max="2026">
     </div>
   </div>
-  <div class="err" id="errMsg">⚠ &nbsp; Please enter a valid date of birth</div>
+  <div class="err" id="errMsg">&#9888; &nbsp; Please enter a valid date of birth</div>
 
   <div class="btn-row">
-    <button class="btn-reset" onclick="resetAll()">✕ Reset</button>
-    <button class="btn-calc" onclick="calculate()">Calculate My Age →</button>
+    <button class="btn-reset" onclick="resetAll()">&#10005; Reset</button>
+    <button class="btn-calc" onclick="calculate()">Calculate My Age &rarr;</button>
   </div>
 
-  <!-- Results -->
   <div class="results" id="results">
     <div class="div"><div class="diam"></div></div>
-
     <div class="res-head">
       <h2>Your Age</h2>
       <p class="dob-txt" id="dobTxt"></p>
     </div>
 
-    <!-- Years Months Days -->
     <div class="age-trio">
       <div class="trio-block">
         <span class="trio-num" id="rYears">0</span>
@@ -479,7 +371,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </div>
     </div>
 
-    <!-- Live Seconds -->
     <div class="live-strip">
       <span class="live-label">
         <span class="live-dot"></span>
@@ -488,7 +379,6 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       <span class="live-seconds" id="liveSeconds">0</span>
     </div>
 
-    <!-- Stats -->
     <div class="stats-grid">
       <div class="stat"><span class="stat-n" id="rTDays">0</span><span class="stat-l">Total Days</span></div>
       <div class="stat"><span class="stat-n" id="rTWeeks">0</span><span class="stat-l">Total Weeks</span></div>
@@ -496,60 +386,55 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       <div class="stat"><span class="stat-n" id="rTMins">0</span><span class="stat-l">Total Minutes</span></div>
     </div>
 
-    <!-- Birthday -->
     <div class="bday-box">
-      <span class="bday-icon">🎂</span>
+      <span class="bday-icon">&#127874;</span>
       <span class="bday-lbl">Next Birthday Countdown</span>
-      <span class="bday-txt" id="rBdayTxt">—</span>
+      <span class="bday-txt" id="rBdayTxt">&mdash;</span>
       <span class="bday-sub" id="rBdaySub"></span>
     </div>
 
-    <!-- Zodiac -->
     <div class="zodiac-bar">
-      <span class="z-icon" id="rZIcon">♈</span>
+      <span class="z-icon" id="rZIcon">&#9800;</span>
       <div>
-        <span class="z-name" id="rZName">—</span>
-        <span class="z-dates" id="rZDates">—</span>
-        <span class="z-trait" id="rZTrait">—</span>
+        <span class="z-name" id="rZName">&mdash;</span>
+        <span class="z-dates" id="rZDates">&mdash;</span>
+        <span class="z-trait" id="rZTrait">&mdash;</span>
       </div>
     </div>
 
-    <!-- Age Card -->
     <div class="age-card-section">
       <div class="div"><div class="diam"></div></div>
       <h3>Your Age Card</h3>
       <div class="age-card" id="ageCard">
         <div class="card-deco-tl"></div>
         <div class="card-deco-br"></div>
-        <span class="ac-brand">✦ Age Calculator ✦</span>
+        <span class="ac-brand">&#10022; Age Calculator &#10022;</span>
         <p class="ac-name">This certifies that</p>
         <div class="ac-age" id="acAge">0</div>
         <p class="ac-exact" id="acExact"></p>
         <div class="ac-divider"></div>
         <div class="ac-bday-row">
-          <span class="ac-bday-icon">🎂</span>
+          <span class="ac-bday-icon">&#127874;</span>
           <div class="ac-bday-info">
             <span class="ac-bday-lbl">Next Birthday</span>
-            <span class="ac-bday-date" id="acBday">—</span>
+            <span class="ac-bday-date" id="acBday">&mdash;</span>
           </div>
         </div>
         <div class="ac-gifts">
-          <span class="ac-gifts-lbl">🎁 Birthday Gift Ideas</span>
+          <span class="ac-gifts-lbl">&#127873; Birthday Gift Ideas</span>
           <div class="gifts-row" id="giftsRow"></div>
         </div>
-        <p class="ac-footer">agecalculatorweb.com · Calculated on <span id="calcDate"></span></p>
+        <p class="ac-footer">agecalculatorweb.com &middot; Calculated on <span id="calcDate"></span></p>
       </div>
+    </div>
 
-    </div><!-- /age-card-section -->
-
-    <!-- ══ SHARE SECTION ══ -->
     <div class="share-big-section">
       <div class="share-big-header">
         <div class="share-pulse-ring"></div>
-        <span class="share-big-icon">🔗</span>
+        <span class="share-big-icon">&#128279;</span>
         <div>
-          <p class="share-big-title"></p>
-          <p class="share-big-sub">Share your age result with friends & family</p>
+          <p class="share-big-title">Share Your Age</p>
+          <p class="share-big-sub">Share your age result with friends &amp; family</p>
         </div>
       </div>
       <div class="share-big-row">
@@ -572,25 +457,23 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
       </div>
     </div>
 
-  </div><!-- /results -->
-</div><!-- /card -->
-</div><!-- /wrap -->
+  </div>
+</div>
+</div>
 
 <!-- SEO Content -->
 <div class="seo-wrap">
   <div class="seo-box">
-    <h2>Age Calculator – Free Age Calculator Online</h2>
-    <p>Age Calculator is a free, beautifully designed age calculator that computes your exact age in years, months, days, hours, minutes, and live seconds — all from your date of birth. It is ideal for job applications, school admissions, passport forms, medical records, and everyday curiosity. Our age calculator free tool works instantly without any signup.</p>
-    <p>Beyond basic age calculation, our Age Calculator shows your next birthday countdown, your zodiac sign with personality traits, a beautiful shareable age card, and personalised gift ideas — all instantly, securely, and privately in your browser. Use it as a Google age calculator alternative, birthday calculator online, or simply as a free age calculator.</p>
-    <div class="faq"><h3>What is an Age Calculator?</h3><p>An Age Calculator (age calculator) determines your exact age from your date of birth. It computes the precise difference in years, months, days, and even seconds between two dates, giving you instant and accurate results for any official or personal need. It is also known as an age calculator or birthday calculator online.</p></div>
-    <div class="faq"><h3>How accurate is this Age Calculator?</h3><p>100% accurate. The calculator accounts for leap years, varying month lengths, and calculates in real-time down to the live second. It is the same precision used for official document verification — making it the best free age calculator online.</p></div>
-    <div class="faq"><h3>Can I share my Age Card?</h3><p>Yes! After calculating, scroll down to your personalised Age Card and use the WhatsApp, Twitter, Facebook, or Copy Link buttons to share it with friends and family instantly.</p></div>
-    <div class="faq"><h3>Is my data stored or shared?</h3><p>Never. All calculations happen entirely in your browser. No personal data is collected, stored, or sent to any server. Your privacy is fully protected at all times.</p></div>
-    <div class="faq"><h3>What extra information does this Age Calculator provide?</h3><p>Our Age Calculator provides your total days lived, total weeks, total hours, total minutes, a live real-time seconds counter, your zodiac sign with personality traits, your next birthday countdown with exact date, a shareable age card, and personalised gift suggestions — making it the most complete age calculator free tool available online.</p></div>
+    <h2>Age Calculator &ndash; Free Age Calculator Online</h2>
+    <p>Age Calculator is a free, beautifully designed age calculator that computes your exact age in years, months, days, hours, minutes, and live seconds &mdash; all from your date of birth. It is ideal for job applications, school admissions, passport forms, medical records, and everyday curiosity.</p>
+    <p>Beyond basic age calculation, our Age Calculator shows your next birthday countdown, your zodiac sign with personality traits, a beautiful shareable age card, and personalised gift ideas &mdash; all instantly, securely, and privately in your browser.</p>
+    <div class="faq"><h3>What is an Age Calculator?</h3><p>An Age Calculator determines your exact age from your date of birth. It computes the precise difference in years, months, days, and even seconds between two dates, giving you instant and accurate results for any official or personal need.</p></div>
+    <div class="faq"><h3>How accurate is this Age Calculator?</h3><p>100% accurate. The calculator accounts for leap years, varying month lengths, and calculates in real-time down to the live second.</p></div>
+    <div class="faq"><h3>Can I share my Age Card?</h3><p>Yes! After calculating, scroll down to your personalised Age Card and use the WhatsApp, Twitter, Facebook, or Copy Link buttons to share it instantly.</p></div>
+    <div class="faq"><h3>Is my data stored or shared?</h3><p>Never. All calculations happen entirely in your browser. No personal data is collected, stored, or sent to any server.</p></div>
   </div>
 </div>
 
-<!-- Footer -->
 <footer>
   <span class="f-brand">Age Calculator</span>
   <div class="f-links">
@@ -599,60 +482,41 @@ footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-trans
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</p>
+  <p>&copy; 2026 Age Calculator &mdash; All Calculations Done In Your Browser &mdash; No Data Stored</p>
 </footer>
 
 <script>
-// ── PARTICLES ──
-const pWrap = document.getElementById('particles');
-for(let i=0;i<25;i++){
-  const p=document.createElement('div');p.className='p';
-  p.style.cssText=`left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;opacity:${0.3+Math.random()*0.4}`;
-  pWrap.appendChild(p);
-}
+const pWrap=document.getElementById('particles');
+for(let i=0;i<25;i++){const p=document.createElement('div');p.className='p';p.style.cssText=`left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;opacity:${0.3+Math.random()*0.4}`;pWrap.appendChild(p);}
 
-// ── DATA ──
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const ZODIACS=[
-  {n:'Capricorn',i:'♑',d:'Dec 22 – Jan 19',t:'Ambitious, disciplined, and patient. A natural leader with great determination.'},
-  {n:'Aquarius',i:'♒',d:'Jan 20 – Feb 18',t:'Innovative, independent, and humanitarian. A visionary thinker ahead of their time.'},
-  {n:'Pisces',i:'♓',d:'Feb 19 – Mar 20',t:'Compassionate, artistic, and intuitive. A deeply empathetic and creative soul.'},
-  {n:'Aries',i:'♈',d:'Mar 21 – Apr 19',t:'Bold, energetic, and passionate. A courageous pioneer who loves adventure.'},
-  {n:'Taurus',i:'♉',d:'Apr 20 – May 20',t:'Reliable, patient, and devoted. Loves beauty, comfort, and the finer things in life.'},
-  {n:'Gemini',i:'♊',d:'May 21 – Jun 20',t:'Curious, adaptable, and witty. A brilliant communicator with a quick mind.'},
-  {n:'Cancer',i:'♋',d:'Jun 21 – Jul 22',t:'Intuitive, emotional, and nurturing. A deeply loyal and protective individual.'},
-  {n:'Leo',i:'♌',d:'Jul 23 – Aug 22',t:'Charismatic, generous, and confident. A natural performer who lights up every room.'},
-  {n:'Virgo',i:'♍',d:'Aug 23 – Sep 22',t:'Analytical, kind, and hardworking. Pays extraordinary attention to detail.'},
-  {n:'Libra',i:'♎',d:'Sep 23 – Oct 22',t:'Charming, fair-minded, and social. Seeks harmony and balance in all things.'},
-  {n:'Scorpio',i:'♏',d:'Oct 23 – Nov 21',t:'Passionate, resourceful, and brave. Intensely determined with incredible depth.'},
-  {n:'Sagittarius',i:'♐',d:'Nov 22 – Dec 21',t:'Optimistic, adventurous, and philosophical. A free spirit who loves to explore.'},
+  {n:'Capricorn',i:'&#9809;',d:'Dec 22 &ndash; Jan 19',t:'Ambitious, disciplined, and patient. A natural leader with great determination.'},
+  {n:'Aquarius',i:'&#9810;',d:'Jan 20 &ndash; Feb 18',t:'Innovative, independent, and humanitarian. A visionary thinker ahead of their time.'},
+  {n:'Pisces',i:'&#9811;',d:'Feb 19 &ndash; Mar 20',t:'Compassionate, artistic, and intuitive. A deeply empathetic and creative soul.'},
+  {n:'Aries',i:'&#9800;',d:'Mar 21 &ndash; Apr 19',t:'Bold, energetic, and passionate. A courageous pioneer who loves adventure.'},
+  {n:'Taurus',i:'&#9801;',d:'Apr 20 &ndash; May 20',t:'Reliable, patient, and devoted. Loves beauty, comfort, and the finer things in life.'},
+  {n:'Gemini',i:'&#9802;',d:'May 21 &ndash; Jun 20',t:'Curious, adaptable, and witty. A brilliant communicator with a quick mind.'},
+  {n:'Cancer',i:'&#9803;',d:'Jun 21 &ndash; Jul 22',t:'Intuitive, emotional, and nurturing. A deeply loyal and protective individual.'},
+  {n:'Leo',i:'&#9804;',d:'Jul 23 &ndash; Aug 22',t:'Charismatic, generous, and confident. A natural performer who lights up every room.'},
+  {n:'Virgo',i:'&#9805;',d:'Aug 23 &ndash; Sep 22',t:'Analytical, kind, and hardworking. Pays extraordinary attention to detail.'},
+  {n:'Libra',i:'&#9806;',d:'Sep 23 &ndash; Oct 22',t:'Charming, fair-minded, and social. Seeks harmony and balance in all things.'},
+  {n:'Scorpio',i:'&#9807;',d:'Oct 23 &ndash; Nov 21',t:'Passionate, resourceful, and brave. Intensely determined with incredible depth.'},
+  {n:'Sagittarius',i:'&#9808;',d:'Nov 22 &ndash; Dec 21',t:'Optimistic, adventurous, and philosophical. A free spirit who loves to explore.'},
 ];
 const GIFTS_BY_AGE=[
-  {max:10,g:['🧸 Stuffed Toys','🎮 Video Games','🎨 Art Set','📚 Story Books','🚲 Bicycle']},
-  {max:18,g:['🎧 Headphones','📱 Smartphone','🎮 Gaming Console','👟 Sneakers','🎒 Backpack']},
-  {max:25,g:['✈️ Travel Voucher','💻 Laptop','📷 Camera','⌚ Smartwatch','🎓 Online Course']},
-  {max:35,g:['🍷 Fine Wine','⌚ Luxury Watch','💆 Spa Day','🎭 Event Tickets','📖 Bestseller Books']},
-  {max:50,g:['🌍 Vacation Trip','🎁 Gourmet Hamper','🧖 Wellness Package','🍽️ Fine Dining','🎨 Artwork']},
-  {max:999,g:['🌹 Flower Bouquet','🍰 Custom Cake','👨‍👩‍👧 Family Gathering','📸 Photo Album','💌 Heartfelt Letter']},
+  {max:10,g:['Stuffed Toys','Video Games','Art Set','Story Books','Bicycle']},
+  {max:18,g:['Headphones','Smartphone','Gaming Console','Sneakers','Backpack']},
+  {max:25,g:['Travel Voucher','Laptop','Camera','Smartwatch','Online Course']},
+  {max:35,g:['Fine Wine','Luxury Watch','Spa Day','Event Tickets','Bestseller Books']},
+  {max:50,g:['Vacation Trip','Gourmet Hamper','Wellness Package','Fine Dining','Artwork']},
+  {max:999,g:['Flower Bouquet','Custom Cake','Family Gathering','Photo Album','Heartfelt Letter']},
 ];
 
-function getZodiac(m,d){
-  const cuts=[20,19,21,20,21,21,23,23,23,23,22,22];
-  return ZODIACS[d<cuts[m-1]?m-1:m];
-}
-function getGifts(age){
-  for(let g of GIFTS_BY_AGE)if(age<=g.max)return g.g;
-  return GIFTS_BY_AGE[GIFTS_BY_AGE.length-1].g;
-}
-function fmt(n){return n>=10000?n.toLocaleString():n>=1000?n.toLocaleString():n}
-function animN(el,target,dur=900){
-  const s=performance.now();
-  (function step(now){
-    const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);
-    el.textContent=fmt(Math.round(e*target));
-    if(p<1)requestAnimationFrame(step);
-  })(performance.now());
-}
+function getZodiac(m,d){const cuts=[20,19,21,20,21,21,23,23,23,23,22,22];return ZODIACS[d<cuts[m-1]?m-1:m];}
+function getGifts(age){for(let g of GIFTS_BY_AGE)if(age<=g.max)return g.g;return GIFTS_BY_AGE[GIFTS_BY_AGE.length-1].g;}
+function fmt(n){return n>=1000?n.toLocaleString():n;}
+function animN(el,target,dur=900){const s=performance.now();(function step(now){const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(e*target));if(p<1)requestAnimationFrame(step);})(performance.now());}
 
 let liveTimer=null,birthDate=null;
 
@@ -662,43 +526,28 @@ function calculate(){
   const year=parseInt(document.getElementById('iYear').value);
   const err=document.getElementById('errMsg');
   err.classList.remove('show');
-
-  if(!day||!month||!year||day<1||day>31||year<1900||year>new Date().getFullYear()){
-    err.classList.add('show');return;
-  }
+  if(!day||!month||!year||day<1||day>31||year<1900||year>new Date().getFullYear()){err.classList.add('show');return;}
   const dob=new Date(year,month-1,day);
   if(isNaN(dob)||dob>new Date()){err.classList.add('show');return;}
-
   birthDate=dob;
   const now=new Date();
-
-  // Age
   let y=now.getFullYear()-dob.getFullYear();
   let mo=now.getMonth()-dob.getMonth();
   let d=now.getDate()-dob.getDate();
   if(d<0){mo--;const pm=new Date(now.getFullYear(),now.getMonth(),0);d+=pm.getDate();}
   if(mo<0){y--;mo+=12;}
-
   const totalDays=Math.floor((now-dob)/86400000);
   const totalWeeks=Math.floor(totalDays/7);
   const totalHours=totalDays*24;
   const totalMins=totalHours*60;
   const totalSecs=Math.floor((now-dob)/1000);
-
-  // Next birthday
   let nb=new Date(now.getFullYear(),month-1,day);
   if(nb<=now)nb.setFullYear(now.getFullYear()+1);
   const dLeft=Math.ceil((nb-now)/86400000);
-  const bdayTxt=dLeft===0?'🎉 Today is Your Birthday!':`${dLeft} days remaining`;
+  const bdayTxt=dLeft===0?'Today is Your Birthday!':`${dLeft} days remaining`;
   const bdaySub=dLeft===0?'Many Happy Returns!':`${MONTHS[nb.getMonth()]} ${day}, ${nb.getFullYear()}`;
-
-  // Zodiac
   const z=getZodiac(month,day);
-
-  // Gifts
   const gifts=getGifts(y);
-
-  // Populate
   document.getElementById('dobTxt').textContent=`Born: ${day} ${MONTHS[month-1]} ${year}`;
   animN(document.getElementById('rYears'),y);
   animN(document.getElementById('rMonths'),mo);
@@ -707,39 +556,27 @@ function calculate(){
   animN(document.getElementById('rTWeeks'),totalWeeks);
   animN(document.getElementById('rTHours'),totalHours);
   animN(document.getElementById('rTMins'),totalMins);
-
-  // Live seconds
   if(liveTimer)clearInterval(liveTimer);
   document.getElementById('liveSeconds').textContent=fmt(totalSecs);
-  liveTimer=setInterval(()=>{
-    const s=Math.floor((new Date()-birthDate)/1000);
-    document.getElementById('liveSeconds').textContent=fmt(s);
-  },1000);
-
+  liveTimer=setInterval(()=>{document.getElementById('liveSeconds').textContent=fmt(Math.floor((new Date()-birthDate)/1000));},1000);
   document.getElementById('rBdayTxt').textContent=bdayTxt;
   document.getElementById('rBdaySub').textContent=bdaySub;
-  document.getElementById('rZIcon').textContent=z.i;
+  document.getElementById('rZIcon').innerHTML=z.i;
   document.getElementById('rZName').textContent=z.n;
-  document.getElementById('rZDates').textContent=z.d;
+  document.getElementById('rZDates').innerHTML=z.d;
   document.getElementById('rZTrait').textContent=z.t;
-
-  // Age Card
   document.getElementById('acAge').textContent=y;
   document.getElementById('acExact').textContent=`${y} years, ${mo} months & ${d} days old`;
-  document.getElementById('acBday').textContent=dLeft===0?'Today! 🎉':`${MONTHS[nb.getMonth()]} ${day}, ${nb.getFullYear()} (${dLeft} days away)`;
+  document.getElementById('acBday').textContent=dLeft===0?'Today!':`${MONTHS[nb.getMonth()]} ${day}, ${nb.getFullYear()} (${dLeft} days away)`;
   document.getElementById('calcDate').textContent=now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-
   const gr=document.getElementById('giftsRow');
   gr.innerHTML=gifts.map(g=>`<span class="gift-tag">${g}</span>`).join('');
-
-  // Share links
-  const shareText=`🎂 I am ${y} years, ${mo} months & ${d} days old!\n🎉 Next birthday: ${bdaySub}\n♑ Zodiac: ${z.n}\n\nCalculate yours → `;
+  const shareText=`I am ${y} years, ${mo} months & ${d} days old! Next birthday: ${bdaySub}. Zodiac: ${z.n}. Calculate yours: `;
   const url=encodeURIComponent(window.location.href);
   const txt=encodeURIComponent(shareText+window.location.href);
   document.getElementById('shareWa').href=`https://wa.me/?text=${txt}`;
   document.getElementById('shareTw').href=`https://twitter.com/intent/tweet?text=${txt}`;
   document.getElementById('shareFb').href=`https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  // Show results
   const res=document.getElementById('results');
   res.classList.add('show');
   setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}),100);
@@ -760,7 +597,7 @@ function copyLink(){
   navigator.clipboard.writeText(window.location.href).then(()=>{
     const btn=document.getElementById('copyBtn');
     const orig=btn.innerHTML;
-    btn.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Copied! ✓</span>';
+    btn.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Copied!</span>';
     btn.style.background='linear-gradient(135deg,#1a4a2e,#27ae60)';
     btn.style.color='#fff';btn.style.borderColor='#27ae60';
     setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';btn.style.color='';btn.style.borderColor='';},2500);
