@@ -22,15 +22,14 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Loan Calculator",
-  "description": "Free online loan calculator that computes exact monthly EMI payment, total interest paid, and complete yearly repayment schedule for personal loans, car loans, home loans and student loans. Supports USD, GBP, EUR, CAD, AUD, PKR, INR, AED and SAR.",
+  "description": "Free online loan calculator that computes exact monthly EMI payment, total interest paid, and complete yearly repayment schedule.",
   "url": "https://www.agecalculatorweb.com/loan-calculator.html",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "featureList": ["Monthly EMI calculation","Total interest calculation","Yearly repayment schedule","Multi-currency support USD GBP EUR PKR INR AED CAD AUD SAR","Principal vs interest breakdown chart"]
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 }
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>💰</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>&#128176;</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -49,12 +48,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .deco-l{left:50px}.deco-r{right:50px}
 .wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 100px}
 .nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0}
-.nav-pills{display:flex;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px)}
+.nav-pills{display:flex;flex-wrap:wrap;justify-content:center;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px)}
 .nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s}
 .nav-pill:hover{color:var(--cream)}
 .nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3)}
 .nav-pill svg{width:16px;height:16px;flex-shrink:0}
-@media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
+@media(max-width:600px){.nav-pill{padding:8px 14px;font-size:11px;gap:5px}}
 header{position:relative;z-index:10;text-align:center;padding:40px 20px 24px}
 .brand-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px}
 .brand-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
@@ -70,12 +69,13 @@ header h1 em{font-style:italic;color:var(--gold)}
 @keyframes shimmer{0%{left:-100%}100%{left:200%}}
 .field-lbl{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px;text-align:center}
 .currency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
-.cur-btn{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:10px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:10px 8px;cursor:pointer;transition:all .2s;text-align:center;line-height:1.4}
+.cur-btn{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:10px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:12px 8px;cursor:pointer;transition:all .2s;text-align:center;line-height:1.6}
 .cur-btn:hover{border-color:rgba(201,168,76,.4);color:var(--cream)}
 .cur-btn.active{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.08));border-color:var(--gold);color:var(--gold);font-weight:600}
-.cur-flag{font-size:18px;display:block;margin-bottom:2px}
-.cur-code{font-size:11px;letter-spacing:.1em}
-.cur-name{font-size:10px;opacity:.6}
+.cur-code-badge{display:inline-block;background:rgba(201,168,76,.2);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;margin-bottom:5px}
+.cur-btn.active .cur-code-badge{background:rgba(201,168,76,.35)}
+.cur-sym{font-size:15px;font-weight:700;display:block;color:var(--cream);margin-bottom:2px}
+.cur-name{font-size:10px;opacity:.6;display:block}
 .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .input-grid.single{grid-template-columns:1fr}
 .df{display:flex;flex-direction:column;gap:8px}
@@ -148,6 +148,7 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
 <div class="particles" id="particles"></div>
 <div class="deco-t"></div><div class="deco-b"></div>
 <div class="deco-l"></div><div class="deco-r"></div>
+
 <nav class="nav-bar">
   <div class="nav-pills">
     <a href="index.html" class="nav-pill">
@@ -160,10 +161,14 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>BMI Calculator
     </a>
     <a href="mortgage-calculator.html" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Mortgage Calculator
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Mortgage
+    </a>
+    <a href="blog.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Blog
     </a>
   </div>
 </nav>
+
 <header>
   <div class="brand-row">
     <div class="brand-line"></div>
@@ -171,24 +176,63 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
     <div class="brand-line r"></div>
   </div>
   <h1>Calculate Your <em>Exact</em><br>Loan Payment</h1>
-  <p class="sub">Loan Calculator &nbsp;·&nbsp; Monthly EMI · Total Interest · Repayment Schedule</p>
+  <p class="sub">Loan Calculator &nbsp;&middot;&nbsp; Monthly EMI &middot; Total Interest &middot; Repayment Schedule</p>
 </header>
+
 <div class="wrap">
 <div class="card">
   <div class="c-tr"></div><div class="c-bl"></div>
   <div class="card-shimmer"></div>
+
   <label class="field-lbl">Select Your Currency</label>
   <div class="currency-grid">
-    <button class="cur-btn active" onclick="setCurrency('USD','$')" id="cur-USD"><span class="cur-flag">🇺🇸</span><span class="cur-code">USD $</span><span class="cur-name">US Dollar</span></button>
-    <button class="cur-btn" onclick="setCurrency('GBP','£')" id="cur-GBP"><span class="cur-flag">🇬🇧</span><span class="cur-code">GBP £</span><span class="cur-name">British Pound</span></button>
-    <button class="cur-btn" onclick="setCurrency('EUR','€')" id="cur-EUR"><span class="cur-flag">🇪🇺</span><span class="cur-code">EUR €</span><span class="cur-name">Euro</span></button>
-    <button class="cur-btn" onclick="setCurrency('CAD','CA$')" id="cur-CAD"><span class="cur-flag">🇨🇦</span><span class="cur-code">CAD $</span><span class="cur-name">Canadian Dollar</span></button>
-    <button class="cur-btn" onclick="setCurrency('AUD','A$')" id="cur-AUD"><span class="cur-flag">🇦🇺</span><span class="cur-code">AUD $</span><span class="cur-name">Australian Dollar</span></button>
-    <button class="cur-btn" onclick="setCurrency('PKR','₨')" id="cur-PKR"><span class="cur-flag">🇵🇰</span><span class="cur-code">PKR ₨</span><span class="cur-name">Pakistani Rupee</span></button>
-    <button class="cur-btn" onclick="setCurrency('INR','₹')" id="cur-INR"><span class="cur-flag">🇮🇳</span><span class="cur-code">INR ₹</span><span class="cur-name">Indian Rupee</span></button>
-    <button class="cur-btn" onclick="setCurrency('AED','د.إ')" id="cur-AED"><span class="cur-flag">🇦🇪</span><span class="cur-code">AED د.إ</span><span class="cur-name">UAE Dirham</span></button>
-    <button class="cur-btn" onclick="setCurrency('SAR','﷼')" id="cur-SAR"><span class="cur-flag">🇸🇦</span><span class="cur-code">SAR ﷼</span><span class="cur-name">Saudi Riyal</span></button>
+    <button class="cur-btn active" onclick="setCurrency('USD','$')" id="cur-USD">
+      <span class="cur-code-badge">USD</span>
+      <span class="cur-sym">$</span>
+      <span class="cur-name">US Dollar</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('GBP','£')" id="cur-GBP">
+      <span class="cur-code-badge">GBP</span>
+      <span class="cur-sym">£</span>
+      <span class="cur-name">British Pound</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('EUR','€')" id="cur-EUR">
+      <span class="cur-code-badge">EUR</span>
+      <span class="cur-sym">€</span>
+      <span class="cur-name">Euro</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('CAD','CA$')" id="cur-CAD">
+      <span class="cur-code-badge">CAD</span>
+      <span class="cur-sym">CA$</span>
+      <span class="cur-name">Canadian Dollar</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('AUD','A$')" id="cur-AUD">
+      <span class="cur-code-badge">AUD</span>
+      <span class="cur-sym">A$</span>
+      <span class="cur-name">Australian Dollar</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('PKR','Rs')" id="cur-PKR">
+      <span class="cur-code-badge">PKR</span>
+      <span class="cur-sym">Rs</span>
+      <span class="cur-name">Pakistani Rupee</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('INR','&#8377;')" id="cur-INR">
+      <span class="cur-code-badge">INR</span>
+      <span class="cur-sym">&#8377;</span>
+      <span class="cur-name">Indian Rupee</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('AED','AED')" id="cur-AED">
+      <span class="cur-code-badge">AED</span>
+      <span class="cur-sym">AED</span>
+      <span class="cur-name">UAE Dirham</span>
+    </button>
+    <button class="cur-btn" onclick="setCurrency('SAR','SAR')" id="cur-SAR">
+      <span class="cur-code-badge">SAR</span>
+      <span class="cur-sym">SAR</span>
+      <span class="cur-name">Saudi Riyal</span>
+    </button>
   </div>
+
   <label class="field-lbl">Enter Your Loan Details</label>
   <div class="input-grid">
     <div class="df"><span>Loan Amount (<span id="symLabel">$</span>)</span><input type="number" id="iAmount" placeholder="e.g. 10,000" min="1"></div>
@@ -201,11 +245,12 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
     <span>Adjust Rate &nbsp;<span class="range-val" id="rateDisplay">5.5%</span></span>
     <div class="range-wrap"><input type="range" id="iRateSlider" min="0.1" max="30" step="0.1" value="5.5"></div>
   </div>
-  <div class="err" id="errMsg">⚠ &nbsp; Please enter valid loan details</div>
+  <div class="err" id="errMsg">&#9888; &nbsp; Please enter valid loan details</div>
   <div class="btn-row">
-    <button class="btn-reset" onclick="resetAll()">✕ Reset</button>
-    <button class="btn-calc" onclick="calculate()">Calculate Loan →</button>
+    <button class="btn-reset" onclick="resetAll()">&#10005; Reset</button>
+    <button class="btn-calc" onclick="calculate()">Calculate Loan &rarr;</button>
   </div>
+
   <div class="results" id="results">
     <div class="div"><div class="diam"></div></div>
     <div class="summary-grid">
@@ -227,26 +272,25 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
         <thead><tr><th>Year</th><th>Principal Paid</th><th>Interest Paid</th><th>Remaining Balance</th></tr></thead>
         <tbody id="amortBody"></tbody>
       </table>
-      <button class="show-more" id="showMoreBtn" onclick="toggleTable()" style="display:none">Show All Years ▼</button>
+      <button class="show-more" id="showMoreBtn" onclick="toggleTable()" style="display:none">Show All Years &#9660;</button>
     </div>
   </div>
 </div>
 </div>
-  <div class="seo-wrap">
+
+<div class="seo-wrap">
   <div class="seo-box">
-    <h2>Loan Calculator – Free Monthly EMI Calculator Online</h2>
-    <p>Our free Loan Calculator instantly computes your exact monthly EMI payment, total interest, and complete yearly repayment schedule. Whether you need a personal loan calculator, car loan calculator, or home loan calculator — this tool handles all loan types in multiple currencies including USD, GBP, EUR, PKR, INR, AED, CAD, and AUD.</p>
-    <p>Simply enter your loan amount, annual interest rate, and loan term in years — and get accurate results in seconds. The built-in amortization schedule shows exactly how much principal and interest you pay each year. All calculations run privately in your browser with zero data stored.</p>
-    <div class="faq"><h3>How is the monthly EMI payment calculated?</h3><p>The standard amortization formula is used: M = P[r(1+r)^n] / [(1+r)^n−1], where P is the loan principal, r is the monthly interest rate, and n is the total number of monthly payments. This gives your fixed monthly EMI to fully repay the loan over the chosen term.</p></div>
-    <div class="faq"><h3>What is a good interest rate for a personal loan?</h3><p>A good personal loan interest rate is typically between 5% and 10% annually in the USA and UK. Rates below 7% are considered excellent. In Pakistan and India, personal loan rates usually range from 12% to 24% per year. Your credit score and income are the main factors lenders use to determine your rate.</p></div>
-    <div class="faq"><h3>How can I reduce my total loan interest?</h3><p>The most effective ways to reduce total interest are: choose a shorter loan term, make extra payments toward the principal whenever possible, negotiate a lower interest rate by improving your credit score, and avoid missing payments which can trigger penalty interest charges.</p></div>
-    <div class="faq"><h3>Which currencies does this loan calculator support?</h3><p>This loan calculator supports nine major currencies: USD (US Dollar), GBP (British Pound), EUR (Euro), CAD (Canadian Dollar), AUD (Australian Dollar), PKR (Pakistani Rupee), INR (Indian Rupee), AED (UAE Dirham), and SAR (Saudi Riyal). Simply select your currency before entering loan details.</p></div>
-    <div class="faq"><h3>Can I use this for a mortgage or car loan?</h3><p>Yes. This calculator works for all standard loan types — home mortgages, car loans, personal loans, student loans, and business loans. For a more detailed mortgage calculation including property taxes and insurance, try our dedicated Mortgage Calculator.</p></div>
-    <div class="faq"><h3>Is my financial data stored or shared?</h3><p>Never. All loan calculations run entirely within your browser using JavaScript. No personal or financial data is collected, stored, or transmitted to any server at any time. Your privacy is fully protected.</p></div>
-    <div class="faq"><h3>What is the difference between a loan EMI and total payment?</h3><p>Your monthly EMI is the fixed amount you pay each month. The total payment is the sum of all EMIs over the full loan term, which includes the original principal plus all interest charges. The difference between total payment and loan amount is your total interest cost.</p></div>
-    <div class="faq"><h3>How does loan term length affect my monthly payment?</h3><p>A longer loan term gives you a lower monthly EMI but results in paying significantly more total interest over time. A shorter loan term means higher monthly payments but much less total interest paid. Use our calculator to compare different term lengths and find the right balance for your budget.</p></div>
+    <h2>Loan Calculator &ndash; Free Monthly EMI Calculator Online</h2>
+    <p>Our free Loan Calculator instantly computes your exact monthly EMI payment, total interest, and complete yearly repayment schedule. Whether you need a personal loan calculator, car loan calculator, or home loan calculator &mdash; this tool handles all loan types in multiple currencies including USD, GBP, EUR, PKR, INR, AED, CAD, and AUD.</p>
+    <p>Simply enter your loan amount, annual interest rate, and loan term in years &mdash; and get accurate results in seconds. All calculations run privately in your browser with zero data stored.</p>
+    <div class="faq"><h3>How is the monthly EMI payment calculated?</h3><p>The standard amortization formula is used: M = P[r(1+r)^n] / [(1+r)^n&minus;1], where P is the loan principal, r is the monthly interest rate, and n is the total number of monthly payments.</p></div>
+    <div class="faq"><h3>What is a good interest rate for a personal loan?</h3><p>A good personal loan interest rate is typically between 5% and 10% annually in the USA and UK. In Pakistan and India, personal loan rates usually range from 12% to 24% per year.</p></div>
+    <div class="faq"><h3>How can I reduce my total loan interest?</h3><p>Choose a shorter loan term, make extra payments toward the principal, negotiate a lower interest rate by improving your credit score, and avoid missing payments.</p></div>
+    <div class="faq"><h3>Which currencies does this loan calculator support?</h3><p>USD, GBP, EUR, CAD, AUD, PKR, INR, AED, and SAR. Simply select your currency before entering loan details.</p></div>
+    <div class="faq"><h3>Is my financial data stored or shared?</h3><p>Never. All loan calculations run entirely within your browser. No personal or financial data is collected, stored, or transmitted to any server.</p></div>
   </div>
 </div>
+
 <footer>
   <span class="f-brand">Age Calculator</span>
   <div class="f-links">
@@ -256,8 +300,9 @@ footer p{font-size:11px;letter-spacing:.1em;color:var(--muted);opacity:.5;text-t
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</p>
+  <p>&copy; 2026 Age Calculator &mdash; All Calculations Done In Your Browser &mdash; No Data Stored</p>
 </footer>
+
 <script>
 const pWrap=document.getElementById('particles');
 for(let i=0;i<25;i++){const p=document.createElement('div');p.className='p';p.style.cssText=`left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px`;pWrap.appendChild(p);}
@@ -306,7 +351,7 @@ function renderTable(all){
   const tP=fullTable.reduce((a,r)=>a+r.principal,0);const tI=fullTable.reduce((a,r)=>a+r.interest,0);
   tbody.innerHTML+=`<tr class="total-row"><td>Total</td><td>${fmtD(tP)}</td><td>${fmtD(tI)}</td><td>${curSym}0.00</td></tr>`;
   const btn=document.getElementById('showMoreBtn');
-  if(fullTable.length>5){btn.style.display='block';btn.textContent=all?'Show Less ▲':'Show All '+fullTable.length+' Years ▼';}else{btn.style.display='none';}
+  if(fullTable.length>5){btn.style.display='block';btn.textContent=all?'Show Less':'Show All '+fullTable.length+' Years';}else{btn.style.display='none';}
   showingAll=all;
 }
 function toggleTable(){renderTable(!showingAll);}
