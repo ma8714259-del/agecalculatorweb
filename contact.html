@@ -66,7 +66,7 @@ footer a:hover{color:var(--gold)}
   <div class="info-box">
     <h3>📧 Quick Information</h3>
     <p>We typically respond within <strong style="color:#c9a84c">24 to 48 hours</strong> on working days.</p>
-    <p>You can also email us directly at: <strong style="color:#c9a84c">amir71485@gmail.com</strong></p>
+    <p>You can also email us directly at: <strong style="color:#c9a84c">ma8714259@gmail.com</strong></p>
     <p>For bug reports, please describe the issue clearly including which browser and device you are using so we can fix it quickly.</p>
     <p style="margin-bottom:0">For partnership or advertising enquiries, please select the relevant subject below.</p>
   </div>
@@ -95,7 +95,7 @@ footer a:hover{color:var(--gold)}
     <textarea id="message" placeholder="Write your message here..."></textarea>
   </div>
   <button class="btn" onclick="submitForm()">SEND MESSAGE</button>
-  <div class="success" id="success">Thank you! Your message has been received. We will get back to you within 24 to 48 hours.</div>
+  <div class="success" id="success">Opening your email app... please press Send there to complete your message.</div>
 
   <h2>What Can We Help You With?</h2>
   <p>Here are the most common reasons people contact us. You may find your answer below before sending a message.</p>
@@ -146,13 +146,23 @@ footer a:hover{color:var(--gold)}
 function submitForm(){
   const name=document.getElementById('name').value;
   const email=document.getElementById('email').value;
+  const subject=document.getElementById('subject').value;
   const message=document.getElementById('message').value;
+
   if(!name||!email||!message){alert('Please fill in all required fields.');return;}
+
+  const toEmail='ma8714259@gmail.com';
+  const mailSubject=encodeURIComponent(subject?subject+' - from '+name:'Message from '+name);
+  const mailBody=encodeURIComponent(
+    'Name: '+name+'\n'+
+    'Email: '+email+'\n'+
+    'Subject: '+subject+'\n\n'+
+    'Message:\n'+message
+  );
+
+  window.location.href='mailto:'+toEmail+'?subject='+mailSubject+'&body='+mailBody;
+
   document.getElementById('success').style.display='block';
-  document.getElementById('name').value='';
-  document.getElementById('email').value='';
-  document.getElementById('message').value='';
-  document.getElementById('subject').value='';
 }
 </script>
 </body>
