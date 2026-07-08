@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Calculator – Find Your Best Bedtime & Wake Up Time (2026)</title>
+<meta name="description" content="Free sleep calculator based on 90-minute sleep cycles. Find the best bedtime or wake-up time to feel rested. Used in USA, UK, Canada and worldwide.">
+<meta name="keywords" content="sleep calculator, bedtime calculator, sleep cycle calculator, what time should i go to bed, wake up time calculator, how many hours of sleep do i need">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7486660574780336"
+     crossorigin="anonymous"></script>
+<link rel="canonical" href="https://www.agecalculatorweb.com/sleep-calculator.html">
+<meta property="og:title" content="Sleep Calculator – Find Your Best Bedtime & Wake Up Time">
+<meta property="og:description" content="Free sleep calculator based on 90-minute sleep cycles. Find the best bedtime or wake-up time to feel rested.">
+<meta property="og:url" content="https://www.agecalculatorweb.com/sleep-calculator.html">
+<meta property="og:image" content="https://www.agecalculatorweb.com/og-image.svg">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many hours of sleep do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most adults aged 18 to 64 need 7 to 9 hours of sleep per night. Teenagers need 8 to 10 hours, and older adults over 65 typically need 7 to 8 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time should I go to bed if I wake up at 6am?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you wake up at 6am and want 5 full 90-minute sleep cycles, you should fall asleep around 9:00pm, meaning you should go to bed around 8:45pm to allow 15 minutes to fall asleep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the sleep cycle calculator work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator works backward or forward from your bedtime or wake-up time in blocks of 90 minutes, the average length of one full sleep cycle, plus 15 minutes to account for the time it typically takes to fall asleep."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;--bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;--cream:#f0ead8;--muted:#777;--light:#bbb;}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0;}
+.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0;}
+.nav-pills{display:flex;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px);flex-wrap:wrap;justify-content:center;}
+.nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .25s;}
+.nav-pill:hover{color:var(--cream);}
+.nav-pill.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3);}
+.nav-pill svg{width:16px;height:16px;flex-shrink:0;}
+@media(max-width:480px){.nav-pill{padding:9px 16px;font-size:12px}}
+.hero{position:relative;z-index:10;text-align:center;padding:48px 20px 20px;}
+.hero .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 16px;border-radius:20px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,46px);font-weight:600;color:var(--cream);line-height:1.2;max-width:720px;margin:0 auto 16px;}
+.hero h1 span{color:var(--gold);}
+.hero p{color:var(--light);font-size:16px;max-width:560px;margin:0 auto;}
+.wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:24px 24px 80px;}
+
+.mode-row{display:flex;gap:8px;justify-content:center;margin-bottom:24px;}
+.mode-btn{background:var(--bg3);border:1px solid rgba(201,168,76,.25);color:var(--light);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:24px;cursor:pointer;transition:.25s;}
+.mode-btn.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;border-color:transparent;}
+
+.calc-box{background:var(--bg3);border:1px solid rgba(201,168,76,.3);border-radius:14px;padding:32px 26px;margin:0 0 36px;position:relative;}
+.calc-box::before,.calc-box::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(201,168,76,.5);border-style:solid;}
+.calc-box::before{top:10px;left:10px;border-width:2px 0 0 2px;}
+.calc-box::after{bottom:10px;right:10px;border-width:0 2px 2px 0;}
+.calc-box h2{font-family:'Playfair Display',serif;color:var(--gold-l);font-size:20px;margin-bottom:20px;text-align:center;}
+.time-input-row{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:22px;}
+.time-input-row input[type="time"]{background:var(--bg2);border:1px solid rgba(201,168,76,.3);border-radius:10px;color:var(--cream);font-size:24px;font-family:'DM Sans',sans-serif;font-weight:600;padding:14px 18px;}
+.time-input-row input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(0.8) sepia(1) saturate(3) hue-rotate(5deg);}
+.calc-btn{display:block;width:100%;max-width:320px;margin:0 auto;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;border:none;border-radius:8px;padding:14px;cursor:pointer;transition:.2s;}
+.calc-btn:hover{opacity:.88;}
+
+.results{display:none;margin-top:28px;}
+.results.show{display:block;}
+.results-title{text-align:center;color:var(--muted);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(max-width:480px){.result-grid{grid-template-columns:1fr}}
+.result-card{background:var(--bg2);border:1px solid rgba(201,168,76,.15);border-radius:10px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;}
+.result-card.best{border-color:var(--gold);background:rgba(201,168,76,.08);}
+.result-card .time{font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);font-weight:600;}
+.result-card .cycles{font-size:12px;color:var(--muted);}
+.result-card.best .cycles{color:var(--gold-l);}
+.result-card .star{color:var(--gold);font-size:14px;}
+
+h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold-l);margin:44px 0 14px;}
+h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--cream);margin:26px 0 10px;}
+p{margin-bottom:18px;line-height:1.8;color:var(--light);font-size:16px;}
+ul,ol{margin:10px 0 18px 28px;}
+li{margin-bottom:8px;color:var(--light);font-size:16px;line-height:1.7;}
+strong{color:var(--cream);font-weight:600;}
+a{color:var(--gold);}
+a:hover{color:var(--gold-l);}
+table{width:100%;border-collapse:collapse;margin:20px 0;}
+th{background:rgba(201,168,76,.15);color:var(--gold-l);padding:12px 16px;text-align:left;font-size:13px;font-weight:600;border-bottom:1px solid rgba(201,168,76,.3);}
+td{padding:12px 16px;border-bottom:1px solid rgba(201,168,76,.1);font-size:15px;color:var(--light);}
+tr:nth-child(even) td{background:rgba(201,168,76,.03);}
+.highlight{background:rgba(201,168,76,.06);border-left:3px solid var(--gold);padding:20px 24px;margin:28px 0;border-radius:0 6px 6px 0;}
+.highlight p{margin:0;color:var(--light);}
+.faq-item{background:var(--bg3);border:1px solid rgba(201,168,76,.1);border-radius:8px;padding:20px;margin-bottom:14px;}
+.faq-item h3{margin-top:0;color:var(--gold-l);font-size:16px;}
+.faq-item p{margin:8px 0 0;color:var(--light);font-size:0.95em;}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid rgba(201,168,76,.15);color:#aaa;text-align:center;padding:32px 20px;font-size:13px;}
+footer a{color:#ccc;text-decoration:none;margin:0 8px;}
+footer a:hover{color:var(--gold);}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-19EQBEBP6G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-19EQBEBP6G");</script>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-pills">
+    <a href="https://agecalculatorweb.com/index.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Age Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/loan-calculator.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Loan Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/bmi-calculator.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+      BMI Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/sleep-calculator.html" class="nav-pill active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      Sleep Calculator
+    </a>
+    <a href="https://agecalculatorweb.com/blog.html" class="nav-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Blog
+    </a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">🌙 Sleep Guide</div>
+  <h1>Sleep <span>Calculator</span> — Find Your Perfect Bedtime</h1>
+  <p>Based on 90-minute sleep cycles. Enter your wake-up time or bedtime and get science-backed sleep and wake times — free, instant, and private.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="mode-row">
+    <button class="mode-btn active" id="modeWakeBtn" onclick="setMode('wake')">I want to wake up at...</button>
+    <button class="mode-btn" id="modeBedBtn" onclick="setMode('bed')">I want to go to bed now</button>
+  </div>
+
+  <div class="calc-box">
+    <h2 id="calcTitle">🕐 What time do you need to wake up?</h2>
+    <div class="time-input-row">
+      <input type="time" id="timeInput" value="07:00">
+    </div>
+    <button class="calc-btn" onclick="calculateSleep()">Calculate My Sleep Times →</button>
+
+    <div class="results" id="resultsBox">
+      <div class="results-title" id="resultsTitle">Recommended times</div>
+      <div class="result-grid" id="resultGrid"></div>
+    </div>
+  </div>
+
+  <p>A <strong>sleep calculator</strong> helps you work out the ideal time to fall asleep or wake up, based on your body's natural 90-minute sleep cycles, so you wake up at the end of a cycle rather than in the middle of deep sleep — the difference between feeling refreshed and feeling groggy.</p>
+
+  <h2>How the Sleep Cycle Calculator Works</h2>
+  <p>Sleep happens in repeating cycles of roughly 90 minutes, moving through light sleep, deep sleep, and REM sleep. Waking up in the middle of a deep sleep phase is what causes that heavy, disoriented "sleep inertia" feeling — even after 7 or 8 hours in bed. Waking up at the end of a full cycle, on the other hand, tends to feel far more natural.</p>
+  <p>This calculator works backward or forward in blocks of 90 minutes from your chosen wake-up time or bedtime, and adds a 15-minute buffer for the average time it takes to actually fall asleep.</p>
+
+  <h2>How Many Hours of Sleep Do You Actually Need?</h2>
+  <table>
+    <thead><tr><th>Age Group</th><th>Recommended Sleep</th></tr></thead>
+    <tbody>
+      <tr><td>Teenagers (14–17)</td><td>8 – 10 hours</td></tr>
+      <tr><td>Young Adults (18–25)</td><td>7 – 9 hours</td></tr>
+      <tr><td>Adults (26–64)</td><td>7 – 9 hours</td></tr>
+      <tr><td>Older Adults (65+)</td><td>7 – 8 hours</td></tr>
+    </tbody>
+  </table>
+  <p>These ranges are guidelines from sleep health organizations in the USA, UK, and Canada. Individual needs can vary — some people function well on 7 hours, while others genuinely need closer to 9.</p>
+
+  <div class="highlight"><p>💡 <strong>Tip:</strong> Rather than aiming for a round number like "8 hours," aim for a full number of 90-minute cycles (5 or 6 cycles = 7.5 or 9 hours). This is why the times above often land on slightly unusual numbers rather than exact hours.</p></div>
+
+  <h2>Why Sleep Quality Matters as Much as Sleep Duration</h2>
+  <p>Two people can both sleep for 8 hours and wake up feeling completely different — one refreshed, one exhausted. The difference usually comes down to where in the sleep cycle they woke up, how consistent their sleep schedule is night to night, and how much screen light and caffeine they had before bed.</p>
+
+  <h3>Tips for Better Sleep Quality</h3>
+  <ul>
+    <li>Keep a consistent bedtime and wake-up time, even on weekends</li>
+    <li>Avoid screens for at least 30 minutes before bed — blue light delays melatonin release</li>
+    <li>Keep your bedroom cool, dark, and quiet</li>
+    <li>Avoid caffeine within 6 hours of bedtime</li>
+    <li>Get natural sunlight exposure early in the day to regulate your body clock</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h3>How many hours of sleep do I need?</h3>
+    <p>Most adults aged 18 to 64 need 7 to 9 hours of sleep per night. Teenagers need 8 to 10 hours, and older adults over 65 typically need 7 to 8 hours, though individual needs can vary.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What time should I go to bed if I wake up at 6am?</h3>
+    <p>To complete 5 full sleep cycles (7.5 hours), you should fall asleep by around 10:30pm the night before — meaning you'd want to be in bed by roughly 10:15pm to allow time to fall asleep.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is it better to wake up at the end of a sleep cycle?</h3>
+    <p>Yes. Waking up at the end of a 90-minute cycle, rather than in the middle of a deep sleep phase, generally leads to feeling more alert and less groggy, even if the total sleep time is similar.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Why do I still feel tired after 8 hours of sleep?</h3>
+    <p>This often happens when you wake up mid-cycle during deep sleep. Sleep quality, consistency, and waking at the right point in your cycle all matter as much as the total number of hours.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Does this sleep calculator work for naps too?</h3>
+    <p>For short naps, aim for either 20 minutes (light rest, no grogginess) or a full 90-minute cycle (deeper rest, low grogginess). Naps of 45–60 minutes tend to leave people feeling groggy since they interrupt deep sleep.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="https://agecalculatorweb.com/">Home</a>
+    <a href="https://agecalculatorweb.com/blog.html">Blog</a>
+    <a href="https://agecalculatorweb.com/about.html">About</a>
+    <a href="https://agecalculatorweb.com/privacy-policy.html">Privacy Policy</a>
+    <a href="https://agecalculatorweb.com/contact.html">Contact</a>
+  </p>
+  <p style="margin-top:8px;">© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</p>
+</footer>
+
+<script>
+let currentMode = 'wake';
+
+function setMode(mode){
+  currentMode = mode;
+  document.getElementById('modeWakeBtn').classList.toggle('active', mode==='wake');
+  document.getElementById('modeBedBtn').classList.toggle('active', mode==='bed');
+  document.getElementById('calcTitle').textContent = mode==='wake'
+    ? '🕐 What time do you need to wake up?'
+    : '🌙 What time are you going to bed?';
+  document.getElementById('resultsBox').classList.remove('show');
+}
+
+function formatTime(date){
+  let h = date.getHours();
+  let m = date.getMinutes();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12; if(h === 0) h = 12;
+  return `${h}:${m.toString().padStart(2,'0')} ${ampm}`;
+}
+
+function calculateSleep(){
+  const timeVal = document.getElementById('timeInput').value;
+  if(!timeVal){ alert('Please select a time.'); return; }
+  const [hh, mm] = timeVal.split(':').map(Number);
+
+  const baseDate = new Date();
+  baseDate.setHours(hh, mm, 0, 0);
+
+  const cycles = [6,5,4,3];
+  const grid = document.getElementById('resultGrid');
+  grid.innerHTML = '';
+
+  cycles.forEach((c, i) => {
+    const totalMinutes = c * 90 + (currentMode === 'wake' ? 15 : 0);
+    const resultDate = new Date(baseDate);
+    if(currentMode === 'wake'){
+      resultDate.setMinutes(resultDate.getMinutes() - totalMinutes);
+    } else {
+      resultDate.setMinutes(resultDate.getMinutes() + c * 90);
+    }
+    const hours = (c*90/60);
+    const card = document.createElement('div');
+    card.className = 'result-card' + (i < 2 ? ' best' : '');
+    card.innerHTML = `<div><div class="time">${formatTime(resultDate)}</div><div class="cycles">${c} cycles · ${hours}h sleep</div></div>${i<2 ? '<span class="star">★ Recommended</span>' : ''}`;
+    grid.appendChild(card);
+  });
+
+  document.getElementById('resultsTitle').textContent = currentMode === 'wake'
+    ? 'Go to bed at one of these times:'
+    : "You'll wake up refreshed at one of these times:";
+  document.getElementById('resultsBox').classList.add('show');
+  document.getElementById('resultsBox').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+</script>
+</body>
+</html>
