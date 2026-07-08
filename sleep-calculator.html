@@ -79,9 +79,12 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 .calc-box::before{top:10px;left:10px;border-width:2px 0 0 2px;}
 .calc-box::after{bottom:10px;right:10px;border-width:0 2px 2px 0;}
 .calc-box h2{font-family:'Playfair Display',serif;color:var(--gold-l);font-size:20px;margin-bottom:20px;text-align:center;}
-.time-input-row{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:22px;}
-.time-input-row input[type="time"]{background:var(--bg2);border:1px solid rgba(201,168,76,.3);border-radius:10px;color:var(--cream);font-size:24px;font-family:'DM Sans',sans-serif;font-weight:600;padding:14px 18px;}
-.time-input-row input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(0.8) sepia(1) saturate(3) hue-rotate(5deg);}
+
+.time-input-row{display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
+.time-select{background:var(--bg2);border:1px solid rgba(201,168,76,.3);border-radius:10px;color:var(--cream);font-size:20px;font-family:'DM Sans',sans-serif;font-weight:600;padding:12px 8px;appearance:none;-webkit-appearance:none;text-align:center;min-width:64px;}
+.time-select:focus{outline:none;border-color:var(--gold);}
+.time-colon{color:var(--cream);font-size:20px;font-weight:600;}
+
 .calc-btn{display:block;width:100%;max-width:320px;margin:0 auto;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;border:none;border-radius:8px;padding:14px;cursor:pointer;transition:.2s;}
 .calc-btn:hover{opacity:.88;}
 
@@ -128,7 +131,7 @@ footer a:hover{color:var(--gold);}
 <div class="hero">
   <div class="badge">🌙 Sleep Guide</div>
   <h1>Sleep <span>Calculator</span> — Find Your Perfect Bedtime</h1>
-  <p>Based on 90-minute sleep cycles. Enter your wake-up time or bedtime and get science-backed sleep and wake times — free, instant, and private.</p>
+  <p>Based on 90-minute sleep cycles. Choose your wake-up time or bedtime and get science-backed sleep and wake times — free, instant, and private.</p>
 </div>
 
 <div class="wrap">
@@ -141,7 +144,13 @@ footer a:hover{color:var(--gold);}
   <div class="calc-box">
     <h2 id="calcTitle">🕐 What time do you need to wake up?</h2>
     <div class="time-input-row">
-      <input type="time" id="timeInput" value="07:00">
+      <select id="hourSelect" class="time-select"></select>
+      <span class="time-colon">:</span>
+      <select id="minuteSelect" class="time-select"></select>
+      <select id="ampmSelect" class="time-select">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
     </div>
     <button class="calc-btn" onclick="calculateSleep()">Calculate My Sleep Times →</button>
 
@@ -226,6 +235,24 @@ footer a:hover{color:var(--gold);}
 <script>
 let currentMode = 'wake';
 
+function populateTimeSelects(){
+  const hourSel = document.getElementById('hourSelect');
+  const minSel = document.getElementById('minuteSelect');
+  for(let h=1; h<=12; h++){
+    const opt = document.createElement('option');
+    opt.value = h; opt.textContent = h;
+    if(h===7) opt.selected = true;
+    hourSel.appendChild(opt);
+  }
+  for(let m=0; m<60; m+=5){
+    const opt = document.createElement('option');
+    opt.value = m; opt.textContent = m.toString().padStart(2,'0');
+    if(m===0) opt.selected = true;
+    minSel.appendChild(opt);
+  }
+}
+populateTimeSelects();
+
 function setMode(mode){
   currentMode = mode;
   document.getElementById('modeWakeBtn').classList.toggle('active', mode==='wake');
@@ -245,9 +272,12 @@ function formatTime(date){
 }
 
 function calculateSleep(){
-  const timeVal = document.getElementById('timeInput').value;
-  if(!timeVal){ alert('Please select a time.'); return; }
-  const [hh, mm] = timeVal.split(':').map(Number);
+  let hh = parseInt(document.getElementById('hourSelect').value);
+  const mm = parseInt(document.getElementById('minuteSelect').value);
+  const ampm = document.getElementById('ampmSelect').value;
+
+  if(ampm === 'PM' && hh !== 12) hh += 12;
+  if(ampm === 'AM' && hh === 12) hh = 0;
 
   const baseDate = new Date();
   baseDate.setHours(hh, mm, 0, 0);
