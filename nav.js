@@ -1,40 +1,10 @@
 (function(){
   const navHTML = `
 <nav class="nav-bar">
-  <div class="nav-pills">
-    <a href="/" data-page="index" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Age Calculator
-    </a>
-    <a href="/loan-calculator.html" data-page="loan-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      Loan Calculator
-    </a>
-    <a href="/bmi-calculator.html" data-page="bmi-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-      BMI Calculator
-    </a>
-    <a href="/sleep-calculator.html" data-page="sleep-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      Sleep Calculator
-    </a>
-    <a href="/mortgage-calculator.html" data-page="mortgage-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Mortgage
-    </a>
-    <a href="/paycheck-calculator.html" data-page="paycheck-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-      Paycheck Calculator
-    </a>
-    <a href="/retirement-calculator.html" data-page="retirement-calculator" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-      Retirement Calculator
-    </a>
-    <a href="/blog.html" data-page="blog" class="nav-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      Blog
-    </a>
-  </div>
+  <a href="/" class="acw-logo">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    AgeCalculatorWeb
+  </a>
 
   <div class="acw-header-actions">
     <button id="allCalculatorsBtn" class="acw-all-btn" aria-label="Open All Calculators Menu" aria-haspopup="true" aria-expanded="false">
@@ -73,8 +43,12 @@
 
   /* ================= MEGA MENU CSS (auto-injected) ================= */
   const acwCSS = `
+  .nav-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:12px;}
+  .acw-logo{display:flex;align-items:center;gap:8px;color:var(--acw-gold,#d4af37);font-family:'Playfair Display',serif;font-size:19px;font-weight:600;text-decoration:none;}
+  .acw-logo svg{color:var(--acw-gold,#d4af37);flex-shrink:0;}
+
   :root{--acw-gold:#d4af37;--acw-gold-light:#c9a84c;--acw-bg-card:#131313;--acw-border:rgba(212,175,55,0.18);--acw-text:#eae6da;--acw-text-dim:#9a9488;}
-  .acw-header-actions{display:flex;align-items:center;gap:8px;margin-left:auto;}
+  .acw-header-actions{display:flex;align-items:center;gap:8px;}
   .acw-all-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--acw-gold),var(--acw-gold-light));color:#0a0a0a;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;padding:9px 18px;border:none;border-radius:30px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;}
   .acw-all-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,.35);}
   .acw-search-icon-btn{background:transparent;border:1px solid var(--acw-border);color:var(--acw-gold);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease;}
@@ -121,15 +95,23 @@
   .acw-no-results p{font-size:20px;color:var(--acw-text);margin-bottom:8px;}
   .acw-no-results.show{display:block;}
   body.acw-menu-open{overflow:hidden;}
-  @media (max-width:600px){.acw-mega-inner{padding:18px 14px 6px;}.acw-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}.acw-category-title{font-size:17px;}.acw-all-btn span{display:none;}.acw-all-btn{padding:9px 12px;}}
+  @media (max-width:600px){
+    .acw-mega-inner{padding:18px 14px 6px;}
+    .acw-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+    .acw-category-title{font-size:17px;}
+    .acw-all-btn span{display:none;}
+    .acw-all-btn{padding:9px 12px;}
+    .nav-bar{padding:12px 16px;}
+    .acw-logo{font-size:16px;}
+  }
   `;
   const styleTag = document.createElement("style");
   styleTag.textContent = acwCSS;
   document.head.appendChild(styleTag);
 
   /* ================= CALCULATOR DATABASE =================
-     نیا کیلکولیٹر شامل کرنے کے لیے یہاں ایک نئی لائن شامل کریں
-     اور اوپر nav-pills میں بھی ایک لنک شامل کریں — بس اتنا ہی کافی ہے۔
+     نیا کیلکولیٹر شامل کرنے کے لیے یہاں ایک نئی لائن شامل کریں۔
+     یہی ایک جگہ ہے جسے آپ کو مستقبل میں edit کرنا ہوگا — کہیں اور کچھ نہیں۔
   ========================================================= */
   const CALCULATORS = [
     { id:"age", name:"Age Calculator", url:"/", icon:"🎂", desc:"Find your exact age in years, months, and days.", category:"Time & Date", keywords:["birthday","how old","dob"], popular:true },
@@ -138,7 +120,8 @@
     { id:"sleep", name:"Sleep Calculator", url:"/sleep-calculator.html", icon:"😴", desc:"Find the best time to sleep or wake up.", category:"Health", keywords:["sleep cycle","wake up time"] },
     { id:"mortgage", name:"Mortgage Calculator", url:"/mortgage-calculator.html", icon:"🏦", desc:"Estimate your monthly mortgage payments.", category:"Mortgage", keywords:["home loan","house payment"], popular:true },
     { id:"paycheck", name:"Paycheck Calculator", url:"/paycheck-calculator.html", icon:"💼", desc:"Estimate your take-home pay after taxes.", category:"Salary", keywords:["salary","net pay","tax"], popular:true, recentlyAdded:true },
-    { id:"retirement", name:"Retirement Calculator", url:"/retirement-calculator.html", icon:"🏖️", desc:"Plan your savings for retirement.", category:"Investment", keywords:["401k","pension"] }
+    { id:"retirement", name:"Retirement Calculator", url:"/retirement-calculator.html", icon:"🏖️", desc:"Plan your savings for retirement.", category:"Investment", keywords:["401k","pension"] },
+    { id:"blog", name:"Blog", url:"/blog.html", icon:"📰", desc:"Guides and articles on personal finance and calculators.", category:"Other", keywords:["articles","guides"] }
   ];
 
   const CATEGORY_ORDER = ["⭐ Popular Calculators","🕒 Recently Added","❤️ Favorites","🕘 Recently Visited",
@@ -223,15 +206,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    // ---- موجودہ active pill کی pehchaan (آپ کا اصل کوڈ) ----
-    let path = window.location.pathname.split('/').pop().replace('.html','') || 'index';
-    const pills = document.querySelectorAll('.nav-pill');
-    pills.forEach(function(pill){
-      if(pill.getAttribute('data-page') === path){
-        pill.classList.add('active');
-      }
-    });
-
     // ---- خودکار recently visited ٹریکنگ ----
     const currentUrl = window.location.pathname;
     const matchCalc = CALCULATORS.find(c => c.url === currentUrl || (currentUrl==="/" && c.url==="/"));
