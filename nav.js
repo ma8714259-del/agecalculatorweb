@@ -124,9 +124,11 @@
     { id:"blog", name:"Blog", url:"/blog.html", icon:"📰", desc:"Guides and articles on personal finance and calculators.", category:"Other", keywords:["articles","guides"] }
   ];
 
+  /* CATEGORY_ORDER کی entries اب icons کے ساتھ ہیں تاکہ وہ نیچے بننے والی
+     "sections" آبجیکٹ کی keys سے بالکل میچ ہوں (ورنہ وہ سیکشن رینڈر نہیں ہوتا) */
   const CATEGORY_ORDER = ["⭐ Popular Calculators","🕒 Recently Added","❤️ Favorites","🕘 Recently Visited",
-    "Time & Date","Finance","Mortgage","Investment","Salary","Health","Fitness","Home","Construction",
-    "Education","Auto","Travel","Utility","Other"];
+    "⏰ Time & Date","💰 Finance","🏦 Mortgage","📈 Investment","👨‍💼 Salary","🏥 Health","🏋 Fitness","🏠 Home","🏗 Construction",
+    "🎓 Education","🚗 Auto","🌍 Travel","⚙ Utility","🧮 Other"];
   const CATEGORY_ICONS = { "Time & Date":"⏰","Finance":"💰","Mortgage":"🏦","Investment":"📈","Salary":"👨‍💼",
     "Health":"🏥","Fitness":"🏋","Home":"🏠","Construction":"🏗","Education":"🎓","Auto":"🚗","Travel":"🌍","Utility":"⚙","Other":"🧮" };
 
