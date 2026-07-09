@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    { "source": "/loan-emi-calculator-online-free.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/personal-loan-interest-calculator.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/personal-loan-interest-rate-emi-guide.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/personal-loan-interest-rate-calculator.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/personal-loan-interest-calculator-guide.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/how-to-calculate-personal-loan-interest-rate.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/how-to-calculate-loan-emi-manually.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/loan-emi-calculator-pakistan.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/pakistan-loan-calculator.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/home-loan-calculator-uae-free.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/how-to-reduce-loan-emi-amount.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/loan-calculator-for-students.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/business-loan-calculator-online-free.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/how-to-pay-off-loan-faster.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/car-loan-calculator-uk-free.html", "destination": "/loan-calculator.html", "permanent": true },
+    { "source": "/financial-milestones-by-age.html", "destination": "/loan-calculator.html", "permanent": true },
+
+    { "source": "/mortgage-calculator-usa-guide.html", "destination": "/mortgage-calculator.html", "permanent": true },
+    { "source": "/mortgage-calculator-free-usa-uk-canada.html", "destination": "/mortgage-calculator.html", "permanent": true },
+    { "source": "/mortgage-calculator-piti-guide.html", "destination": "/mortgage-calculator.html", "permanent": true },
+    { "source": "/how-much-house-can-i-afford.html", "destination": "/mortgage-calculator.html", "permanent": true },
+
+    { "source": "/paycheck-calculator-guide-2026.html", "destination": "/paycheck-calculator.html", "permanent": true },
+
+    { "source": "/bmi-calculator-kg-cm.html", "destination": "/bmi-calculator.html", "permanent": true },
+
+    { "source": "/milestones-by-age.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+    { "source": "/milestones-of-life.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+    { "source": "/life-milestones-by-age-30.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+    { "source": "/life-milestones-by-age-complete-guide.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+    { "source": "/life-milestones-by-age.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+    { "source": "/age-milestones-human-life.html", "destination": "/age-milestones-in-life-complete-guide.html", "permanent": true },
+
+    { "source": "/age-calculator-uk-free.html", "destination": "/", "permanent": true },
+    { "source": "/age-calculator-usa-online-free.html", "destination": "/", "permanent": true },
+    { "source": "/age-calculator-canada-free.html", "destination": "/", "permanent": true }
+  ]
+}
