@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free Days Between Two Dates Calculator. Instantly find the exact number of days, weeks, months and business/working days between any two dates. Used for deadlines, visas, contracts, and planning in the UK, USA and Canada.">
+<meta name="keywords" content="days between two dates calculator, date duration calculator, how many days between two dates, business days calculator, working days calculator UK, date calculator USA, days until calculator Canada, calculate days between dates, date difference calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Age Calculator">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7486660574780336"
+     crossorigin="anonymous"></script>
+<link rel="canonical" href="https://www.agecalculatorweb.com/days-between-dates-calculator.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Days Between Two Dates Calculator – Free Date Duration Tool">
+<meta property="og:description" content="Find the exact number of days, weeks, months and business days between any two dates. Free, instant, and accurate for UK, USA and Canada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.agecalculatorweb.com/days-between-dates-calculator.html">
+<meta property="og:image" content="https://www.agecalculatorweb.com/images/og-image.svg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Days Between Two Dates Calculator – Free & Instant">
+<meta name="twitter:description" content="Calculate the exact days, weeks, months and business days between two dates. Free online tool, no signup needed.">
+
+<!-- Schema: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Days Between Two Dates Calculator",
+  "description": "Free calculator that computes the exact number of days, weeks, months and business days between any two dates.",
+  "url": "https://www.agecalculatorweb.com/days-between-dates-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate the number of days between two dates?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Enter your start date and end date into the calculator above. It instantly works out the total number of days, along with the equivalent in weeks, months and business days, accounting for leap years automatically." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a business days calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A business days calculator counts only working weekdays (Monday to Friday) between two dates, excluding weekends. It is commonly used in the UK, USA and Canada to estimate delivery times, contract deadlines and payment terms." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this calculator include the start and end date?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The calculator shows the number of full days between the two dates you enter. If you need the end date included as a full day, simply add one day to your end date before calculating." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate days between dates in different years?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The calculator works across any range of years, whether you are counting a few days or many decades, and correctly accounts for leap years in the calculation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this date calculator accurate for legal or visa deadlines?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The calculator gives a precise day count based on the calendar. For official visa, immigration, or legal deadlines, always confirm the exact rules with the relevant authority, as some processes count days differently." }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>📅</text></svg>">
+
+<title>Days Between Two Dates Calculator – Free Date Duration Tool (2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;
+  --bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;
+  --cream:#f0ead8;--muted:#777;--light:#bbb;
+  --red:#e05555;--green:#55c99a;
+  --shadow:0 30px 80px rgba(0,0,0,.7);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
+
+.bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
+.bg-wrap::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
+             radial-gradient(ellipse 70% 80% at 85% 95%,rgba(201,168,76,.06) 0,transparent 55%),
+             radial-gradient(ellipse 50% 50% at 50% 50%,rgba(201,168,76,.03) 0,transparent 70%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.deco-t,.deco-b{position:fixed;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);z-index:2}
+.deco-t{top:50px}.deco-b{bottom:50px}
+.deco-l,.deco-r{position:fixed;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,168,76,.15),transparent);z-index:2}
+.deco-l{left:50px}.deco-r{right:50px}
+
+.wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 100px}
+
+.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0}
+
+header{text-align:center;padding:40px 20px 24px;position:relative;z-index:10}
+.brand-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px;animation:fadeD .8s ease both}
+.brand-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.brand-line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.brand-name{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;color:var(--gold);font-weight:400}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,60px);font-weight:400;line-height:1.1;color:var(--cream);margin-bottom:16px;animation:fadeD .8s .15s ease both}
+header h1 em{font-style:italic;color:var(--gold-l)}
+header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);animation:fadeD .8s .25s ease both}
+
+.div{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px 0}
+.div::before,.div::after{content:'';width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
+.div::after{background:linear-gradient(90deg,var(--gold-d),transparent)}
+.diam{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+
+.card{background:linear-gradient(145deg,var(--bg3),var(--bg2));border:1px solid rgba(201,168,76,.18);border-radius:6px;padding:48px 48px;position:relative;box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);animation:fadeU .9s .3s ease both;overflow:hidden}
+.card::before,.card::after,.c-tr,.c-bl{content:'';position:absolute;width:22px;height:22px;border-color:rgba(201,168,76,.45);border-style:solid}
+.card::before{top:14px;left:14px;border-width:1px 0 0 1px}
+.card::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
+.c-tr{top:14px;right:14px;border-width:1px 1px 0 0}
+.c-bl{bottom:14px;left:14px;border-width:0 0 1px 1px}
+
+.field-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.date-two-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:6px}
+.date-field span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;text-align:center}
+.date-field input{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:4px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;text-align:center;padding:17px 10px;outline:none;width:100%;transition:border-color .3s,box-shadow .3s,background .3s;color-scheme:dark}
+.date-field input:focus{border-color:var(--gold);background:rgba(201,168,76,.06);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.err{font-size:11px;letter-spacing:2px;color:var(--red);text-align:center;margin-top:12px;display:none;animation:fadeU .4s ease}
+.err.show{display:block}
+
+.btn-row{display:flex;gap:12px;margin-top:28px}
+.btn-calc{flex:1;padding:20px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold));background-size:300% 100%;background-position:right;border:none;border-radius:4px;color:var(--bg);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:5px;text-transform:uppercase;cursor:pointer;transition:background-position .6s,transform .2s,box-shadow .3s}
+.btn-calc:hover{background-position:left;box-shadow:0 12px 40px rgba(201,168,76,.45);transform:translateY(-2px)}
+.btn-reset{padding:20px 24px;background:transparent;border:1px solid rgba(201,168,76,.25);border-radius:4px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-reset:hover{border-color:var(--gold);color:var(--gold)}
+
+.results{display:none;margin-top:8px}
+.results.show{display:block;animation:fadeU .7s ease both}
+.res-head{text-align:center;margin-bottom:32px}
+.res-head h2{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.res-head .dob-txt{font-size:12px;letter-spacing:2px;color:var(--muted)}
+
+.big-days{text-align:center;padding:20px 0 32px}
+.big-days .num{font-family:'Playfair Display',serif;font-size:clamp(48px,10vw,88px);font-weight:700;line-height:1;background:linear-gradient(135deg,var(--gold-d),var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.big-days .lbl{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.age-trio{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid rgba(201,168,76,.12);border-radius:4px;overflow:hidden;margin-bottom:20px}
+.trio-block{text-align:center;padding:26px 14px;position:relative}
+.trio-block:not(:last-child){border-right:1px solid rgba(201,168,76,.12)}
+.trio-num{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:400;color:var(--gold-l);display:block;line-height:1}
+.trio-unit{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-top:8px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:8px}
+.stat{background:var(--bg4);border:1px solid rgba(201,168,76,.1);border-radius:4px;padding:22px 18px;text-align:center;transition:border-color .3s,transform .2s}
+.stat:hover{border-color:rgba(201,168,76,.3);transform:translateY(-3px)}
+.stat-n{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--cream);display:block;margin-bottom:6px}
+.stat-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+.seo-wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 40px;animation:fadeU .9s .5s ease both}
+.seo-box{background:var(--bg2);border:1px solid rgba(201,168,76,.1);border-radius:6px;padding:48px}
+.seo-box h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--cream);margin-bottom:18px;margin-top:32px}
+.seo-box h2:first-child{margin-top:0}
+.seo-box p{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:18px}
+.seo-box ul{margin:0 0 18px 20px;padding:0}
+.seo-box li{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:8px}
+.faq{border-top:1px solid rgba(201,168,76,.1);padding:22px 0}
+.faq h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold-l);margin-bottom:8px}
+.faq p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}
+
+footer{position:relative;z-index:10;text-align:center;padding:40px 20px 60px;border-top:1px solid rgba(201,168,76,.08)}
+.f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:14px}
+.f-links{display:flex;justify-content:center;gap:28px;margin:14px 0;flex-wrap:wrap}
+.f-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+.f-links a:hover{color:var(--gold)}
+footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-transform:uppercase}
+
+@keyframes fadeD{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .deco-l,.deco-r{display:none}
+  .card{padding:32px 22px}
+  .seo-box{padding:32px 22px}
+  .date-two-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .btn-row{flex-direction:column}
+  .btn-reset{order:-1}
+}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-19EQBEBP6G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-19EQBEBP6G");
+</script>
+</head>
+<body>
+
+<div class="bg-wrap"></div>
+<div class="grain"></div>
+<div class="deco-t"></div><div class="deco-b"></div>
+<div class="deco-l"></div><div class="deco-r"></div>
+
+<script src="/nav.js"></script>
+
+<header>
+  <div class="brand-row">
+    <div class="brand-line"></div>
+    <span class="brand-name">Age Calculator</span>
+    <div class="brand-line r"></div>
+  </div>
+  <h1>Days Between <em>Two Dates</em><br>Calculator</h1>
+  <p class="sub">Exact Days &nbsp;&middot;&nbsp; Weeks &middot; Months &middot; Business Days</p>
+</header>
+
+<div class="wrap">
+<div class="card">
+  <div class="c-tr"></div><div class="c-bl"></div>
+
+  <label class="field-lbl">Select Your Two Dates</label>
+  <div class="date-two-grid">
+    <div class="date-field">
+      <span>Start Date</span>
+      <input type="date" id="startDate">
+    </div>
+    <div class="date-field">
+      <span>End Date</span>
+      <input type="date" id="endDate">
+    </div>
+  </div>
+  <div class="err" id="errMsg">&#9888; &nbsp; Please select a valid start and end date</div>
+
+  <div class="btn-row">
+    <button class="btn-reset" onclick="resetAll()">&#10005; Reset</button>
+    <button class="btn-calc" onclick="calculate()">Calculate Days &rarr;</button>
+  </div>
+
+  <div class="results" id="results">
+    <div class="div"><div class="diam"></div></div>
+    <div class="res-head">
+      <h2>Date Duration</h2>
+      <p class="dob-txt" id="rangeTxt"></p>
+    </div>
+
+    <div class="big-days">
+      <div class="num" id="bigDays">0</div>
+      <div class="lbl">Total Days</div>
+    </div>
+
+    <div class="age-trio">
+      <div class="trio-block">
+        <span class="trio-num" id="rYears">0</span>
+        <span class="trio-unit">Years</span>
+      </div>
+      <div class="trio-block">
+        <span class="trio-num" id="rMonths">0</span>
+        <span class="trio-unit">Months</span>
+      </div>
+      <div class="trio-block">
+        <span class="trio-num" id="rDays">0</span>
+        <span class="trio-unit">Days</span>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><span class="stat-n" id="rWeeks">0</span><span class="stat-l">Total Weeks</span></div>
+      <div class="stat"><span class="stat-n" id="rBusiness">0</span><span class="stat-l">Business Days</span></div>
+      <div class="stat"><span class="stat-n" id="rWeekends">0</span><span class="stat-l">Weekend Days</span></div>
+      <div class="stat"><span class="stat-n" id="rHours">0</span><span class="stat-l">Total Hours</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="seo-wrap">
+  <div class="seo-box">
+    <h2>Days Between Two Dates Calculator &ndash; Free Online Date Duration Tool</h2>
+    <p>Our Days Between Two Dates Calculator instantly works out exactly how much time separates any two dates. Simply enter a start date and an end date, and the tool gives you the total number of days, along with the equivalent in years, months, weeks, business days and even hours. It is one of the simplest yet most useful date calculator tools available online, built for anyone in the UK, USA, Canada, or anywhere else who needs an accurate date difference in seconds.</p>
+    <p>Whether you are counting down to a wedding, working out a contract deadline, checking how many working days remain before a project is due, or simply curious how long ago something happened, this date duration calculator removes the need for manual counting on a calendar. It automatically accounts for leap years, varying month lengths, and weekends, so the result is accurate every time.</p>
+
+    <h2>Why Use a Date Difference Calculator?</h2>
+    <p>Calculating the number of days between two dates by hand is easy to get wrong, especially across leap years or when a date range spans several months. A dedicated days between two dates calculator removes that risk entirely. Here are some of the most common reasons people in the UK, USA and Canada use this kind of tool:</p>
+    <ul>
+      <li><strong>Business and legal deadlines:</strong> Many contracts, tenders, and legal notices are defined in "business days" or "working days" rather than calendar days. This calculator separates the two automatically.</li>
+      <li><strong>Visa and immigration timelines:</strong> Applicants often need to know exactly how many days they have spent in or outside a country, or how many days remain before a visa condition applies.</li>
+      <li><strong>Project and event planning:</strong> Project managers and event planners use date duration calculators to track how many days are left until a launch, deadline, or wedding date.</li>
+      <li><strong>Payroll and HR:</strong> Employers calculating notice periods, probation lengths, or leave entitlements often need an exact working-days calculation.</li>
+      <li><strong>Personal milestones:</strong> From "how many days have we been together" to "how many days until my exam," this tool covers everyday curiosity too.</li>
+    </ul>
+
+    <h2>How the Business Days Calculator Works</h2>
+    <p>Alongside the total calendar day count, this tool also functions as a business days calculator (also called a working days calculator in the UK). It automatically excludes Saturdays and Sundays from the count, giving you the number of Monday-to-Friday working days between your chosen dates. This is especially useful for shipping estimates, invoice payment terms, and HR calculations where "5 working days" means something different from "5 calendar days." Note that this calculator counts standard weekends only; it does not automatically remove UK bank holidays, US federal holidays, or Canadian statutory holidays, since these vary by region and year.</p>
+
+    <h2>UK, USA and Canada: Common Date Calculation Needs</h2>
+    <p>Date requirements differ slightly by country. In the <strong>UK</strong>, "working days calculator" searches are common for HMRC deadlines, DVLA processing times, and tenancy notice periods. In the <strong>USA</strong>, people frequently search for a "date calculator" to work out federal filing deadlines, court dates, or how many days until a lease ends. In <strong>Canada</strong>, a "days until calculator" is often used for immigration processing times through IRCC and for provincial legal notice periods. This tool is built to serve all three audiences with one accurate, universal calculation engine.</p>
+
+    <div class="faq"><h3>How do I calculate the number of days between two dates?</h3><p>Enter your start date and end date into the calculator above. It instantly works out the total number of days, along with the equivalent in weeks, months and business days, accounting for leap years automatically.</p></div>
+    <div class="faq"><h3>What is a business days calculator?</h3><p>A business days calculator counts only working weekdays (Monday to Friday) between two dates, excluding weekends. It is commonly used in the UK, USA and Canada to estimate delivery times, contract deadlines and payment terms.</p></div>
+    <div class="faq"><h3>Does this calculator include the start and end date?</h3><p>The calculator shows the number of full days between the two dates you enter. If you need the end date included as a full day, simply add one day to your end date before calculating.</p></div>
+    <div class="faq"><h3>Can I calculate days between dates in different years?</h3><p>Yes. The calculator works across any range of years, whether you are counting a few days or many decades, and correctly accounts for leap years in the calculation.</p></div>
+    <div class="faq"><h3>Is this date calculator accurate for legal or visa deadlines?</h3><p>The calculator gives a precise day count based on the calendar. For official visa, immigration, or legal deadlines, always confirm the exact rules with the relevant authority, as some processes count days differently.</p></div>
+  </div>
+</div>
+
+<footer>
+  <span class="f-brand">Age Calculator</span>
+  <div class="f-links">
+    <a href="/">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Age Calculator &mdash; All Calculations Done In Your Browser &mdash; No Data Stored</p>
+</footer>
+
+<script>
+function fmt(n){return n>=1000?n.toLocaleString():n;}
+
+function calculate(){
+  const sVal = document.getElementById('startDate').value;
+  const eVal = document.getElementById('endDate').value;
+  const err = document.getElementById('errMsg');
+  err.classList.remove('show');
+
+  if(!sVal || !eVal){ err.classList.add('show'); return; }
+
+  let start = new Date(sVal);
+  let end = new Date(eVal);
+  if(isNaN(start) || isNaN(end)){ err.classList.add('show'); return; }
+
+  let swapped = false;
+  if(start > end){ const tmp = start; start = end; end = tmp; swapped = true; }
+
+  let y = end.getFullYear() - start.getFullYear();
+  let mo = end.getMonth() - start.getMonth();
+  let d = end.getDate() - start.getDate();
+  if(d < 0){ mo--; const pm = new Date(end.getFullYear(), end.getMonth(), 0); d += pm.getDate(); }
+  if(mo < 0){ y--; mo += 12; }
+
+  const totalDays = Math.round((end - start) / 86400000);
+  const totalWeeks = Math.floor(totalDays / 7);
+  const totalHours = totalDays * 24;
+
+  let businessDays = 0, weekendDays = 0;
+  const cursor = new Date(start);
+  for(let i = 0; i < totalDays; i++){
+    const day = cursor.getDay();
+    if(day === 0 || day === 6) weekendDays++; else businessDays++;
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  const opts = { year:'numeric', month:'long', day:'numeric' };
+  document.getElementById('rangeTxt').textContent =
+    `${start.toLocaleDateString('en-US', opts)}  \u2192  ${end.toLocaleDateString('en-US', opts)}` + (swapped ? ' (dates were reordered)' : '');
+
+  document.getElementById('bigDays').textContent = fmt(totalDays);
+  document.getElementById('rYears').textContent = y;
+  document.getElementById('rMonths').textContent = mo;
+  document.getElementById('rDays').textContent = d;
+  document.getElementById('rWeeks').textContent = fmt(totalWeeks);
+  document.getElementById('rBusiness').textContent = fmt(businessDays);
+  document.getElementById('rWeekends').textContent = fmt(weekendDays);
+  document.getElementById('rHours').textContent = fmt(totalHours);
+
+  const res = document.getElementById('results');
+  res.classList.add('show');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}), 100);
+}
+
+function resetAll(){
+  document.getElementById('startDate').value = '';
+  document.getElementById('endDate').value = '';
+  document.getElementById('errMsg').classList.remove('show');
+  document.getElementById('results').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>
