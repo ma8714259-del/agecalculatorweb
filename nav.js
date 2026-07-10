@@ -115,6 +115,7 @@
   ========================================================= */
   const CALCULATORS = [
     { id:"age", name:"Age Calculator", url:"/", icon:"🎂", desc:"Find your exact age in years, months, and days.", category:"Time & Date", keywords:["birthday","how old","dob"], popular:true },
+   { id:"daysbetween", name:"Days Between Dates", url:"/days-between-dates-calculator.html", icon:"📅", desc:"Find exact days, weeks and business days between two dates.", category:"Time & Date", keywords:["date duration","business days","working days"], popular:true, recentlyAdded:true },
     { id:"loan", name:"Loan Calculator", url:"/loan-calculator.html", icon:"💵", desc:"Calculate loan payments and interest.", category:"Finance", keywords:["emi","interest calculator","payment"], popular:true },
     { id:"bmi", name:"BMI Calculator", url:"/bmi-calculator.html", icon:"⚖️", desc:"Check your Body Mass Index instantly.", category:"Health", keywords:["body mass index","weight"], popular:true },
     { id:"sleep", name:"Sleep Calculator", url:"/sleep-calculator.html", icon:"😴", desc:"Find the best time to sleep or wake up.", category:"Health", keywords:["sleep cycle","wake up time"] },
