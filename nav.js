@@ -184,24 +184,9 @@
       noRes.classList.toggle("show", matches.length===0);
       return;
     }
+    /* کیٹاگری سیکشنز ختم کر دیے گئے ہیں — اب تمام کیلکولیٹرز ایک ہی flat grid میں نظر آتے ہیں */
     noRes.hidden = true; noRes.classList.remove("show");
-    const favs=getFavs(), recentIds=getRecent();
-    let sections = {};
-    sections["⭐ Popular Calculators"] = CALCULATORS.filter(c=>c.popular);
-    sections["🕒 Recently Added"] = CALCULATORS.filter(c=>c.recentlyAdded);
-    sections["❤️ Favorites"] = CALCULATORS.filter(c=>favs.includes(c.id));
-    sections["🕘 Recently Visited"] = recentIds.map(id=>CALCULATORS.find(c=>c.id===id)).filter(Boolean);
-    const byCat = groupByCategory(CALCULATORS);
-    Object.keys(byCat).forEach(cat=>{ sections[`${CATEGORY_ICONS[cat]||"🧮"} ${cat}`] = byCat[cat]; });
-
-    let html="";
-    CATEGORY_ORDER.forEach(label=>{
-      const list = sections[label];
-      if(list && list.length){
-        html += `<div class="acw-category"><h3 class="acw-category-title">${label}</h3><div class="acw-grid">${list.map(c=>cardHTML(c)).join("")}</div></div>`;
-      }
-    });
-    bodyEl.innerHTML = html;
+    bodyEl.innerHTML = `<div class="acw-grid">${CALCULATORS.map(c=>cardHTML(c)).join("")}</div>`;
   }
 
   function renderScrollNav(){
