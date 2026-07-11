@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free Tip Calculator. Instantly calculate how much to tip, split the bill between friends, and see the total amount owed. Accurate for restaurants, bars, delivery & salons in the UK, USA and Canada.">
+<meta name="keywords" content="tip calculator, tip calculator UK, tip calculator USA, tip calculator Canada, how much to tip, restaurant tip calculator, gratuity calculator, bill splitter, split bill calculator, how much to tip a waiter, tip percentage calculator, tipping etiquette USA, tipping etiquette UK, tipping etiquette Canada">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Age Calculator">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7486660574780336"
+     crossorigin="anonymous"></script>
+<link rel="canonical" href="https://www.agecalculatorweb.com/tip-calculator.html">
+
+<meta property="og:title" content="Tip Calculator – Calculate Tip & Split the Bill Free">
+<meta property="og:description" content="Free Tip Calculator. Work out how much to tip and split the bill fairly between friends. Instant results for UK, USA and Canada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.agecalculatorweb.com/tip-calculator.html">
+<meta property="og:image" content="https://www.agecalculatorweb.com/images/og-image.svg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tip Calculator – Free & Instant Bill Splitter">
+<meta name="twitter:description" content="Calculate your tip and split the bill between any number of people. Free online tool, no signup needed.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Tip Calculator",
+  "description": "Free online tip calculator that computes gratuity, total bill, and per-person amount when splitting a bill between friends.",
+  "url": "https://www.agecalculatorweb.com/tip-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much should I tip at a restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "In the USA, 15-20% of the pre-tax bill is standard for good table service, with 20-25% for excellent service. In the UK and Canada, 10-15% is typical, and in the UK a service charge is sometimes already included on the bill." } },
+    { "@type": "Question", "name": "Is tipping mandatory?", "acceptedAnswer": { "@type": "Answer", "text": "Tipping is not legally mandatory in the UK, USA or Canada, but it is a strong social expectation in the USA and Canada because service staff often rely on tips as part of their income. In the UK it is appreciated but more optional, especially where a service charge is already added." } },
+    { "@type": "Question", "name": "How do I split a bill between friends?", "acceptedAnswer": { "@type": "Answer", "text": "Add the tip to the total bill, then divide that combined amount by the number of people. Each person pays an equal share, unless you agree to split based on what each person actually ordered." } },
+    { "@type": "Question", "name": "Should I tip before or after tax?", "acceptedAnswer": { "@type": "Answer", "text": "Most etiquette guides recommend calculating the tip on the pre-tax subtotal, not the total including sales tax or VAT, since tax does not reflect the service you received." } }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>💵</text></svg>">
+
+<title>Tip Calculator – Calculate Tip & Split the Bill Free (2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;
+  --bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;
+  --cream:#f0ead8;--muted:#777;--light:#bbb;
+  --red:#e05555;--green:#55c99a;
+  --shadow:0 30px 80px rgba(0,0,0,.7);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
+
+.bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
+.bg-wrap::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
+             radial-gradient(ellipse 70% 80% at 85% 95%,rgba(201,168,76,.06) 0,transparent 55%),
+             radial-gradient(ellipse 50% 50% at 50% 50%,rgba(201,168,76,.03) 0,transparent 70%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.deco-t,.deco-b{position:fixed;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);z-index:2}
+.deco-t{top:50px}.deco-b{bottom:50px}
+.deco-l,.deco-r{position:fixed;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,168,76,.15),transparent);z-index:2}
+.deco-l{left:50px}.deco-r{right:50px}
+
+.wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 100px}
+
+header{text-align:center;padding:40px 20px 24px;position:relative;z-index:10}
+.brand-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px;animation:fadeD .8s ease both}
+.brand-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.brand-line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.brand-name{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;color:var(--gold);font-weight:400}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,60px);font-weight:400;line-height:1.1;color:var(--cream);margin-bottom:16px;animation:fadeD .8s .15s ease both}
+header h1 em{font-style:italic;color:var(--gold-l)}
+header .sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);animation:fadeD .8s .25s ease both}
+
+.div{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px 0}
+.div::before,.div::after{content:'';width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
+.div::after{background:linear-gradient(90deg,var(--gold-d),transparent)}
+.diam{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+
+.card{background:linear-gradient(145deg,var(--bg3),var(--bg2));border:1px solid rgba(201,168,76,.18);border-radius:6px;padding:48px 48px;position:relative;box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);animation:fadeU .9s .3s ease both;overflow:hidden}
+.card::before,.card::after,.c-tr,.c-bl{content:'';position:absolute;width:22px;height:22px;border-color:rgba(201,168,76,.45);border-style:solid}
+.card::before{top:14px;left:14px;border-width:1px 0 0 1px}
+.card::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
+.c-tr{top:14px;right:14px;border-width:1px 1px 0 0}
+.c-bl{bottom:14px;left:14px;border-width:0 0 1px 1px}
+
+.field-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;margin-top:26px}
+.field-lbl:first-child{margin-top:0}
+.zrow{display:grid;grid-template-columns:1fr 90px;gap:10px}
+.zrow input,.zrow select{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:4px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;padding:15px 14px;outline:none;width:100%;transition:border-color .3s,box-shadow .3s,background .3s}
+.zrow input:focus,.zrow select:focus{border-color:var(--gold);background:rgba(201,168,76,.06);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.zrow select option{background:var(--bg3);color:var(--cream)}
+.hint{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+
+.solo-row{display:grid;grid-template-columns:1fr;gap:10px}
+.solo-row input{background:var(--bg4);border:1px solid rgba(201,168,76,.15);border-radius:4px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;padding:15px 14px;outline:none;width:100%;transition:border-color .3s,box-shadow .3s,background .3s}
+.solo-row input:focus{border-color:var(--gold);background:rgba(201,168,76,.06);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+
+.tip-presets{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:6px}
+.tip-presets button{padding:14px 4px;border-radius:4px;border:1px solid rgba(201,168,76,.2);background:var(--bg4);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .25s}
+.tip-presets button.active{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#000;border-color:transparent}
+@media(max-width:640px){.tip-presets{grid-template-columns:repeat(3,1fr)}}
+
+.stepper{display:flex;align-items:center;gap:14px;margin-top:6px}
+.stepper button{width:48px;height:48px;flex-shrink:0;border-radius:4px;border:1px solid rgba(201,168,76,.25);background:var(--bg4);color:var(--gold-l);font-size:20px;font-weight:600;cursor:pointer;transition:all .25s}
+.stepper button:hover{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.stepper .stepper-val{flex:1;text-align:center;font-family:'Playfair Display',serif;font-size:26px;color:var(--cream)}
+
+.btn-calc{width:100%;margin-top:30px;padding:19px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold));background-size:300% 100%;background-position:right;border:none;border-radius:4px;color:var(--bg);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:5px;text-transform:uppercase;cursor:pointer;transition:background-position .6s,transform .2s,box-shadow .3s}
+.btn-calc:hover{background-position:left;box-shadow:0 12px 40px rgba(201,168,76,.45);transform:translateY(-2px)}
+
+.results{display:none;margin-top:8px}
+.results.show{display:block;animation:fadeU .7s ease both}
+.trio{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(201,168,76,.12);border-radius:4px;overflow:hidden;margin-bottom:20px}
+.trio-block{text-align:center;padding:26px 14px}
+.trio-block:first-child{border-right:1px solid rgba(201,168,76,.12)}
+.trio-num{font-family:'Playfair Display',serif;font-size:clamp(30px,6vw,44px);font-weight:400;color:var(--gold-l);display:block;line-height:1}
+.trio-unit{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:block;margin-top:10px}
+
+.pp-box{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.3);border-radius:4px;padding:28px;text-align:center;margin-bottom:20px}
+.pp-lbl{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.pp-num{font-family:'Playfair Display',serif;font-size:clamp(44px,9vw,68px);font-weight:700;line-height:1;background:linear-gradient(135deg,var(--gold-d),var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pp-sub{font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:1px}
+
+.breakdown{margin-top:18px;display:grid;gap:8px}
+.b-row{display:flex;justify-content:space-between;font-size:13px;padding:14px 16px;background:var(--bg4);border-radius:4px;border:1px solid rgba(201,168,76,.08)}
+.b-row b{color:var(--gold-l);font-weight:500}
+
+.notice{background:var(--bg4);border-radius:4px;padding:16px 18px;font-size:11.5px;color:var(--muted);margin-top:20px;line-height:1.7;border:1px solid rgba(201,168,76,.1)}
+
+.seo-wrap{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:0 20px 40px;animation:fadeU .9s .5s ease both}
+.seo-box{background:var(--bg2);border:1px solid rgba(201,168,76,.1);border-radius:6px;padding:48px}
+.seo-box h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--cream);margin-bottom:18px;margin-top:32px}
+.seo-box h2:first-child{margin-top:0}
+.seo-box p{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:18px}
+.seo-box ul{margin:0 0 18px 20px;padding:0}
+.seo-box li{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:8px}
+.seo-box table{width:100%;border-collapse:collapse;margin-bottom:22px}
+.seo-box th,.seo-box td{text-align:left;font-size:12.5px;color:var(--muted);padding:12px 10px;border-bottom:1px solid rgba(201,168,76,.1)}
+.seo-box th{color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:10px}
+.faq{border-top:1px solid rgba(201,168,76,.1);padding:22px 0}
+.faq h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold-l);margin-bottom:8px}
+.faq p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}
+
+footer{position:relative;z-index:10;text-align:center;padding:40px 20px 60px;border-top:1px solid rgba(201,168,76,.08)}
+.f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:14px}
+.f-links{display:flex;justify-content:center;gap:28px;margin:14px 0;flex-wrap:wrap}
+.f-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+.f-links a:hover{color:var(--gold)}
+footer p{font-size:10px;letter-spacing:2px;color:rgba(119,119,119,.6);text-transform:uppercase}
+
+@keyframes fadeD{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .deco-l,.deco-r{display:none}
+  .card{padding:32px 22px}
+  .seo-box{padding:32px 22px}
+}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-19EQBEBP6G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-19EQBEBP6G");
+</script>
+</head>
+<body>
+
+<div class="bg-wrap"></div>
+<div class="grain"></div>
+<div class="deco-t"></div><div class="deco-b"></div>
+<div class="deco-l"></div><div class="deco-r"></div>
+
+<script src="/nav.js"></script>
+
+<header>
+  <div class="brand-row">
+    <div class="brand-line"></div>
+    <span class="brand-name">Age Calculator</span>
+    <div class="brand-line r"></div>
+  </div>
+  <h1>Tip <em>Calculator</em></h1>
+  <p class="sub">Bill &nbsp;&middot;&nbsp; Tip &middot; Split &middot; Total</p>
+</header>
+
+<div class="wrap">
+<div class="card">
+  <div class="c-tr"></div><div class="c-bl"></div>
+
+  <label class="field-lbl">Bill Amount</label>
+  <div class="zrow">
+    <input type="number" id="bill" placeholder="0.00" min="0">
+    <select id="curBill"><option>USD</option><option>GBP</option><option>CAD</option></select>
+  </div>
+
+  <label class="field-lbl">Tip Percentage</label>
+  <div class="tip-presets" id="tipPresets">
+    <button type="button" data-tip="10" onclick="setTip(10)">10%</button>
+    <button type="button" data-tip="15" onclick="setTip(15)">15%</button>
+    <button type="button" data-tip="18" onclick="setTip(18)" class="active">18%</button>
+    <button type="button" data-tip="20" onclick="setTip(20)">20%</button>
+    <button type="button" data-tip="25" onclick="setTip(25)">25%</button>
+  </div>
+  <div class="solo-row" style="margin-top:10px">
+    <input type="number" id="customTip" placeholder="Or enter a custom %" min="0" max="100" oninput="customTipInput()">
+  </div>
+  <p class="hint">In the USA 15-20% is standard; in the UK & Canada 10-15% is common. See the guide below for full etiquette by country.</p>
+
+  <label class="field-lbl">Split Between How Many People</label>
+  <div class="stepper">
+    <button type="button" onclick="stepPeople(-1)">&minus;</button>
+    <span class="stepper-val" id="peopleVal">1</span>
+    <button type="button" onclick="stepPeople(1)">&plus;</button>
+  </div>
+
+  <button class="btn-calc" onclick="calcTip()">Calculate Tip &amp; Split &rarr;</button>
+
+  <div class="results" id="results">
+    <div class="div"><div class="diam"></div></div>
+
+    <div class="pp-box">
+      <span class="pp-lbl">Amount Per Person</span>
+      <div class="pp-num" id="perPerson">$0.00</div>
+      <div class="pp-sub" id="perPersonSub">Includes tip &middot; split between 1 person</div>
+    </div>
+
+    <div class="trio">
+      <div class="trio-block">
+        <span class="trio-num" id="tipAmount">0.00</span>
+        <span class="trio-unit">Tip Amount</span>
+      </div>
+      <div class="trio-block">
+        <span class="trio-num" id="totalAmount">0.00</span>
+        <span class="trio-unit">Total Bill</span>
+      </div>
+    </div>
+
+    <div class="breakdown" id="breakdown"></div>
+    <div class="notice">This calculator gives a general estimate. Some countries and establishments add a mandatory service charge already — check your bill before adding an extra tip on top.</div>
+  </div>
+</div>
+</div>
+
+<div class="seo-wrap">
+  <div class="seo-box">
+    <h2>Tip Calculator – Work Out Your Tip &amp; Split the Bill Instantly</h2>
+    <p>Figuring out how much to tip at a restaurant, and then splitting that total fairly between friends, is one of those small everyday calculations that is surprisingly easy to get wrong after a long dinner. This free Tip Calculator does the maths for you in seconds. Enter your bill amount, pick a tip percentage (or type your own), tell it how many people are splitting the check, and it instantly shows the tip amount, the total bill, and exactly how much each person owes. It works with US Dollars, British Pounds and Canadian Dollars, so it is equally useful whether you are dining out in New York, London, or Toronto.</p>
+
+    <h2>How to Calculate a Tip</h2>
+    <p>The basic tip formula is simple: multiply the bill amount by the tip percentage, expressed as a decimal. For example, an $80 bill with an 18% tip works out to $14.40 in gratuity, making the total payable $94.40. If you are splitting that total between four people, each person pays $23.60. Most servers and etiquette guides recommend calculating the tip on the subtotal before sales tax or VAT is added, since the tax portion does not reflect the quality of service you received, only how much the government charges on the meal.</p>
+
+    <h2>How Much Should You Tip? Tipping Etiquette by Country</h2>
+    <p>Tipping customs vary significantly between the United States, the United Kingdom and Canada, and knowing the local expectation avoids both underpaying and over-tipping.</p>
+    <table>
+      <tr><th>Country</th><th>Typical Restaurant Tip</th><th>Notes</th></tr>
+      <tr><td>USA</td><td>15% – 20%</td><td>Considered essential; servers rely on tips as a large part of their wage. 20-25% for excellent service.</td></tr>
+      <tr><td>UK</td><td>10% – 15%</td><td>Optional but appreciated. Check the bill first — a 12.5% service charge is often already included.</td></tr>
+      <tr><td>Canada</td><td>15% – 20%</td><td>Similar culture to the USA. Tip on the pre-tax subtotal, not the total with GST/HST/PST.</td></tr>
+    </table>
+
+    <h2>Tipping Beyond Restaurants</h2>
+    <ul>
+      <li><strong>Bars:</strong> $1–2 per drink in the USA and Canada, or round up to the nearest pound in the UK.</li>
+      <li><strong>Food delivery:</strong> 10-15% of the order, with a minimum of a few dollars for short trips.</li>
+      <li><strong>Hairdressers & salons:</strong> 15-20% in the USA and Canada; 10% or a small round figure in the UK.</li>
+      <li><strong>Taxis & rideshare:</strong> 10-15% is common in all three countries, though many riders simply round up to the nearest note.</li>
+      <li><strong>Hotel housekeeping:</strong> A few dollars or pounds per night left in the room is a widely accepted courtesy tip.</li>
+    </ul>
+
+    <h2>Splitting the Bill Fairly</h2>
+    <p>When a group shares a table, the simplest method is to add the tip to the bill total and divide the combined amount equally among everyone present. This calculator does exactly that using the number of people you enter. If your group prefers to split based on what each person individually ordered rather than an even share, you can still use this tool to find the correct total tip and total bill, then divide those two figures according to each person's portion of the original order.</p>
+
+    <div class="faq"><h3>How much should I tip at a restaurant?</h3><p>In the USA, 15-20% of the pre-tax bill is standard for good table service, with 20-25% for excellent service. In the UK and Canada, 10-15% is typical, and in the UK a service charge is sometimes already included on the bill.</p></div>
+    <div class="faq"><h3>Is tipping mandatory?</h3><p>Tipping is not legally mandatory in the UK, USA or Canada, but it is a strong social expectation in the USA and Canada because service staff often rely on tips as part of their income. In the UK it is appreciated but more optional, especially where a service charge is already added.</p></div>
+    <div class="faq"><h3>How do I split a bill between friends?</h3><p>Add the tip to the total bill, then divide that combined amount by the number of people. Each person pays an equal share, unless you agree to split based on what each person actually ordered.</p></div>
+    <div class="faq"><h3>Should I tip before or after tax?</h3><p>Most etiquette guides recommend calculating the tip on the pre-tax subtotal, not the total including sales tax or VAT, since tax does not reflect the service you received.</p></div>
+  </div>
+</div>
+
+<footer>
+  <span class="f-brand">Age Calculator</span>
+  <div class="f-links">
+    <a href="/">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Age Calculator &mdash; All Calculations Done In Your Browser &mdash; No Data Stored</p>
+</footer>
+
+<script>
+let currentTip = 18;
+let people = 1;
+
+function setTip(val){
+  currentTip = val;
+  document.getElementById('customTip').value = '';
+  document.querySelectorAll('#tipPresets button').forEach(b=>{
+    b.classList.toggle('active', parseInt(b.dataset.tip) === val);
+  });
+}
+
+function customTipInput(){
+  const v = parseFloat(document.getElementById('customTip').value);
+  document.querySelectorAll('#tipPresets button').forEach(b=>b.classList.remove('active'));
+  if(!isNaN(v) && v >= 0) currentTip = v;
+}
+
+function stepPeople(delta){
+  people = Math.max(1, people + delta);
+  document.getElementById('peopleVal').textContent = people;
+}
+
+function calcTip(){
+  const bill = parseFloat(document.getElementById('bill').value) || 0;
+  const cur = document.getElementById('curBill').value;
+  const sym = cur === 'GBP' ? '£' : cur === 'CAD' ? 'CA$' : '$';
+
+  const tipAmount = bill * (currentTip / 100);
+  const total = bill + tipAmount;
+  const perPerson = total / people;
+  const tipPerPerson = tipAmount / people;
+
+  document.getElementById('tipAmount').textContent = sym + tipAmount.toFixed(2);
+  document.getElementById('totalAmount').textContent = sym + total.toFixed(2);
+  document.getElementById('perPerson').textContent = sym + perPerson.toFixed(2);
+  document.getElementById('perPersonSub').textContent = `Includes tip · split between ${people} ${people===1?'person':'people'}`;
+
+  document.getElementById('breakdown').innerHTML = `
+    <div class="b-row"><span>Bill Amount</span><b>${sym}${bill.toFixed(2)}</b></div>
+    <div class="b-row"><span>Tip (${currentTip}%)</span><b>${sym}${tipAmount.toFixed(2)}</b></div>
+    <div class="b-row"><span>Total Bill</span><b>${sym}${total.toFixed(2)}</b></div>
+    <div class="b-row"><span>Tip Per Person</span><b>${sym}${tipPerPerson.toFixed(2)}</b></div>
+    <div class="b-row"><span><strong>Total Per Person</strong></span><b>${sym}${perPerson.toFixed(2)}</b></div>
+  `;
+
+  const res = document.getElementById('results');
+  res.classList.add('show');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}), 100);
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Enter') calcTip(); });
+</script>
+</body>
+</html>
