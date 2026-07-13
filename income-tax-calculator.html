@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income Tax Calculator 2026 - Estimate Federal Tax, Tax Brackets &amp; Take-Home Pay (USA, UK, Canada)</title>
+<meta name="description" content="Free income tax calculator 2026: estimate your federal income tax, tax bracket, marginal rate, effective tax rate, and take-home pay for the USA, UK, and Canada. Updated with the latest IRS, HMRC, and CRA tax rates.">
+<meta name="keywords" content="income tax calculator, tax calculator, federal income tax calculator, income tax calculator 2026, tax bracket calculator, how much tax will I pay, salary tax calculator, take home pay calculator, effective tax rate calculator, marginal tax rate calculator, UK tax calculator, income tax calculator UK, Canada income tax calculator, US income tax calculator, tax return calculator, paycheck tax calculator, annual income tax calculator, tax estimator 2026">
+<link rel="canonical" href="https://agecalculatorweb.com/income-tax-calculator.html">
+<meta property="og:title" content="Income Tax Calculator 2026 - USA, UK &amp; Canada">
+<meta property="og:description" content="Estimate your federal income tax, tax bracket, and take-home pay instantly for the USA, UK, and Canada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agecalculatorweb.com/income-tax-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#c9a84c;
+    --gold-soft:#e3cd8a;
+    --bg:#080808;
+    --bg-2:#111111;
+    --cream:#f0ead8;
+    --muted:#9a9385;
+    --line:rgba(201,168,76,0.25);
+    --danger:#c9704c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'DM Sans',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    margin:0 0 .5em;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+
+  /* ---- particle backdrop ---- */
+  #particles{
+    position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  }
+  .particle{
+    position:absolute;width:3px;height:3px;border-radius:50%;
+    background:var(--gold);opacity:.35;
+    animation:drift linear infinite;
+  }
+  @keyframes drift{
+    from{transform:translateY(0) translateX(0);}
+    to{transform:translateY(-120vh) translateX(20px);}
+  }
+
+  header.hero{
+    position:relative;z-index:1;
+    padding:64px 0 40px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    letter-spacing:.2em;text-transform:uppercase;font-size:12px;
+    color:var(--gold);margin-bottom:14px;font-weight:600;
+  }
+  header.hero h1{font-size:clamp(28px,4.5vw,44px);color:var(--cream);}
+  header.hero p{color:var(--muted);max-width:560px;margin:14px auto 0;font-size:15px;}
+
+  nav.nav-pill{
+    position:relative;z-index:2;
+    display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+    padding:18px 0;
+  }
+  nav.nav-pill a{
+    color:var(--muted);text-decoration:none;font-size:13px;
+    padding:8px 16px;border:1px solid var(--line);border-radius:999px;
+    transition:all .25s ease;
+  }
+  nav.nav-pill a:hover,nav.nav-pill a.active{
+    color:var(--bg);background:var(--gold);border-color:var(--gold);
+  }
+
+  main{position:relative;z-index:1;padding:48px 0 96px;}
+
+  .card{
+    position:relative;
+    background:linear-gradient(180deg,var(--bg-2),rgba(17,17,17,.6));
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:36px;
+    margin-bottom:32px;
+  }
+  .card::before,.card::after{
+    content:"";position:absolute;width:18px;height:18px;
+    border:2px solid var(--gold);opacity:.7;
+  }
+  .card::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .card::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+  .country-tabs{
+    display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;
+  }
+  .country-tabs button{
+    flex:1;min-width:140px;
+    background:transparent;border:1px solid var(--line);
+    color:var(--muted);padding:14px 10px;border-radius:4px;
+    font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
+    cursor:pointer;transition:all .25s ease;
+  }
+  .country-tabs button.active{
+    background:var(--gold);color:var(--bg);border-color:var(--gold);
+  }
+
+  label{
+    display:block;font-size:13px;color:var(--gold-soft);
+    margin:18px 0 6px;letter-spacing:.03em;
+  }
+  input[type=number],select{
+    width:100%;background:var(--bg);border:1px solid var(--line);
+    color:var(--cream);padding:13px 14px;border-radius:4px;
+    font-family:'DM Sans',sans-serif;font-size:15px;
+    appearance:none;
+  }
+  input[type=number]:focus,select:focus{
+    outline:none;border-color:var(--gold);
+  }
+  select{
+    background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;
+    background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+  }
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:560px){.row{grid-template-columns:1fr;}}
+
+  .toggle-line{
+    display:flex;align-items:center;gap:10px;margin-top:20px;
+    font-size:14px;color:var(--muted);
+  }
+  .toggle-line input{width:16px;height:16px;accent-color:var(--gold);}
+
+  button.calc-btn{
+    margin-top:28px;width:100%;
+    background:var(--gold);color:var(--bg);border:none;
+    padding:16px;border-radius:4px;font-family:'DM Sans',sans-serif;
+    font-weight:700;font-size:15px;letter-spacing:.03em;cursor:pointer;
+    text-transform:uppercase;transition:background .25s ease;
+  }
+  button.calc-btn:hover{background:var(--gold-soft);}
+
+  .results{display:none;margin-top:32px;}
+  .results.show{display:block;}
+  .result-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;
+  }
+  @media(max-width:640px){.result-grid{grid-template-columns:1fr;}}
+  .stat{
+    border:1px solid var(--line);border-radius:4px;padding:20px;text-align:center;
+    background:rgba(201,168,76,.04);
+  }
+  .stat .num{
+    font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);
+    display:block;margin-bottom:4px;
+  }
+  .stat .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
+
+  table.bracket-table{
+    width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px;
+  }
+  table.bracket-table th,table.bracket-table td{
+    padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;
+  }
+  table.bracket-table th{color:var(--gold-soft);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em;}
+  table.bracket-table td.amount{text-align:right;color:var(--cream);}
+  table.bracket-table tr.filled td{color:var(--gold-soft);}
+
+  .note{
+    font-size:13px;color:var(--muted);margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+  .note a{color:var(--gold);}
+
+  footer{
+    position:relative;z-index:1;text-align:center;padding:36px 0;
+    color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);
+  }
+  .disclaimer{
+    max-width:700px;margin:0 auto 20px;font-size:12px;color:var(--muted);
+    line-height:1.7;
+  }
+
+  h2.section-title{
+    font-size:22px;margin-bottom:16px;color:var(--gold-soft);
+  }
+  .article p{color:var(--muted);font-size:14.5px;margin-bottom:14px;}
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">2026 Tax Year</div>
+    <h1>Income Tax Calculator</h1>
+    <p>Estimate your federal income tax for the United States, United Kingdom, or Canada — updated with official 2026 rates and allowances.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="card">
+      <div class="country-tabs" id="countryTabs">
+        <button type="button" class="active" data-country="us">🇺🇸 United States</button>
+        <button type="button" data-country="uk">🇬🇧 United Kingdom</button>
+        <button type="button" data-country="ca">🇨🇦 Canada</button>
+      </div>
+
+      <!-- ===== US FORM ===== -->
+      <div class="country-form" id="form-us">
+        <label for="usIncome">Annual gross income (USD)</label>
+        <input type="number" id="usIncome" placeholder="e.g. 85000" min="0">
+
+        <label for="usFiling">Filing status</label>
+        <select id="usFiling">
+          <option value="single">Single</option>
+          <option value="mfj">Married filing jointly</option>
+          <option value="hoh">Head of household</option>
+          <option value="mfs">Married filing separately</option>
+        </select>
+
+        <div class="toggle-line">
+          <input type="checkbox" id="usStandard" checked>
+          <label for="usStandard" style="margin:0;color:var(--muted);">Apply the 2026 standard deduction automatically</label>
+        </div>
+
+        <button class="calc-btn" onclick="calcUS()">Calculate Federal Tax</button>
+      </div>
+
+      <!-- ===== UK FORM ===== -->
+      <div class="country-form" id="form-uk" style="display:none;">
+        <label for="ukIncome">Annual gross income (GBP)</label>
+        <input type="number" id="ukIncome" placeholder="e.g. 45000" min="0">
+
+        <div class="toggle-line">
+          <input type="checkbox" id="ukNI">
+          <label for="ukNI" style="margin:0;color:var(--muted);">Include employee National Insurance (8% / 2%)</label>
+        </div>
+
+        <button class="calc-btn" onclick="calcUK()">Calculate Income Tax</button>
+      </div>
+
+      <!-- ===== CANADA FORM ===== -->
+      <div class="country-form" id="form-ca" style="display:none;">
+        <label for="caIncome">Annual gross income (CAD)</label>
+        <input type="number" id="caIncome" placeholder="e.g. 70000" min="0">
+
+        <label for="caProvince">Province / territory</label>
+        <select id="caProvince">
+          <option value="">Federal only (I'll add my province separately)</option>
+        </select>
+
+        <button class="calc-btn" onclick="calcCA()">Calculate Federal Tax</button>
+      </div>
+
+      <!-- ===== RESULTS ===== -->
+      <div class="results" id="results">
+        <div class="result-grid">
+          <div class="stat"><span class="num" id="rTax">–</span><span class="lbl">Estimated Tax</span></div>
+          <div class="stat"><span class="num" id="rEffective">–</span><span class="lbl">Effective Rate</span></div>
+          <div class="stat"><span class="num" id="rMarginal">–</span><span class="lbl">Marginal Rate</span></div>
+        </div>
+        <table class="bracket-table" id="bracketTable"></table>
+        <div class="note" id="resultNote"></div>
+      </div>
+    </div>
+
+    <div class="card article">
+      <h2 class="section-title">How this income tax calculator works</h2>
+      <p><strong>United States —</strong> uses the 2026 IRS federal tax brackets (10%–37%) from Revenue Procedure 2025-32, with the applicable 2026 standard deduction ($16,100 single/MFS, $32,200 married filing jointly, $24,150 head of household). This is federal tax only — state income tax isn't included here; use our <a href="paycheck-calculator.html" style="color:var(--gold);">paycheck calculator</a> for a full state-by-state take-home pay breakdown.</p>
+      <p><strong>United Kingdom —</strong> uses 2026/27 HMRC income tax rates for England, Wales, and Northern Ireland: a £12,570 personal allowance (tapered away between £100,000–£125,140), 20% basic rate, 40% higher rate, and 45% additional rate. Scottish taxpayers use different bands and aren't covered here.</p>
+      <p><strong>Canada —</strong> uses 2026 CRA federal tax brackets (14%–33%) and the federal Basic Personal Amount ($16,452, tapering to $14,829 for high earners). Provincial tax is calculated and billed separately by each province, so the result shown is federal tax only.</p>
+      <p>All figures are estimates for planning purposes and don't account for every credit, deduction, or personal circumstance. For a filing-ready number, check with a licensed tax professional in your jurisdiction.</p>
+    </div>
+
+    <div class="card article">
+      <h2 class="section-title">Understanding Your Income Tax in 2026</h2>
+
+      <p>Figuring out how much income tax you actually owe can feel confusing, especially with tax brackets, standard deductions, personal allowances, and marginal rates all playing a part. This income tax calculator is built to take the guesswork out of the process, whether you're a salaried employee in the United States, a taxpayer in the United Kingdom, or filing your return with the Canada Revenue Agency. Simply enter your annual income, choose your country and filing status, and get an instant estimate of your federal income tax, your effective tax rate, and your marginal tax rate for the 2026 tax year.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">What Is a Tax Bracket, and Why Does It Matter?</h3>
+      <p>A tax bracket is a range of income taxed at a specific rate. Most countries, including the USA, the UK, and Canada, use a progressive income tax system. This means your income isn't taxed at a single flat rate — instead, it's taxed in layers. The first portion of your income is taxed at the lowest rate, the next portion at a slightly higher rate, and so on, until you reach the top of your taxable income. This is why your marginal tax rate (the rate on your last dollar, pound, or CAD earned) is almost always higher than your effective tax rate (the average rate you actually pay across your entire income). Understanding this difference is one of the most common points of confusion when people try to estimate how much tax will I pay this year.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">US Federal Income Tax Calculator: How It's Calculated</h3>
+      <p>For the United States, this federal income tax calculator applies the 2026 IRS tax brackets, which range from 10% to 37% across seven income tiers. Before your income is taxed, the calculator subtracts the 2026 standard deduction based on your filing status — single, married filing jointly, head of household, or married filing separately. The result is your taxable income, which is then run through the bracket system to calculate your total federal tax bill. Keep in mind this tool estimates federal income tax only. Your total tax burden will also include state income tax (which varies widely, from 0% in states like Texas and Florida to over 10% in states like California), plus FICA taxes for Social Security and Medicare. For a complete picture of your take-home pay including state taxes and payroll deductions, our paycheck calculator covers all 50 states.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">UK Income Tax Calculator: Personal Allowance and Tax Bands</h3>
+      <p>In the United Kingdom, income tax works a little differently. Instead of a standard deduction, taxpayers get a personal allowance — the amount of income you can earn before paying any income tax at all. For the 2026/27 tax year, that allowance is £12,570. Once your income crosses £100,000, this allowance starts shrinking, disappearing completely once you hit £125,140 — a quirk that creates an effective marginal tax rate of 60% in that income band. Above the personal allowance, income is taxed at the basic rate (20%), the higher rate (40%), or the additional rate (45%), depending on how much you earn. This UK tax calculator also lets you optionally include employee National Insurance contributions, which are charged at 8% on earnings between £12,570 and £50,270, and 2% above that threshold, giving you a more realistic view of your total deductions.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">Canada Income Tax Calculator: Federal Brackets and the Basic Personal Amount</h3>
+      <p>Canada's federal income tax system uses five brackets in 2026, ranging from 14% to 33%. Rather than a deduction that reduces your taxable income, Canada applies the Basic Personal Amount (BPA) as a non-refundable tax credit — for 2026, that's $16,452, worth roughly $2,303 in tax savings for most filers. High-income earners see this amount gradually reduced, bottoming out at $14,829 once net income passes $258,482. One important thing to know: this calculator shows federal tax only. Every Canadian province and territory charges its own provincial income tax on top of the federal amount, and rates vary significantly — Alberta's provincial rates are noticeably lower than Quebec's, for example. Always add your province's tax rate separately to get your full income tax liability.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">Marginal Tax Rate vs. Effective Tax Rate</h3>
+      <p>One of the most useful things this calculator shows is the difference between your marginal and effective tax rates. Your marginal tax rate is the percentage applied to your next dollar of income — it tells you how much of a raise or bonus you'd keep after tax. Your effective tax rate, on the other hand, is your total tax divided by your total income, giving you the real, blended percentage of your earnings that goes to tax. It's common for someone in the "24% bracket" in the US, for instance, to have an effective tax rate closer to 15–17%, simply because only the income above each threshold is taxed at that bracket's rate. This calculator does the layered math for you automatically and displays both figures side by side.</p>
+
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:26px;">Frequently Asked Questions</h3>
+      <p><strong>Does this income tax calculator include state or provincial tax?</strong> No. It calculates federal income tax for the USA and Canada, and national income tax for the UK. State and provincial taxes are calculated separately and vary by location.</p>
+      <p><strong>Is this calculator accurate for the 2026 tax year?</strong> Yes, it uses the official 2026 tax brackets, standard deductions, and allowances published by the IRS, HMRC, and CRA. However, it doesn't account for every possible credit, deduction, or unique filing situation.</p>
+      <p><strong>Can I use this as a salary tax calculator or take-home pay calculator?</strong> This tool is designed to estimate your annual income tax liability rather than a full paycheck breakdown. For take-home pay after all deductions, use our dedicated paycheck calculator.</p>
+      <p><strong>Why is my marginal tax rate higher than my effective tax rate?</strong> Because progressive tax systems only apply higher rates to the portion of income within each bracket, not your entire income — so your average (effective) rate is always lower than your top (marginal) rate.</p>
+      <p>This income tax calculator is updated regularly to reflect the latest tax year changes, so you can rely on it for quick, accurate estimates whether you're planning your budget, comparing job offers, or simply curious how much tax you'll pay in 2026.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="disclaimer">This calculator provides estimates based on published 2026 tax rates and is intended for general planning only. It is not tax advice. Consult a qualified tax professional for guidance specific to your situation.</div>
+  © 2026 AgeCalculatorWeb.com — All rights reserved.
+</footer>
+
+<script>
+/* ---------- ambient particles ---------- */
+(function(){
+  const field = document.getElementById('particles');
+  const count = window.innerWidth < 640 ? 18 : 34;
+  for(let i=0;i<count;i++){
+    const p = document.createElement('div');
+    p.className='particle';
+    p.style.left = Math.random()*100+'%';
+    p.style.top = 100+Math.random()*20+'%';
+    p.style.animationDuration = (14+Math.random()*18)+'s';
+    p.style.animationDelay = (Math.random()*10)+'s';
+    p.style.opacity = (0.15+Math.random()*0.35).toFixed(2);
+    field.appendChild(p);
+  }
+})();
+
+/* ---------- country tabs ---------- */
+const tabs = document.querySelectorAll('#countryTabs button');
+tabs.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    tabs.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.country-form').forEach(f=>f.style.display='none');
+    document.getElementById('form-'+btn.dataset.country).style.display='block';
+    document.getElementById('results').classList.remove('show');
+  });
+});
+
+/* ---------- Canada province list (label only; federal calc shown) ---------- */
+const provinces = ["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Nova Scotia","Ontario","Prince Edward Island","Quebec","Saskatchewan","Northwest Territories","Nunavut","Yukon"];
+const caSelect = document.getElementById('caProvince');
+provinces.forEach(p=>{
+  const o=document.createElement('option');
+  o.value=p; o.textContent=p+" (federal portion shown; add provincial tax separately)";
+  caSelect.appendChild(o);
+});
+
+/* ---------- shared bracket engine ---------- */
+function progressiveTax(income, brackets){
+  // brackets: [{upTo:Number|Infinity, rate:Number}]
+  let tax=0, last=0, marginal=brackets[0].rate, rows=[];
+  for(const b of brackets){
+    if(income>last){
+      const taxableInBand = Math.min(income,b.upTo)-last;
+      const bandTax = taxableInBand*b.rate;
+      tax += bandTax;
+      if(taxableInBand>0){ marginal=b.rate; }
+      rows.push({from:last, to:Math.min(income,b.upTo), rate:b.rate, taxed: taxableInBand>0, bandTax});
+    } else {
+      rows.push({from:last, to:b.upTo, rate:b.rate, taxed:false, bandTax:0});
+    }
+    last=b.upTo;
+    if(income<=b.upTo) break;
+  }
+  return {tax, marginal, rows};
+}
+
+function fmt(n, symbol){
+  return symbol + n.toLocaleString(undefined,{maximumFractionDigits:0});
+}
+
+function renderTable(rows, symbol){
+  let html = "<tr><th>Bracket</th><th>Rate</th><th style='text-align:right;'>Tax in Band</th></tr>";
+  rows.forEach(r=>{
+    if(r.to===Infinity){
+      html += `<tr class="${r.taxed?'filled':''}"><td>Over ${fmt(r.from,symbol)}</td><td>${(r.rate*100).toFixed(1)}%</td><td class="amount">${fmt(r.bandTax,symbol)}</td></tr>`;
+    } else {
+      html += `<tr class="${r.taxed?'filled':''}"><td>${fmt(r.from,symbol)} – ${fmt(r.to,symbol)}</td><td>${(r.rate*100).toFixed(1)}%</td><td class="amount">${fmt(r.bandTax,symbol)}</td></tr>`;
+    }
+  });
+  document.getElementById('bracketTable').innerHTML = html;
+}
+
+function showResults(tax, income, marginal, symbol, note){
+  document.getElementById('rTax').textContent = fmt(tax, symbol);
+  document.getElementById('rEffective').textContent = income>0 ? ((tax/income)*100).toFixed(1)+'%' : '0%';
+  document.getElementById('rMarginal').textContent = (marginal*100).toFixed(1)+'%';
+  document.getElementById('resultNote').innerHTML = note;
+  document.getElementById('results').classList.add('show');
+}
+
+/* ---------- US ---------- */
+function calcUS(){
+  const income = parseFloat(document.getElementById('usIncome').value)||0;
+  const filing = document.getElementById('usFiling').value;
+  const applyStd = document.getElementById('usStandard').checked;
+
+  const standardDeductions = {single:16100, mfj:32200, hoh:24150, mfs:16100};
+  const taxable = Math.max(0, income - (applyStd?standardDeductions[filing]:0));
+
+  const bracketSets = {
+    single:[{upTo:12400,rate:.10},{upTo:50400,rate:.12},{upTo:105700,rate:.22},{upTo:201775,rate:.24},{upTo:256225,rate:.32},{upTo:640600,rate:.35},{upTo:Infinity,rate:.37}],
+    mfj:[{upTo:24800,rate:.10},{upTo:100800,rate:.12},{upTo:211400,rate:.22},{upTo:403550,rate:.24},{upTo:512450,rate:.32},{upTo:768700,rate:.35},{upTo:Infinity,rate:.37}],
+    hoh:[{upTo:17700,rate:.10},{upTo:67450,rate:.12},{upTo:105700,rate:.22},{upTo:201750,rate:.24},{upTo:256200,rate:.32},{upTo:640600,rate:.35},{upTo:Infinity,rate:.37}],
+    mfs:[{upTo:12400,rate:.10},{upTo:50400,rate:.12},{upTo:105700,rate:.22},{upTo:201775,rate:.24},{upTo:256225,rate:.32},{upTo:384350,rate:.35},{upTo:Infinity,rate:.37}]
+  };
+
+  const result = progressiveTax(taxable, bracketSets[filing]);
+  renderTable(result.rows, "$");
+  showResults(result.tax, income, result.marginal, "$",
+    `Taxable income after ${applyStd?"the 2026 standard deduction":"no deduction applied"}: <strong>${fmt(taxable,"$")}</strong>. This is federal tax only — state income tax is calculated separately.`);
+}
+
+/* ---------- UK ---------- */
+function calcUK(){
+  const income = parseFloat(document.getElementById('ukIncome').value)||0;
+  const includeNI = document.getElementById('ukNI').checked;
+
+  let allowance = 12570;
+  if(income>100000){
+    allowance = Math.max(0, 12570 - Math.floor((income-100000)/2));
+  }
+  const taxable = Math.max(0, income - allowance);
+
+  const brackets = [
+    {upTo:50270-12570, rate:.20},
+    {upTo:125140-12570, rate:.40},
+    {upTo:Infinity, rate:.45}
+  ];
+  const result = progressiveTax(taxable, brackets);
+
+  let ni = 0;
+  if(includeNI){
+    const niBand1 = Math.max(0, Math.min(income,50270)-12570);
+    const niBand2 = Math.max(0, income-50270);
+    ni = niBand1*0.08 + niBand2*0.02;
+  }
+
+  renderTable(result.rows, "£");
+  showResults(result.tax+ni, income, result.marginal, "£",
+    `Personal allowance applied: <strong>${fmt(allowance,"£")}</strong>.${includeNI? ` Includes an estimated <strong>${fmt(ni,"£")}</strong> employee National Insurance.`:" National Insurance not included — tick the box above to add it."}`);
+}
+
+/* ---------- Canada ---------- */
+function calcCA(){
+  const income = parseFloat(document.getElementById('caIncome').value)||0;
+  const province = document.getElementById('caProvince').value;
+
+  let bpa = 16452;
+  if(income>181440){
+    const reduction = Math.min(1623, 1623*((income-181440)/(258482-181440)));
+    bpa = 16452-reduction;
+    if(income>=258482) bpa=14829;
+  }
+
+  const brackets = [
+    {upTo:58523,rate:.14},
+    {upTo:117045,rate:.205},
+    {upTo:181440,rate:.26},
+    {upTo:258482,rate:.29},
+    {upTo:Infinity,rate:.33}
+  ];
+  const result = progressiveTax(income, brackets);
+  const bpaCredit = bpa*0.14;
+  const netTax = Math.max(0, result.tax - bpaCredit);
+
+  renderTable(result.rows, "$");
+  showResults(netTax, income, result.marginal, "$",
+    `Includes the federal Basic Personal Amount credit (${fmt(bpa,"$")} × 14% = ${fmt(bpaCredit,"$")}).${province? ` Provincial tax for <strong>${province}</strong> is billed separately and not included in this total.`:" Provincial tax is billed separately and not included in this total."}`);
+}
+</script>
+
+</body>
+</html>
