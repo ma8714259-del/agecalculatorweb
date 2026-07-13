@@ -124,6 +124,7 @@
     { id:"sleep", name:"Sleep Calculator", url:"/sleep-calculator.html", icon:"😴", desc:"Find the best time to sleep or wake up.", category:"Health", keywords:["sleep cycle","wake up time"] },
     { id:"mortgage", name:"Mortgage Calculator", url:"/mortgage-calculator.html", icon:"🏦", desc:"Estimate your monthly mortgage payments.", category:"Mortgage", keywords:["home loan","house payment"], popular:true },
     { id:"paycheck", name:"Paycheck Calculator", url:"/paycheck-calculator.html", icon:"💼", desc:"Estimate your take-home pay after taxes.", category:"Salary", keywords:["salary","net pay","tax"], popular:true, recentlyAdded:true },
+    { id:"incometax", name:"Income Tax Calculator", url:"/income-tax-calculator.html", icon:"🧾", desc:"Estimate your federal income tax for USA, UK and Canada.", category:"Finance", keywords:["tax calculator","federal tax","tax brackets","irs","hmrc","cra"], popular:true, recentlyAdded:true },
     { id:"retirement", name:"Retirement Calculator", url:"/retirement-calculator.html", icon:"🏖️", desc:"Plan your savings for retirement.", category:"Investment", keywords:["401k","pension"] },
     { id:"blog", name:"Blog", url:"/blog.html", icon:"📰", desc:"Guides and articles on personal finance and calculators.", category:"Other", keywords:["articles","guides"] }
   ];
