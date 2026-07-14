@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discount Calculator – Free Sale Price & Percent Off Calculator (2026)</title>
+<meta name="description" content="Free Discount Calculator – instantly find the sale price, amount saved, and final total after any percent-off discount. Add tax, compare multiple discounts, and shop smarter.">
+<meta name="keywords" content="discount calculator, sale price calculator, percent off calculator, discount calculator online, coupon discount calculator, black friday discount calculator, sale calculator, price after discount calculator, how much will I save calculator, markdown calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Age Calculator">
+<link rel="canonical" href="https://agecalculatorweb.com/discount-calculator.html">
+<meta property="og:title" content="Discount Calculator – Free Sale Price & Percent Off Calculator">
+<meta property="og:description" content="Instantly find your sale price and savings on any discount. Free, fast, no signup needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agecalculatorweb.com/discount-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:       #c9a84c;
+  --gold-light: #e2c97e;
+  --gold-dim:   #8a6e30;
+  --gold-bg:    rgba(201,168,76,0.08);
+  --gold-border:rgba(201,168,76,0.35);
+  --dark:       #0d0d0d;
+  --dark-2:     #151515;
+  --dark-3:     #1c1c1c;
+  --dark-4:     #232323;
+  --text-w:     #f5f0e8;
+  --text-dim:   #a09880;
+  --text-muted: #6b6354;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--dark);
+  color: var(--text-w);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(201,168,76,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 56px 24px 52px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 10vw, 78px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--text-w);
+  margin-bottom: 18px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.hero-sub span { margin: 0 4px; }
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 36px 20px 72px;
+}
+
+.card {
+  background: var(--dark-2);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.7;
+}
+.card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.card::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.mode-switch {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+
+.mode-switch button {
+  flex: 1;
+  padding: 11px 10px;
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-switch button + button { border-left: 1px solid var(--gold-border); }
+
+.mode-switch button.on {
+  background: var(--gold-bg);
+  color: var(--gold-light);
+}
+
+.field { margin-bottom: 18px; }
+
+.field-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 8px;
+}
+
+.field-label span { color: var(--text-muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+.input-wrap { position: relative; }
+
+.input-wrap input {
+  width: 100%;
+  padding: 15px 54px 15px 16px;
+  background: var(--dark-3);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-w);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+
+.input-wrap input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.input-wrap input:focus {
+  border-color: var(--gold);
+  background: var(--dark-4);
+}
+
+.input-unit {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  pointer-events: none;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.toggle-row{
+  display:flex;align-items:center;gap:10px;margin-bottom:18px;font-size:13px;color:var(--text-dim);
+}
+.toggle-row input{width:16px;height:16px;accent-color:var(--gold);}
+
+.err {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(220,38,38,0.1);
+  border: 1px solid rgba(220,38,38,0.4);
+  color: #f87171;
+  padding: 11px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+.err.show { display: flex; }
+
+.actions { display: flex; gap: 10px; }
+
+.btn-calc {
+  flex: 1;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  color: var(--dark);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn-calc:hover { opacity: 0.9; }
+.btn-calc:active { transform: scale(0.99); }
+
+.btn-rst {
+  padding: 15px 16px;
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-rst:hover { border-color: var(--gold); color: var(--gold); }
+
+.result { display: none; }
+.result.show { display: block; animation: fadeUp 0.4s ease; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.price-display {
+  background: var(--dark-2);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+.price-display::before,
+.price-display::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border-color: var(--gold); border-style: solid; opacity: 0.7; z-index: 1;
+}
+.price-display::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.price-display::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.price-top {
+  padding: 36px 24px 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.old-price{
+  font-size:18px;color:var(--text-muted);text-decoration:line-through;margin-bottom:6px;
+}
+
+.price-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.price-cat-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4ade80;
+  margin-bottom: 6px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stat {
+  padding: 18px 20px;
+  text-align: center;
+  border-right: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
+}
+.stat:nth-child(even) { border-right: none; }
+.stat:nth-child(3),
+.stat:nth-child(4) { border-bottom: none; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.stat-name {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tip-box {
+  padding: 18px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-top: 1px solid var(--gold-border);
+  background: var(--gold-bg);
+}
+
+.tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+.tip-content { font-size: 12px; line-height: 1.7; color: var(--text-dim); }
+.tip-content strong {
+  display: block;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead tr { background: var(--dark-3); }
+th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border-bottom: 1px solid var(--gold-border);
+}
+td {
+  padding: 11px 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  font-weight: 500;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+tr:last-child td { border-bottom: none; }
+
+.seo-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-w);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.seo-p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--gold-border);
+  margin: 18px 0;
+}
+
+.faq-item { padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.15); }
+.faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.faq-q {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 7px;
+  letter-spacing: 0.01em;
+}
+
+.faq-a {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--dark-2);
+  border-top: 1px solid var(--gold-border);
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.footer-nav a {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.footer-nav a:hover { color: var(--gold); background: var(--gold-bg); }
+
+.footer-copy {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+</style>
+</head>
+<body>
+
+<script src="/nav.js"></script>
+
+<section class="hero">
+  <div class="hero-eyebrow">Discount Calculator</div>
+  <h1>Calculate Your<br><em>Sale</em><br>Price, Instantly</h1>
+  <div class="hero-sub">
+    <span>PERCENT OFF</span>·
+    <span>SALE PRICE</span>·
+    <span>MULTIPLE DISCOUNTS</span>·
+    <span>TAX INCLUDED</span>
+  </div>
+</section>
+
+<main>
+
+  <div class="card">
+    <div class="card-label">Enter Your Details</div>
+
+    <div class="mode-switch">
+      <button class="on" id="btn-single" onclick="setMode('single')">Single Discount</button>
+      <button id="btn-stacked" onclick="setMode('stacked')">Stacked Discounts</button>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Original Price</label>
+      <div class="input-wrap">
+        <input type="number" id="price" placeholder="e.g. 100" min="0" inputmode="decimal">
+        <span class="input-unit">$</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Discount</label>
+      <div class="input-wrap">
+        <input type="number" id="discount1" placeholder="e.g. 25" min="0" max="100" inputmode="decimal">
+        <span class="input-unit">%</span>
+      </div>
+    </div>
+
+    <div class="field" id="discount2-field" style="display:none;">
+      <label class="field-label">Second Discount <span>(applied on top)</span></label>
+      <div class="input-wrap">
+        <input type="number" id="discount2" placeholder="e.g. 10" min="0" max="100" inputmode="decimal">
+        <span class="input-unit">%</span>
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="includeTax">
+      <label for="includeTax">Add sales tax / VAT after discount</label>
+    </div>
+
+    <div class="field" id="tax-field" style="display:none;">
+      <label class="field-label">Tax Rate</label>
+      <div class="input-wrap">
+        <input type="number" id="taxRate" placeholder="e.g. 8.5" min="0" max="100" inputmode="decimal">
+        <span class="input-unit">%</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Quantity <span>(optional)</span></label>
+      <div class="input-wrap">
+        <input type="number" id="qty" placeholder="1" min="1" inputmode="decimal">
+        <span class="input-unit">QTY</span>
+      </div>
+    </div>
+
+    <div class="err" id="err">⚠ <span id="err-txt">Please enter a valid price and discount.</span></div>
+
+    <div class="actions">
+      <button class="btn-calc" onclick="calculate()">Calculate Sale Price →</button>
+      <button class="btn-rst" onclick="reset()">✕ Reset</button>
+    </div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="price-display">
+
+      <div class="price-top">
+        <div class="old-price" id="old-price">—</div>
+        <div class="price-number" id="final-price">—</div>
+        <div class="price-cat-name" id="save-label">—</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num" id="s-saved">—</div>
+          <div class="stat-name">You Save</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="s-effective">—</div>
+          <div class="stat-name">Effective Discount</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="s-tax">—</div>
+          <div class="stat-name">Tax Added</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="s-total">—</div>
+          <div class="stat-name">Total for Qty</div>
+        </div>
+      </div>
+
+      <div class="tip-box" id="tip-box">
+        <span class="tip-icon">💡</span>
+        <div class="tip-content">
+          <strong>Good to know</strong>
+          <span id="tip-body">—</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">📊 Quick Reference — Common Discounts</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Discount</th><th>On $50</th><th>On $100</th><th>On $200</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10% off</td><td>$45.00</td><td>$90.00</td><td>$180.00</td></tr>
+          <tr><td>20% off</td><td>$40.00</td><td>$80.00</td><td>$160.00</td></tr>
+          <tr><td>25% off</td><td>$37.50</td><td>$75.00</td><td>$150.00</td></tr>
+          <tr><td>30% off</td><td>$35.00</td><td>$70.00</td><td>$140.00</td></tr>
+          <tr><td>50% off</td><td>$25.00</td><td>$50.00</td><td>$100.00</td></tr>
+          <tr><td>70% off</td><td>$15.00</td><td>$30.00</td><td>$60.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="seo-h2">Discount Calculator – Free Sale Price & Percent Off Calculator</h2>
+    <p class="seo-p">This discount calculator instantly works out the sale price, the amount you save, and the final total after tax on any percent-off deal. Whether you're shopping a Black Friday sale, comparing coupon codes, or stacking two discounts on top of each other, this tool does the maths for you in one click — no signup needed, works entirely in your browser.</p>
+    <p class="seo-p">Stacked discounts don't simply add together — a 20% discount followed by a 10% discount isn't 30% off, it's actually 28% off, because the second discount applies to the already-reduced price. Toggle "Stacked Discounts" above to see the true combined savings, along with the effective (real) discount percentage.</p>
+    <div class="divider"></div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">How do you calculate a discount?</div>
+        <div class="faq-a">To find a sale price, multiply the original price by (1 − discount ÷ 100). For example, $80 at 25% off is $80 × 0.75 = $60. This calculator does that instantly and also shows exactly how much you saved.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do two discounts add up, like 20% + 10% = 30% off?</div>
+        <div class="faq-a">No — stacked discounts are applied one after another, not added together. A 20% discount followed by a 10% discount on the reduced price works out to a 28% total discount, not 30%. Use the "Stacked Discounts" mode above to calculate this correctly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Should tax be calculated before or after the discount?</div>
+        <div class="faq-a">In most places, including the US, UK, and Canada, sales tax or VAT is calculated on the discounted price, not the original price. This calculator applies tax after the discount by default, matching standard checkout practice.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is this a percent off calculator too?</div>
+        <div class="faq-a">Yes. Enter your original price and the percentage off, and this calculator works as both a discount calculator and a percent off calculator, showing the sale price and the amount saved side by side.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my data stored or shared?</div>
+        <div class="faq-a">Never. All calculations happen entirely in your browser. No personal data is collected, stored, or sent to any server.</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">Age Calculator</div>
+  <div class="footer-nav">
+    <a href="https://agecalculatorweb.com/">Age Calculator</a>
+    <a href="https://agecalculatorweb.com/loan-calculator.html">Loan Calculator</a>
+    <a href="https://agecalculatorweb.com/bmi-calculator.html">BMI Calculator</a>
+    <a href="https://agecalculatorweb.com/paycheck-calculator.html">Paycheck Calculator</a>
+    <a href="https://agecalculatorweb.com/income-tax-calculator.html">Income Tax Calculator</a>
+    <a href="https://agecalculatorweb.com/about.html">About Us</a>
+    <a href="https://agecalculatorweb.com/blog.html">Blog</a>
+    <a href="https://agecalculatorweb.com/privacy-policy.html">Privacy Policy</a>
+    <a href="https://agecalculatorweb.com/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Age Calculator — All Calculations Done In Your Browser — No Data Stored</div>
+</footer>
+
+<script>
+  var mode = 'single';
+
+  function setMode(m){
+    mode = m;
+    document.getElementById('btn-single').classList.toggle('on', m==='single');
+    document.getElementById('btn-stacked').classList.toggle('on', m==='stacked');
+    document.getElementById('discount2-field').style.display = m==='stacked' ? 'block' : 'none';
+    reset();
+  }
+
+  document.getElementById('includeTax').addEventListener('change', function(){
+    document.getElementById('tax-field').style.display = this.checked ? 'block' : 'none';
+  });
+
+  function calculate(){
+    hideErr();
+    var price = parseFloat(document.getElementById('price').value);
+    var d1 = parseFloat(document.getElementById('discount1').value);
+    var d2 = mode==='stacked' ? (parseFloat(document.getElementById('discount2').value)||0) : 0;
+    var qty = parseFloat(document.getElementById('qty').value) || 1;
+    var includeTax = document.getElementById('includeTax').checked;
+    var taxRate = includeTax ? (parseFloat(document.getElementById('taxRate').value)||0) : 0;
+
+    if(!price || price<=0) return showErr('Please enter a valid original price.');
+    if(isNaN(d1) || d1<0 || d1>100) return showErr('Please enter a discount between 0 and 100%.');
+    if(mode==='stacked' && (d2<0 || d2>100)) return showErr('Please enter a valid second discount.');
+
+    var afterD1 = price * (1 - d1/100);
+    var afterD2 = mode==='stacked' ? afterD1 * (1 - d2/100) : afterD1;
+    var saved = price - afterD2;
+    var effectiveDiscount = (saved/price)*100;
+    var tax = afterD2 * (taxRate/100);
+    var finalPrice = afterD2 + tax;
+    var totalQty = finalPrice * qty;
+
+    document.getElementById('old-price').textContent = '$' + price.toFixed(2);
+    document.getElementById('final-price').textContent = '$' + finalPrice.toFixed(2);
+    document.getElementById('save-label').textContent = 'Sale Price';
+    document.getElementById('s-saved').textContent = '$' + saved.toFixed(2);
+    document.getElementById('s-effective').textContent = effectiveDiscount.toFixed(1) + '%';
+    document.getElementById('s-tax').textContent = '$' + tax.toFixed(2);
+    document.getElementById('s-total').textContent = '$' + totalQty.toFixed(2);
+
+    var tipBody;
+    if(mode==='stacked'){
+      tipBody = 'Your two discounts combine to an effective ' + effectiveDiscount.toFixed(1) + '% off — not simply ' + (d1+d2) + '% — because the second discount applies to the already-reduced price.';
+    } else if(includeTax){
+      tipBody = 'Tax was calculated on the discounted price (' + '$' + afterD2.toFixed(2) + '), which is how most US, UK, and Canadian retailers calculate checkout tax.';
+    } else {
+      tipBody = 'You saved $' + saved.toFixed(2) + ' — that\'s ' + effectiveDiscount.toFixed(1) + '% off the original price.';
+    }
+    document.getElementById('tip-body').textContent = tipBody;
+
+    var res = document.getElementById('result');
+    res.classList.add('show');
+    res.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  function reset(){
+    ['price','discount1','discount2','taxRate','qty'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.value = '';
+    });
+    document.getElementById('includeTax').checked = false;
+    document.getElementById('tax-field').style.display = 'none';
+    document.getElementById('result').classList.remove('show');
+    hideErr();
+  }
+
+  function showErr(m){
+    document.getElementById('err-txt').textContent = m;
+    document.getElementById('err').classList.add('show');
+  }
+  function hideErr(){ document.getElementById('err').classList.remove('show'); }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Enter') calculate();
+  });
+</script>
+</body>
+</html>
