@@ -114,8 +114,14 @@
      یہی ایک جگہ ہے جسے آپ کو مستقبل میں edit کرنا ہوگا — کہیں اور کچھ نہیں۔
   ========================================================= */
   const CALCULATORS = [
-   { id:"age", name:"Age Calculator", url:"/", icon:"🎂", desc:"Find your exact age in years, months, and days.", category:"Time & Date", keywords:["birthday","how old","dob"], popular:true },
- { id:"tip", name:"Tip Calculator", url:"/tip-calculator.html", icon:"💵", desc:"Calculate tip and split the bill between friends.", category:"Finance", keywords:["gratuity","bill split","how much to tip"], popular:true, recentlyAdded:true },
+ { id:"age", name:"Age Calculator", url:"/", icon:"🎂", desc:"Find your exact age in years, months, and days.", category:"Time & Date", keywords:["birthday","how old","dob"], popular:true },
+ {
+  name: "Pregnancy Calculator",
+  url: "pregnancy-calculator.html",
+  icon: "🤰",
+  description: "Calculate your due date, gestational age & trimester."
+},
+    { id:"tip", name:"Tip Calculator", url:"/tip-calculator.html", icon:"💵", desc:"Calculate tip and split the bill between friends.", category:"Finance", keywords:["gratuity","bill split","how much to tip"], popular:true, recentlyAdded:true },
     { id:"daysbetween", name:"Days Between Dates", url:"/days-between-dates-calculator.html", icon:"📅", desc:"Find exact days, weeks and business days between two dates.", category:"Time & Date", keywords:["date duration","business days","working days"], popular:true, recentlyAdded:true },
  { id:"schoolage", name:"School Starting Age Calculator", url:"/school-starting-age-calculator.html", icon:"🎓", desc:"Find out exactly when your child starts school in the UK, USA, Canada & Europe.", category:"Education", keywords:["kindergarten","reception","school cutoff","school year","child starts school"], recentlyAdded:true },
     { id:"percentage", name:"Percentage Calculator", url:"/percentage-calculator.html", icon:"📊", desc:"Find percentages, increase, decrease and change instantly.", category:"Utility", keywords:["percent","increase","decrease","percent off"], popular:true, recentlyAdded:true },
