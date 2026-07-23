@@ -35,7 +35,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
 
-.bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
+.bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .bg-wrap::before{content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
              radial-gradient(ellipse 70% 80% at 85% 95%,rgba(201,168,76,.06) 0,transparent 55%)}
@@ -79,11 +79,44 @@ header .sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var
 .seo-box p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:14px}
 
 /* FOOTER */
-footer{text-align:center;padding:50px 20px;border-top:1px solid rgba(201,168,76,.08);background:var(--bg2)}
+footer{
+  text-align:center;
+  padding:50px 20px;
+  border-top:1px solid rgba(201,168,76,.08);
+  background:var(--bg2);
+  position:relative !important;
+  z-index:9999 !important;
+  pointer-events:auto !important;
+}
+
 .f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:16px}
-.f-links{display:flex;justify-content:center;gap:16px;margin:12px 0;flex-wrap:wrap}
-.f-links a{font-size:11px;color:var(--muted);text-decoration:none;transition:color .3s}
+
+.f-links{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin:12px 0;
+  flex-wrap:wrap;
+  position:relative !important;
+  z-index:10000 !important;
+  pointer-events:auto !important;
+}
+
+.f-links a{
+  font-size:11px;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .3s;
+  position:relative !important;
+  z-index:10001 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  display:inline-block !important;
+  padding:5px 4px !important;
+}
+
 .f-links a:hover{color:var(--gold)}
+
 p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:24px}
 
 @media(max-width:640px){
@@ -238,13 +271,12 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
 <footer>
   <span class="f-brand">Age Calculator Web</span>
   <div class="f-links">
-  <a href="/blog.html">Blog</a> &middot;
-  <a href="/about.html">About Us</a> &middot;
-  <a href="/privacy-policy.html">Privacy Policy</a> &middot;
-  <a href="/terms.html">Terms of Service</a> &middot;
-  <a href="/contact.html">Contact Us</a>
-</div>
-
+    <a href="/blog.html">Blog</a> &middot;
+    <a href="/about.html">About Us</a> &middot;
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms.html">Terms of Service</a> &middot;
+    <a href="/contact.html">Contact Us</a>
+  </div>
 
   <p class="copyright">&copy; 2026 Age Calculator Web &mdash; All Rights Reserved</p>
 </footer>
