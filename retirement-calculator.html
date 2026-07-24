@@ -3,18 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retirement Savings Calculator – How Much Will You Have? (2026)</title>
-<meta name="description" content="Free retirement savings calculator. See exactly how much your savings will grow by retirement based on your age, contributions, and expected return — USA, UK & Canada.">
+<title>401k & Retirement Savings Calculator – Roth IRA, Pension & RRSP Growth (2026)</title>
+<meta name="description" content="Free 401(k) and Retirement Savings Calculator. Project your compound growth for Roth IRA, Workplace Pensions, and RRSPs with employer match & inflation estimates across USA, UK, and Canada.">
+<meta name="keywords" content="401k calculator, retirement savings calculator, roth ira calculator, rrsp growth calculator, workplace pension calculator, compound interest retirement, retirement withdrawal simulator">
+<meta name="author" content="Age Calculator Web">
 <link rel="canonical" href="https://www.agecalculatorweb.com/retirement-calculator.html">
-<meta property="og:title" content="Retirement Savings Calculator – How Much Will You Have?">
-<meta property="og:description" content="Free retirement savings calculator with growth projection, total contributions vs interest earned, and yearly breakdown.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="401(k) & Retirement Savings Compound Growth Calculator">
+<meta property="og:description" content="Free retirement calculator with 401k employer match, Roth IRA compound growth, yearly breakdown & inflation adjustments for USA, UK & Canada.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.agecalculatorweb.com/retirement-calculator.html">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ⚠️ REPLACE WITH YOUR ADSENSE SCRIPT (copy from any existing page's <head>) -->
+<!-- AdSense Script -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7486660574780336" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
@@ -24,34 +29,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How much should I save for retirement each month?",
+      "name": "How does a 401(k) or Roth IRA grow over time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A common guideline is to save 15% of your gross income for retirement, including any employer match. The right amount depends on your target retirement age, current savings, and expected lifestyle."
+        "text": "Your 401(k) or Roth IRA grows through tax-advantaged compound interest. Monthly contributions earn annual returns (typically 7-10% in index funds like the S&P 500), and those returns generate their own gains, creating exponential long-term wealth."
       }
     },
     {
       "@type": "Question",
-      "name": "What rate of return should I use in a retirement calculator?",
+      "name": "What is an Employer Match in retirement plans?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A conservative long-term average for a diversified stock and bond portfolio is often estimated between 6% and 8% annually before inflation. Many planners use 7% as a balanced middle estimate."
+        "text": "An employer match is additional money contributed by your employer to your 401(k) or workplace pension based on how much you save. It is essentially 100% immediate return on your investment."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this calculator work for UK pensions and Canadian RRSPs?",
+      "name": "Does this retirement calculator work for UK Pensions and Canadian RRSPs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The underlying compound growth math is the same worldwide. Simply select your currency and enter your own contribution and return assumptions, whether you're using a 401(k), a workplace pension, or an RRSP."
+        "text": "Yes! Compound interest math is identical worldwide. Whether you use a US 401(k)/Roth IRA, UK Workplace Pension/SIPP, or Canadian RRSP/TFSA, simply select your currency (£, $, C$) to project future wealth."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this calculator account for inflation?",
+      "name": "How should I account for inflation in retirement calculations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This calculator shows the nominal future value of your savings. To estimate real purchasing power, many planners subtract an assumed inflation rate of around 2-3% from your expected return before calculating."
+        "text": "Historical stock market returns average around 10%. To account for an average 2-3% annual inflation rate, financial planners typically use a conservative 7% estimated annual return rate for real purchasing power estimates."
       }
     }
   ]
@@ -82,32 +87,16 @@
   #particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
   .wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 24px;}
 
-  nav.topnav{
-    display:flex;flex-wrap:wrap;gap:10px;padding:22px 24px;
-    max-width:820px;margin:0 auto;position:relative;z-index:2;
-    border-bottom:1px solid rgba(255,255,255,0.06);
-  }
-  .pill{
-    padding:10px 18px;border-radius:999px;font-size:14px;font-weight:500;
-    color:var(--cream);text-decoration:none;white-space:nowrap;
-    border:1px solid transparent;transition:.25s;
-  }
-  .pill:hover{border-color:var(--card-border);color:var(--gold-light);}
-  .pill.active{
-    background:linear-gradient(135deg,var(--gold),var(--gold-light));
-    color:#101010;font-weight:700;box-shadow:0 0 24px rgba(201,168,76,0.35);
-  }
-
   .eyebrow{
     text-align:center;color:var(--gold);letter-spacing:.32em;font-size:12px;
-    font-weight:600;margin:56px 0 22px;text-transform:uppercase;
+    font-weight:600;margin:40px 0 16px;text-transform:uppercase;
   }
   h1{
     font-family:'Playfair Display',serif;text-align:center;
     font-size:clamp(2rem,6vw,3.1rem);font-weight:600;color:var(--cream);line-height:1.2;
   }
   h1 em{color:var(--gold-light);font-style:italic;}
-  .sub{text-align:center;color:var(--muted);max-width:600px;margin:22px auto 44px;font-size:16px;}
+  .sub{text-align:center;color:var(--muted);max-width:640px;margin:18px auto 36px;font-size:15.5px;}
 
   .card{
     position:relative;background:var(--card-bg);border:1px solid var(--card-border);
@@ -181,38 +170,71 @@
   .faq-item h3{color:var(--gold-light);font-size:16px;margin-bottom:6px;}
   .faq-item p{color:#c9c4b8;margin-bottom:0;}
 
-  footer{text-align:center;padding:30px 24px 50px;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.06);}
-  footer a{color:var(--gold);text-decoration:none;}
-.nav-bar{position:relative;z-index:20;display:flex;justify-content:center;padding:24px 20px 0}
-.nav-pills{display:flex;flex-wrap:wrap;justify-content:center;background:rgba(16,16,16,.9);border:1px solid rgba(201,168,76,.2);border-radius:50px;padding:6px;gap:4px;backdrop-filter:blur(10px)}
-.nav-pill{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;color:#777;border:none;background:transparent;cursor:pointer;transition:all .25s}
-.nav-pill:hover{color:#f0ead8}
-.nav-pill.active{background:linear-gradient(135deg,#9a7230,#c9a84c);color:#000;font-weight:600;box-shadow:0 4px 16px rgba(201,168,76,.3)}
-.nav-pill svg{width:16px;height:16px;flex-shrink:0}
-@media(max-width:600px){.nav-pill{padding:8px 14px;font-size:11px;gap:5px}}
+  /* FOOTER STYLING */
+  footer{
+    text-align:center;
+    padding:50px 20px;
+    border-top:1px solid rgba(201,168,76,.08);
+    background:#101010;
+    position:relative !important;
+    z-index:9999 !important;
+    pointer-events:auto !important;
+    margin-top:40px;
+  }
+
+  .f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:16px}
+
+  .f-links{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin:12px 0;
+    flex-wrap:wrap;
+    position:relative !important;
+    z-index:10000 !important;
+    pointer-events:auto !important;
+  }
+
+  .f-links a{
+    font-size:11px;
+    color:var(--muted);
+    text-decoration:none;
+    transition:color .3s;
+    position:relative !important;
+    z-index:10001 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    display:inline-block !important;
+    padding:5px 4px !important;
+  }
+
+  .f-links a:hover{color:var(--gold)}
+
+  p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:24px}
 </style>
 </head>
 <body>
 
 <canvas id="particles"></canvas>
 
+<!-- Shared Navigation Script -->
 <script src="/nav.js"></script>
 
 <div class="wrap">
 
-  <p class="eyebrow">· Retirement Planning 2026 ·</p>
-  <h1>Calculate Your <em>Retirement</em><br>Savings Growth</h1>
-  <p class="sub">See exactly how much your savings could grow by retirement — based on your age, monthly contributions, and expected return.</p>
+  <p class="eyebrow">· High Yield Wealth Planning 2026 ·</p>
+  <h1>401(k) & Retirement <em>Savings Growth</em> Calculator</h1>
+  <p class="sub">Project your total retirement nest egg across 401(k), Roth IRA, Workplace Pensions, and RRSP accounts with compound growth interest calculations.</p>
 
   <div class="card">
-    <h2>Enter Your Details</h2>
+    <h2>Retirement Growth Assumptions</h2>
 
     <div class="field">
-      <label>Currency</label>
+      <label>Select Currency / Country</label>
       <select id="currency">
-        <option value="$" selected>🇺🇸 USD $</option>
-        <option value="£">🇬🇧 GBP £</option>
-        <option value="C$">🇨🇦 CAD C$</option>
+        <option value="$" selected>🇺🇸 USD ($) – USA (401k / Roth IRA)</option>
+        <option value="£">🇬🇧 GBP (£) – UK (Workplace Pension / SIPP)</option>
+        <option value="C$">🇨🇦 CAD (C$) – Canada (RRSP / TFSA)</option>
       </select>
     </div>
 
@@ -222,43 +244,49 @@
         <input type="number" id="currentAge" value="30" min="16" max="80">
       </div>
       <div class="field">
-        <label>Retirement Age</label>
+        <label>Target Retirement Age</label>
         <input type="number" id="retireAge" value="65" min="17" max="90">
       </div>
     </div>
 
     <div class="row2">
       <div class="field">
-        <label>Current Savings</label>
-        <input type="number" id="currentSavings" value="10000" min="0">
+        <label>Current Retirement Savings</label>
+        <input type="number" id="currentSavings" value="15000" min="0">
       </div>
       <div class="field">
-        <label>Monthly Contribution</label>
-        <input type="number" id="monthlyContribution" value="400" min="0">
+        <label>Your Monthly Contribution</label>
+        <input type="number" id="monthlyContribution" value="500" min="0">
       </div>
     </div>
 
-    <div class="field">
-      <label>Expected Annual Return (%)</label>
-      <input type="number" id="returnRate" value="7" min="0" max="20" step="0.1">
+    <div class="row2">
+      <div class="field">
+        <label>Employer Monthly Match (Optional)</label>
+        <input type="number" id="employerMatch" value="150" min="0">
+      </div>
+      <div class="field">
+        <label>Expected Annual Return (%)</label>
+        <input type="number" id="returnRate" value="7.5" min="0" max="20" step="0.1">
+      </div>
     </div>
 
-    <button class="btn-gold" onclick="calculateRetirement()">Calculate My Retirement Savings →</button>
+    <button class="btn-gold" onclick="calculateRetirement()">Calculate Retirement Nest Egg →</button>
   </div>
 
   <div class="card" id="results">
     <div class="result-hero">
-      <div class="label">Projected Savings at Retirement</div>
+      <div class="label">Projected Total Wealth at Retirement</div>
       <div class="amount" id="totalAmount">$0</div>
     </div>
 
     <div class="stat-grid">
       <div class="stat-box">
-        <div class="stat-label">Years to Grow</div>
+        <div class="stat-label">Years of Compounding</div>
         <div class="stat-val" id="yearsToGrow">0</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">Total Contributed</div>
+        <div class="stat-label">Total Out-of-Pocket Saved</div>
         <div class="stat-val" id="totalContributed">$0</div>
       </div>
     </div>
@@ -266,54 +294,55 @@
     <div class="donut-wrap">
       <canvas id="donut" width="180" height="180"></canvas>
       <div class="legend">
-        <div class="legend-item"><span class="dot" style="background:#c9a84c;"></span> Your Contributions</div>
-        <div class="legend-item"><span class="dot" style="background:#3a3a3a;"></span> Investment Growth</div>
+        <div class="legend-item"><span class="dot" style="background:#c9a84c;"></span> Total Contributions (You + Employer)</div>
+        <div class="legend-item"><span class="dot" style="background:#3a3a3a;"></span> Pure Investment Compound Growth</div>
       </div>
     </div>
 
-    <h3>Growth by Decade</h3>
+    <h3>Projections by Age Milestone</h3>
     <table id="breakdownTable">
-      <tr><th>Age</th><th>Balance</th></tr>
+      <tr><th>Age</th><th>Projected Balance</th></tr>
     </table>
   </div>
 
   <div class="card">
-    <h2>How Retirement Compounding Works</h2>
-    <p>Every dollar you save doesn't just sit still — it earns returns, and those returns earn their own returns. This snowball effect is called <strong>compound growth</strong>, and it's the single biggest factor in long-term retirement savings.</p>
-    <p>Starting 10 years earlier, even with the same monthly amount, can nearly double your final balance thanks to compounding. That's why the calculator above weighs your <strong>current age</strong> so heavily.</p>
+    <h2>Understanding Compound Growth in 401(k) & Pension Plans</h2>
+    <p>Retirement planning relies heavily on the power of <strong>compound interest</strong>. When you invest through tax-advantaged accounts like a US <strong>401(k) or Roth IRA</strong>, a UK <strong>SIPP/Workplace Pension</strong>, or a Canadian <strong>RRSP/TFSA</strong>, your returns are reinvested without being eroded by annual income tax.</p>
+    <p>Even small monthly increases in contributions—or taking full advantage of an <strong>Employer Match</strong>—can dramatically boost your overall nest egg due to exponential growth over 20 to 30 years.</p>
   </div>
 
   <div class="card">
-    <h2>Frequently Asked Questions</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <h3>How much should I save for retirement each month?</h3>
-      <p>A common guideline is 15% of gross income, including any employer match, though the right number depends on your target age and lifestyle.</p>
+      <h3>How does a 401(k) or Roth IRA grow over time?</h3>
+      <p>Your 401(k) or Roth IRA grows through tax-advantaged compound interest. Monthly contributions earn annual returns (typically 7-10% in broad market index funds), and those returns generate their own gains over time.</p>
     </div>
     <div class="faq-item">
-      <h3>What rate of return should I use?</h3>
-      <p>A diversified portfolio has historically averaged 6-8% annually before inflation. Many planners use 7% as a balanced estimate.</p>
+      <h3>What is an Employer Match and why is it crucial?</h3>
+      <p>An employer match is money contributed by your employer to your retirement fund based on your savings rate. It acts as an instant, tax-free return on your money and should always be maxed out first.</p>
     </div>
     <div class="faq-item">
-      <h3>Does this work for UK pensions and Canadian RRSPs?</h3>
-      <p>Yes — the compound growth math is universal. Just select your currency and enter your own contribution and return figures.</p>
+      <h3>Does this calculator work for UK Pensions and Canadian RRSPs?</h3>
+      <p>Yes — compound growth mathematics is global. Simply select GBP (£) for UK Workplace Pensions/SIPPs or CAD (C$) for Canadian RRSP/TFSA accounts to estimate your wealth trajectory.</p>
     </div>
     <div class="faq-item">
-      <h3>Does this account for inflation?</h3>
-      <p>This shows nominal future value. To estimate real purchasing power, subtract an assumed 2-3% inflation rate from your expected return.</p>
+      <h3>How does inflation impact my retirement target?</h3>
+      <p>While nominal stock market returns average around 9-10% historically, financial advisors recommend subtracting 2-3% for inflation, using a net 7% return rate to estimate real future purchasing power.</p>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <span class="f-brand">Age Calculator</span>
+  <span class="f-brand">Age Calculator Web</span>
   <div class="f-links">
-    <a href="about.html">About Us</a>
-    <a href="blog.html">Blog</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="contact.html">Contact</a>
+    <a href="/blog.html">Blog</a> &middot;
+    <a href="/about.html">About Us</a> &middot;
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms.html">Terms of Service</a> &middot;
+    <a href="/contact.html">Contact Us</a>
   </div>
-  <p>&copy; 2026 Age Calculator &mdash; All Calculations Done In Your Browser &mdash; No Data Stored</p>
+  <p class="copyright">&copy; 2026 Age Calculator Web &mdash; All Rights Reserved</p>
 </footer>
 
 <script>
@@ -322,48 +351,50 @@ function calculateRetirement(){
   const age = parseFloat(document.getElementById('currentAge').value) || 0;
   const retireAge = parseFloat(document.getElementById('retireAge').value) || 0;
   const savings = parseFloat(document.getElementById('currentSavings').value) || 0;
-  const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+  const userMonthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+  const matchMonthly = parseFloat(document.getElementById('employerMatch').value) || 0;
   const rate = parseFloat(document.getElementById('returnRate').value) || 0;
 
+  const totalMonthly = userMonthly + matchMonthly;
   const years = Math.max(retireAge - age, 0);
   const n = years * 12;
   const r = (rate/100)/12;
 
   function futureValue(months){
     let fvLump = savings * Math.pow(1+r, months);
-    let fvContrib = r === 0 ? monthly*months : monthly * ((Math.pow(1+r, months)-1)/r) * (1+r);
+    let fvContrib = r === 0 ? totalMonthly*months : totalMonthly * ((Math.pow(1+r, months)-1)/r) * (1+r);
     return fvLump + fvContrib;
   }
 
   const total = futureValue(n);
-  const totalContributed = savings + (monthly * n);
-  const growth = total - totalContributed;
+  const totalContributed = savings + (totalMonthly * n);
 
   document.getElementById('totalAmount').textContent = cur + Math.round(total).toLocaleString();
   document.getElementById('yearsToGrow').textContent = years;
   document.getElementById('totalContributed').textContent = cur + Math.round(totalContributed).toLocaleString();
 
-  // Breakdown table by decade
+  // Breakdown table by 5/10 year milestones
   const table = document.getElementById('breakdownTable');
-  table.innerHTML = '<tr><th>Age</th><th>Balance</th></tr>';
-  for(let a = age; a <= retireAge; a += 10){
+  table.innerHTML = '<tr><th>Age</th><th>Projected Balance</th></tr>';
+  const step = years > 20 ? 10 : 5;
+  for(let a = age; a <= retireAge; a += step){
     const m = (a - age) * 12;
     const bal = futureValue(m);
     const row = document.createElement('tr');
-    row.innerHTML = `<td>${a}</td><td>${cur}${Math.round(bal).toLocaleString()}</td>`;
+    row.innerHTML = `<td>Age ${a}</td><td>${cur}${Math.round(bal).toLocaleString()}</td>`;
     table.appendChild(row);
   }
-  if((retireAge-age) % 10 !== 0){
+  if((retireAge-age) % step !== 0){
     const row = document.createElement('tr');
-    row.innerHTML = `<td>${retireAge}</td><td>${cur}${Math.round(total).toLocaleString()}</td>`;
+    row.innerHTML = `<td>Age ${retireAge}</td><td>${cur}${Math.round(total).toLocaleString()}</td>`;
     table.appendChild(row);
   }
 
-  // Donut chart
+  // Donut chart rendering
   const canvas = document.getElementById('donut');
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0,0,180,180);
-  const contribShare = totalContributed / total;
+  const contribShare = total > 0 ? Math.min(totalContributed / total, 1) : 1;
   const growthShare = 1 - contribShare;
   let startAngle = -Math.PI/2;
   ctx.lineWidth = 22;
@@ -407,9 +438,10 @@ function animate(){
 }
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){animate();}
 
-// Auto-calculate on load with default values
+// Auto-calculate on initial load
 window.addEventListener('load', calculateRetirement);
 </script>
 
 </body>
 </html>
+
