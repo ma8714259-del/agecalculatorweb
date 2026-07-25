@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover your true astrological identity with our free Sun, Moon, and Rising Sign calculator. Calculate your Big Three accurately.">
+<meta name="keywords" content="astrology calculator, big three calculator, sun moon rising sign, free online astrology tools">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Age Calculator Web">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Sun, Moon & Rising Sign Calculator – Free Astrological Tools">
+<meta property="og:description" content="Accurately calculate your Big Three (Sun, Moon, and Rising signs) instantly with our free and private online tool.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d0d0d'/><text y='.9em' font-size='80' x='10'>✨</text></svg>">
+
+<title>Sun, Moon & Rising Sign Calculator – Free Tool (2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* آپ کی ویب سائٹ کی اصل گلوبل CSS */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --gold:#c9a84c;--gold-l:#f0d98a;--gold-d:#9a7230;
+  --bg:#080808;--bg2:#101010;--bg3:#181818;--bg4:#202020;
+  --cream:#f0ead8;--muted:#777;--light:#bbb;
+  --shadow:0 30px 80px rgba(0,0,0,.7);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;overflow-x:hidden}
+
+.bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-wrap::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 70% at 15% 5%,rgba(201,168,76,.09) 0,transparent 55%),
+             radial-gradient(ellipse 70% 80% at 85% 95%,rgba(201,168,76,.06) 0,transparent 55%)}
+
+.wrap{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:0 20px 60px}
+
+/* HEADER */
+header{text-align:center;padding:50px 20px 30px;position:relative;z-index:10}
+.brand-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:24px}
+.brand-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.brand-line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.brand-name{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;color:var(--gold)}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:400;color:var(--cream);margin-bottom:12px}
+header h1 em{font-style:italic;color:var(--gold-l)}
+header .sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+
+.div{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px 0}
+.div::before,.div::after{content:'';width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
+.div::after{background:linear-gradient(90deg,var(--gold-d),transparent)}
+.diam{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+
+/* --- کیلکولیٹر کا مخصوص ڈیزائن (آپ کی تھیم کے مطابق) --- */
+.calc-container {
+    max-width: 550px;
+    margin: 0 auto;
+    background: var(--bg2);
+    border: 1px solid rgba(201,168,76,.15);
+    border-radius: 8px;
+    padding: 35px 25px;
+    box-shadow: var(--shadow);
+}
+.calc-container h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-l);
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg3);
+    border: 1px solid rgba(201,168,76,.2);
+    color: var(--cream);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.input-group input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(201,168,76,.1);
+}
+/* کیلنڈر آئیکون کو ڈارک تھیم میں واضح کرنے کے لیے */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+.calc-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--gold);
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 10px;
+}
+.calc-btn:hover {
+    background: var(--gold-l);
+    transform: translateY(-2px);
+}
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+.result-card {
+    background: var(--bg3);
+    border: 1px solid rgba(201,168,76,.1);
+    border-left: 4px solid var(--gold);
+    padding: 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.result-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 400;
+}
+.result-card p {
+    color: var(--gold-l);
+    font-size: 18px;
+    font-weight: 600;
+}
+.hidden { display: none; }
+
+@media(min-width: 600px) {
+    .results-grid { grid-template-columns: repeat(3, 1fr); }
+    .result-card { flex-direction: column; align-items: flex-start; text-align: left; }
+    .result-card h3 { margin-bottom: 8px; }
+}
+
+/* SEO CONTENT */
+.seo-wrap{max-width:1100px;margin:50px auto 0;padding:0 20px 40px}
+.seo-box{background:var(--bg2);border:1px solid rgba(201,168,76,.1);border-radius:8px;padding:40px}
+.seo-box h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold-l);margin-bottom:20px}
+.seo-box h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-top:30px;margin-bottom:15px}
+.seo-box p{font-size:14px;line-height:1.8;color:var(--light);margin-bottom:15px}
+.seo-box ul{margin-left:20px;margin-bottom:20px;color:var(--light);font-size:14px;line-height:1.8;}
+.seo-box li{margin-bottom:10px;}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:50px 20px;
+  border-top:1px solid rgba(201,168,76,.08);
+  background:var(--bg2);
+  position:relative !important;
+  z-index:9999 !important;
+  pointer-events:auto !important;
+}
+.f-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:16px}
+.f-links{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin:12px 0;
+  flex-wrap:wrap;
+  position:relative !important;
+  z-index:10000 !important;
+  pointer-events:auto !important;
+}
+.f-links a{
+  font-size:11px;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .3s;
+  padding:5px 4px !important;
+}
+.f-links a:hover{color:var(--gold)}
+p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:24px}
+</style>
+</head>
+<body>
+
+<div class="bg-wrap"></div>
+<script src="/nav.js"></script>
+
+<header>
+  <div class="brand-row">
+    <div class="brand-line"></div>
+    <span class="brand-name">Age Calculator Web</span>
+    <div class="brand-line r"></div>
+  </div>
+  <h1>Big Three <em>Calculator</em></h1>
+  <p class="sub">Calculate Your Sun, Moon & Rising Signs</p>
+</header>
+
+<div class="wrap">
+  <div class="div"><div class="diam"></div></div>
+
+  <!-- CALCULATOR UI -->
+  <div class="calc-container">
+    <h2>Astrological Identity</h2>
+    
+    <div class="input-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required>
+    </div>
+
+    <div class="input-group">
+        <label for="tob">Time of Birth</label>
+        <input type="time" id="tob" required>
+    </div>
+
+    <div class="input-group">
+        <label for="location">City of Birth</label>
+        <input type="text" id="location" placeholder="e.g. London, United Kingdom" required>
+    </div>
+
+    <button id="calculateBtn" class="calc-btn">Reveal My Signs</button>
+
+    <div id="resultBox" class="results-grid hidden">
+        <div class="result-card">
+            <h3>☀️ Sun Sign</h3>
+            <p id="sunResult">--</p>
+        </div>
+        <div class="result-card">
+            <h3>🌙 Moon Sign</h3>
+            <p id="moonResult">--</p>
+        </div>
+        <div class="result-card">
+            <h3>⬆️ Rising Sign</h3>
+            <p id="risingResult">--</p>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SEO CONTENT (Targeting European Audience) -->
+<div class="seo-wrap">
+  <div class="seo-box">
+    <h2>Discover Your True Astrological Identity</h2>
+    <p>
+        Astrology is a vast and fascinating universe that extends far beyond the daily horoscopes you read in magazines. When analyzing their astrological profile, most people only know their "Sun Sign." While your Sun Sign is incredibly important, thinking it represents your entire personality is like reading only the first chapter of a complex novel.
+    </p>
+    <p>
+        To truly understand the nuances of your character, astrologers look at what is universally known as <strong>"The Big Three."</strong> These are your Sun Sign, Moon Sign, and Rising Sign (also known as your Ascendant). Our completely private Sun, Moon, and Rising Sign Calculator provides you with accurate insights instantly, without collecting any of your personal data.
+    </p>
+
+    <h3>Understanding The Big Three</h3>
+    <p>
+        The exact positions of celestial bodies at the precise moment and location of your birth formulate a unique cosmic blueprint. Let us dive into how these three major pillars shape your life:
+    </p>
+
+    <h4>1. The Sun Sign: Your Core Identity</h4>
+    <p>
+        Your Sun Sign is the core of who you are. It dictates your basic personality traits, your ego, your deepest desires, and the overarching theme of your life's journey. It is driven purely by your date of birth.
+    </p>
+
+    <h4>2. The Moon Sign: Your Emotional Compass</h4>
+    <p>
+        If the Sun is your public self, the Moon is your private, inner self. The Moon rules your emotions, your subconscious, your intuition, and your deepest vulnerabilities. It dictates how you process feelings and what makes you feel secure. Calculating this requires your exact time of birth.
+    </p>
+
+    <h4>3. The Rising Sign (Ascendant): Your Social Mask</h4>
+    <p>
+        Your Rising Sign is the zodiac sign that was ascending on the eastern horizon at the exact moment you were born. It is the "mask" you wear in public and represents the first impression you make on others. To calculate this accurately, we need your precise time and city of birth to determine geographical coordinates.
+    </p>
+
+    <h3>How to Use This Tool</h3>
+    <ul>
+        <li><strong>Date of Birth:</strong> Select your accurate birth day, month, and year.</li>
+        <li><strong>Time of Birth:</strong> Even a difference of a few minutes can shift your Rising Sign. Check your birth certificate for the exact time.</li>
+        <li><strong>City of Birth:</strong> Type in the city and country where you were born (e.g., Paris, France or Berlin, Germany).</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <span class="f-brand">Age Calculator Web</span>
+  <div class="f-links">
+    <a href="/blog.html">Blog</a>
+    <a href="/about.html">About Us</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/contact.html">Contact Us</a>
+  </div>
+  <p class="copyright">&copy; 2026 Age Calculator Web &mdash; All Rights Reserved</p>
+</footer>
+
+<!-- JavaScript Logic -->
+<script>
+    document.getElementById('calculateBtn').addEventListener('click', async function() {
+        const dob = document.getElementById('dob').value;
+        const tob = document.getElementById('tob').value;
+        const location = document.getElementById('location').value;
+
+        if(!dob || !tob || !location) {
+            alert("Please fill in all the fields!");
+            return;
+        }
+
+        const btn = document.getElementById('calculateBtn');
+        btn.innerText = "CALCULATING...";
+        
+        // Calculate Sun Sign based on Date
+        const dateObj = new Date(dob);
+        const day = dateObj.getDate();
+        const month = dateObj.getMonth() + 1;
+        const sunSign = getSunSign(day, month);
+        document.getElementById('sunResult').innerText = sunSign;
+
+        try {
+            // Note: Integrate your actual Free Astrology API here.
+            // Example: const apiUrl = `https://free-astrology-api.p.rapidapi.com/calc?dob=${dob}&tob=${tob}&location=${location}`;
+            
+            // Simulating API loading time for UX
+            await new Promise(r => setTimeout(r, 1200));
+            
+            // Placeholder text until API is connected
+            document.getElementById('moonResult').innerText = "API Required";
+            document.getElementById('risingResult').innerText = "API Required";
+            
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            document.getElementById('moonResult').innerText = "Error";
+            document.getElementById('risingResult').innerText = "Error";
+        } finally {
+            btn.innerText = "REVEAL MY SIGNS";
+            document.getElementById('resultBox').classList.remove('hidden');
+        }
+    });
+
+    function getSunSign(day, month) {
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Taurus";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Gemini";
+        if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cancer";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra";
+        if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Scorpio";
+        if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagittarius";
+        if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Capricorn";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius";
+        if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Pisces";
+        return "Unknown";
+    }
+</script>
+</body>
+</html>
