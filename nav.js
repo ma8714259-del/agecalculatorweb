@@ -16,6 +16,29 @@
     </button>
   </div>
 </nav>
+// nav.js - Age Calculator Web Navigation Script
+document.addEventListener("DOMContentLoaded", function() {
+    // اگر آپ مینو بار میں تمام ٹولز کا ڈراپ ڈاؤن یا لسٹ دکھاتے ہیں تو وہاں یہ لنک ایڈ کریں:
+    const navHTML = `
+        <nav style="background: var(--bg2); padding: 15px 20px; border-bottom: 1px solid rgba(201,168,76,.15); margin-bottom: 30px;">
+            <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <a href="/" style="font-family: 'Playfair Display', serif; color: var(--gold); text-decoration: none; font-size: 18px; letter-spacing: 2px;">Age Calculator Web</a>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; font-size: 13px;">
+                    <a href="/" style="color: var(--cream); text-decoration: none;">Home</a>
+                    <a href="/astrology-calculator.html" style="color: var(--gold-l); text-decoration: none; font-weight: 500;">Big Three Calculator</a>
+                    <a href="/blog.html" style="color: var(--muted); text-decoration: none;">Blog</a>
+                    <a href="/about.html" style="color: var(--muted); text-decoration: none;">About</a>
+                </div>
+            </div>
+        </nav>
+    `;
+    
+    // اگر آپ کے پیج پر ہیدر سے پہلے یا نیو بار کی جگہ کوئی مخصوص ٹیگ ہے تو وہاں انسرٹ کریں
+    const header = document.querySelector('header');
+    if (header) {
+        header.insertAdjacentHTML('beforebegin', navHTML);
+    }
+});
 
 <div class="acw-mobile-scrollnav" id="mobileScrollNav">
   <div class="acw-scrollnav-track" id="scrollNavTrack"></div>
