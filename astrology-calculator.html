@@ -19,7 +19,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* آپ کی ویب سائٹ کی اصل گلوبل CSS */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
@@ -54,7 +53,7 @@ header .sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var
 .div::after{background:linear-gradient(90deg,var(--gold-d),transparent)}
 .diam{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
 
-/* --- کیلکولیٹر کا مخصوص ڈیزائن (آپ کی تھیم کے مطابق) --- */
+/* CALCULATOR CONTAINER */
 .calc-container {
     max-width: 550px;
     margin: 0 auto;
@@ -82,7 +81,7 @@ header .sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-.input-group input {
+.input-group input, .input-group select {
     width: 100%;
     padding: 14px;
     background: var(--bg3);
@@ -93,14 +92,12 @@ header .sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var
     font-size: 16px;
     transition: all 0.3s ease;
 }
-.input-group input:focus {
+.input-group input:focus, .input-group select:focus {
     outline: none;
     border-color: var(--gold);
     box-shadow: 0 0 10px rgba(201,168,76,.1);
 }
-/* کیلنڈر آئیکون کو ڈارک تھیم میں واضح کرنے کے لیے */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     opacity: 0.6;
     cursor: pointer;
@@ -204,7 +201,6 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
 <body>
 
 <div class="bg-wrap"></div>
-<script src="/nav.js"></script>
 
 <header>
   <div class="brand-row">
@@ -228,9 +224,29 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
         <input type="date" id="dob" required>
     </div>
 
+    <!-- Time of Birth Dropdowns for Mobile Compatibility -->
     <div class="input-group">
-        <label for="tob">Time of Birth</label>
-        <input type="time" id="tob" required>
+        <label>Time of Birth (Hour & Minute)</label>
+        <div style="display: flex; gap: 10px;">
+            <select id="birthHour" required>
+                <option value="" disabled selected>Hour (00-23)</option>
+                <script>
+                    for(let i=0; i<24; i++) {
+                        let h = i < 10 ? '0' + i : i;
+                        document.write(`<option value="${h}">${h}</option>`);
+                    }
+                </script>
+            </select>
+            <select id="birthMinute" required>
+                <option value="" disabled selected>Minute (00-59)</option>
+                <script>
+                    for(let i=0; i<60; i+=5) {
+                        let m = i < 10 ? '0' + i : i;
+                        document.write(`<option value="${m}">${m}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
     </div>
 
     <div class="input-group">
@@ -258,7 +274,7 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
 
 </div>
 
-<!-- SEO CONTENT (Targeting European Audience) -->
+<!-- SEO CONTENT -->
 <div class="seo-wrap">
   <div class="seo-box">
     <h2>Discover Your True Astrological Identity</h2>
@@ -314,14 +330,16 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
 <script>
     document.getElementById('calculateBtn').addEventListener('click', async function() {
         const dob = document.getElementById('dob').value;
-        const tob = document.getElementById('tob').value;
+        const hour = document.getElementById('birthHour').value;
+        const minute = document.getElementById('birthMinute').value;
         const location = document.getElementById('location').value;
 
-        if(!dob || !tob || !location) {
-            alert("Please fill in all the fields!");
+        if(!dob || !hour || !minute || !location) {
+            alert("Please fill in all the fields including birth time!");
             return;
         }
 
+        const tob = `${hour}:${minute}`;
         const btn = document.getElementById('calculateBtn');
         btn.innerText = "CALCULATING...";
         
@@ -334,8 +352,6 @@ p.copyright{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:
 
         try {
             // Note: Integrate your actual Free Astrology API here.
-            // Example: const apiUrl = `https://free-astrology-api.p.rapidapi.com/calc?dob=${dob}&tob=${tob}&location=${location}`;
-            
             // Simulating API loading time for UX
             await new Promise(r => setTimeout(r, 1200));
             
