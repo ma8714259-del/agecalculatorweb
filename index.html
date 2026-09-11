@@ -6,7 +6,6 @@
     <title>Age Calculator – Calculate Your Exact Age Online</title>
     <meta name="description" content="Free online age calculator to calculate your exact age in years, months, days and more. Calculate your age from your date of birth quickly and accurately.">
     <link rel="canonical" href="https://agecalculatorweb.com/">
-    <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="Age Calculator – Calculate Your Exact Age Online">
@@ -23,118 +22,733 @@
       "url": "https://agecalculatorweb.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://agecalculatorweb.com/calculator.html?dob={search_term_string}",
+        "target": "https://agecalculatorweb.com/#calculator?dob={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
     </script>
+
+    <!-- Embedded Unified CSS -->
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1e1e1e;
+            --border-color: #333333;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa8c2c;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Container & Views */
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            width: 100%;
+        }
+
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active-view {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Ad Placement Slot */
+        .ad-slot {
+            background-color: var(--bg-secondary);
+            border: 1px dashed var(--border-color);
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+
+        /* Calculator Card */
+        .calculator-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        input[type="date"] {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            color: var(--text-main);
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input[type="date"]:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 6px;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Results Display */
+        .results-section {
+            margin-top: 2rem;
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .results-section.visible {
+            display: block;
+        }
+
+        .main-age-banner {
+            background: linear-gradient(135deg, var(--bg-secondary), #1a1811);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-age-banner h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .main-age-banner .age-output {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-top: 3rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p, .content-section li {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .content-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .blog-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-secondary);
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            }
+            nav ul.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">Age<span>Calculator</span>Web</a>
+            <a onclick="switchView('home')" class="logo">Age<span>Calculator</span>Web</a>
             <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="calculator.html">Age Calculator</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a onclick="switchView('home')" id="nav-home" class="active">Home</a></li>
+                    <li><a onclick="switchView('calculator')" id="nav-calculator">Age Calculator</a></li>
+                    <li><a onclick="switchView('blog')" id="nav-blog">Blog</a></li>
+                    <li><a onclick="switchView('about')" id="nav-about">About</a></li>
+                    <li><a onclick="switchView('contact')" id="nav-contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <h1>Free <span>Age Calculator</span></h1>
-        <p class="subtitle">Instantly calculate your exact age in years, months, days, hours, and seconds from your date of birth.</p>
+        <!-- HOME VIEW -->
+        <div id="view-home" class="view-section active-view">
+            <h1>Free <span>Age Calculator</span></h1>
+            <p class="subtitle">Instantly calculate your exact age in years, months, days, hours, and seconds from your date of birth.</p>
 
-        <!-- AdSense Ad Slot Top -->
-        <div class="ad-slot">Advertisement Space</div>
+            <div class="ad-slot">Advertisement Space</div>
 
-        <!-- Calculator Tool -->
-        <div class="calculator-card">
-            <form id="ageCalculatorForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" id="dob" required>
+            <div class="calculator-card">
+                <form class="ageCalculatorForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" class="dob-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Calculate Age On (Optional)</label>
+                            <input type="date" class="target-date-input">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="targetDate">Calculate Age On (Optional)</label>
-                        <input type="date" id="targetDate">
+                    <button type="submit" class="btn-primary">Calculate Age</button>
+                </form>
+
+                <div class="results-section">
+                    <div class="main-age-banner">
+                        <h3>Your Exact Age</h3>
+                        <div class="mainAgeOutput age-output">--</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box"><span class="stat-label">Years</span><span class="valYears stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Months</span><span class="valMonths stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Weeks</span><span class="valWeeks stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Days</span><span class="valDays stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Hours</span><span class="valHours stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Minutes</span><span class="valMinutes stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Seconds</span><span class="valSeconds stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Next Birthday</span><span class="valNextBday stat-value">--</span></div>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary">Calculate Age</button>
-            </form>
+            </div>
 
-            <div id="resultsSection" class="results-section">
-                <div class="main-age-banner">
-                    <h3>Your Exact Age</h3>
-                    <div id="mainAgeOutput" class="age-output">--</div>
+            <div class="ad-slot">Advertisement Space</div>
+
+            <section class="content-section">
+                <h2>How Age Is Calculated</h2>
+                <p>Calculating age requires accounting for varying month lengths (28, 29, 30, or 31 days) and leap years. Our age calculator determines the exact duration elapsed between your date of birth and today's date or any custom date you select.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Why Exact Age Matters for Official Documents</h2>
+                <p>For passport applications, school admissions, visa processing, and legal contracts, precise age calculation is vital. Using an automated tool ensures accurate reporting down to the day.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How do I calculate my age manually?</h3>
+                    <p>Subtract your birth year from the current year, adjusting if your birthday has not occurred yet this year.</p>
                 </div>
+                <div class="faq-item">
+                    <h3>Does this calculator account for leap years?</h3>
+                    <p>Yes, leap years are fully accounted for when determining total days, hours, and seconds.</p>
+                </div>
+            </section>
+        </div>
 
-                <div class="stats-grid">
-                    <div class="stat-box"><span class="stat-label">Years</span><span id="valYears" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Months</span><span id="valMonths" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Weeks</span><span id="valWeeks" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Days</span><span id="valDays" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Hours</span><span id="valHours" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Minutes</span><span id="valMinutes" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Total Seconds</span><span id="valSeconds" class="stat-value">--</span></div>
-                    <div class="stat-box"><span class="stat-label">Next Birthday</span><span id="valNextBday" class="stat-value">--</span></div>
+        <!-- CALCULATOR VIEW -->
+        <div id="view-calculator" class="view-section">
+            <h1>Age <span>Calculator Tool</span></h1>
+            <p class="subtitle">Enter your birth date below to get an instant breakdown of your exact age.</p>
+
+            <div class="calculator-card">
+                <form class="ageCalculatorForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" class="dob-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Calculate Age On (Optional)</label>
+                            <input type="date" class="target-date-input">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Calculate Age</button>
+                </form>
+
+                <div class="results-section">
+                    <div class="main-age-banner">
+                        <h3>Your Exact Age</h3>
+                        <div class="mainAgeOutput age-output">--</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box"><span class="stat-label">Years</span><span class="valYears stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Months</span><span class="valMonths stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Weeks</span><span class="valWeeks stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Days</span><span class="valDays stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Hours</span><span class="valHours stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Minutes</span><span class="valMinutes stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Total Seconds</span><span class="valSeconds stat-value">--</span></div>
+                        <div class="stat-box"><span class="stat-label">Next Birthday</span><span class="valNextBday stat-value">--</span></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- AdSense Ad Slot Middle -->
-        <div class="ad-slot">Advertisement Space</div>
+        <!-- BLOG VIEW -->
+        <div id="view-blog" class="view-section">
+            <h1>Age Calculation <span>Blog</span></h1>
+            <p class="subtitle">Helpful guides and articles dedicated exclusively to dates of birth and age mathematics.</p>
 
-        <!-- Informational Content Sections -->
-        <section class="content-section">
-            <h2>How Age Is Calculated</h2>
-            <p>Calculating age seems straightforward, but accounting for varying month lengths (28, 29, 30, or 31 days) and leap years requires precise mathematical steps. Our age calculator determines the exact duration elapsed between your date of birth and today's date (or any custom date you select).</p>
-            <p>When you input your birth date, the algorithm first computes the difference in full calendar years. It then accounts for remaining months and uses standard calendar arithmetic to calculate the exact remaining days.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>Why Exact Age Matters for Official Documents</h2>
-            <p>For official documentation such as passport applications, school admissions, visa processing, job eligibility, and legal contracts, precise age calculation is vital. A minor discrepancy in months or days can lead to application delays or rejection. Using an automated calculator ensures accurate reporting of your precise chronological age.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3>How do I calculate my age manually?</h3>
-                <p>Subtract your birth year from the current year. If your birthday has not occurred yet this year, subtract 1 from the result. Then, calculate the month and day differences.</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div>
+                        <h3>How to Calculate Your Exact Age</h3>
+                        <p>Learn the step-by-step mathematical method for calculating your exact age in years, months, and days.</p>
+                    </div>
+                    <a onclick="switchView('calculator')" class="read-more">Use Calculator &rarr;</a>
+                </div>
+                <div class="blog-card">
+                    <div>
+                        <h3>Why Leap Years Matter When Calculating Age</h3>
+                        <p>Discover how leap years impact your total day count and age milestones.</p>
+                    </div>
+                    <a onclick="switchView('calculator')" class="read-more">Calculate Days &rarr;</a>
+                </div>
+                <div class="blog-card">
+                    <div>
+                        <h3>How Many Days Until My Next Birthday?</h3>
+                        <p>Find out how to calculate exact remaining days and hours until your upcoming birthday.</p>
+                    </div>
+                    <a onclick="switchView('calculator')" class="read-more">Check Countdown &rarr;</a>
+                </div>
             </div>
-            <div class="faq-item">
-                <h3>Does this calculator account for leap years?</h3>
-                <p>Yes! Our calculator fully accounts for leap years (extra days in February every four years) when determining total days, hours, and seconds.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Can I calculate age on a past or future date?</h3>
-                <p>Yes, simply select your desired date in the "Calculate Age On" field to find your exact age on any specific day in history or the future.</p>
-            </div>
-        </section>
+        </div>
 
+        <!-- ABOUT VIEW -->
+        <div id="view-about" class="view-section">
+            <h1>About <span>Age Calculator Web</span></h1>
+            <p class="subtitle">Your trusted source for fast, precise, and user-friendly age calculation tools.</p>
+            <section class="content-section">
+                <h2>Who We Are</h2>
+                <p>Age Calculator Web provides a lightning-fast, highly accurate, and clutter-free age calculation experience without unrelated financial or medical calculators.</p>
+            </section>
+        </div>
+
+        <!-- CONTACT VIEW -->
+        <div id="view-contact" class="view-section">
+            <h1>Contact <span>Us</span></h1>
+            <p class="subtitle">Have questions or feedback? We would love to hear from you.</p>
+            <section class="content-section">
+                <h2>Get in Touch</h2>
+                <p><strong>Email:</strong> support@agecalculatorweb.com</p>
+            </section>
+        </div>
+
+        <!-- PRIVACY POLICY VIEW -->
+        <div id="view-privacy" class="view-section">
+            <h1>Privacy <span>Policy</span></h1>
+            <p class="subtitle">Last updated: September 12, 2026</p>
+            <section class="content-section">
+                <h2>Advertising Cookies & Third-Party Services</h2>
+                <p>We use third-party advertising services, including Google AdSense, to serve ads. Google uses cookies to serve ads based on user visits.</p>
+            </section>
+        </div>
+
+        <!-- TERMS VIEW -->
+        <div id="view-terms" class="view-section">
+            <h1>Terms and <span>Conditions</span></h1>
+            <p class="subtitle">Last updated: September 12, 2026</p>
+            <section class="content-section">
+                <h2>Agreement to Terms</h2>
+                <p>By accessing Age Calculator Web, you agree to be bound by these Terms and Conditions.</p>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="calculator.html">Age Calculator</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms.html">Terms & Conditions</a>
+            <a onclick="switchView('home')">Home</a>
+            <a onclick="switchView('calculator')">Age Calculator</a>
+            <a onclick="switchView('blog')">Blog</a>
+            <a onclick="switchView('about')">About Us</a>
+            <a onclick="switchView('contact')">Contact Us</a>
+            <a onclick="switchView('privacy')">Privacy Policy</a>
+            <a onclick="switchView('terms')">Terms & Conditions</a>
         </div>
         <p class="copyright">&copy; 2026 AgeCalculatorWeb.com. All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/calculator.js"></script>
+    <!-- Embedded Unified JavaScript -->
+    <script>
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active-view'));
+            const targetView = document.getElementById('view-' + viewId);
+            if (targetView) {
+                targetView.classList.add('active-view');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            document.querySelectorAll('nav a').forEach(el => el.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + viewId);
+            if (activeNav) activeNav.classList.add('active');
+
+            // Close mobile menu if open
+            const navMenu = document.querySelector('nav ul');
+            if (navMenu) navMenu.classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('open');
+                });
+            }
+
+            // Calculator Forms Setup (supports multiple calculator instances on page)
+            document.querySelectorAll('.ageCalculatorForm').forEach(form => {
+                const dobInput = form.querySelector('.dob-input');
+                const targetDateInput = form.querySelector('.target-date-input');
+                const card = form.closest('.calculator-card');
+                const resultsSection = card.querySelector('.results-section');
+
+                const today = new Date();
+                if (targetDateInput) {
+                    targetDateInput.valueAsDate = today;
+                }
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const dobVal = dobInput.value;
+                    if (!dobVal) return;
+
+                    const birthDate = new Date(dobVal);
+                    let targetDate = targetDateInput && targetDateInput.value ? new Date(targetDateInput.value) : new Date();
+
+                    if (birthDate > targetDate) {
+                        alert('Date of birth cannot be later than the calculation date.');
+                        return;
+                    }
+
+                    let years = targetDate.getFullYear() - birthDate.getFullYear();
+                    let months = targetDate.getMonth() - birthDate.getMonth();
+                    let days = targetDate.getDate() - birthDate.getDate();
+
+                    if (days < 0) {
+                        months--;
+                        const prevMonth = new Date(targetDate.getFullYear(), targetDate.getMonth(), 0);
+                        days += prevMonth.getDate();
+                    }
+
+                    if (months < 0) {
+                        years--;
+                        months += 12;
+                    }
+
+                    const diffTime = Math.abs(targetDate - birthDate);
+                    const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                    const totalWeeks = Math.floor(totalDays / 7);
+                    const totalMonths = (years * 12) + months;
+                    const totalHours = Math.floor(diffTime / (1000 * 60 * 60));
+                    const totalMinutes = Math.floor(diffTime / (1000 * 60));
+                    const totalSeconds = Math.floor(diffTime / 1000);
+
+                    const nextBirthday = new Date(targetDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+                    if (nextBirthday < targetDate) {
+                        nextBirthday.setFullYear(targetDate.getFullYear() + 1);
+                    }
+                    const diffNextBday = Math.ceil((nextBirthday - targetDate) / (1000 * 60 * 60 * 24));
+
+                    card.querySelector('.mainAgeOutput').textContent = `${years} Years, ${months} Months, ${days} Days`;
+                    card.querySelector('.valYears').textContent = `${years} Years`;
+                    card.querySelector('.valMonths').textContent = `${totalMonths} Months`;
+                    card.querySelector('.valWeeks').textContent = `${totalWeeks.toLocaleString()} Weeks`;
+                    card.querySelector('.valDays').textContent = `${totalDays.toLocaleString()} Days`;
+                    card.querySelector('.valHours').textContent = `${totalHours.toLocaleString()} Hours`;
+                    card.querySelector('.valMinutes').textContent = `${totalMinutes.toLocaleString()} Minutes`;
+                    card.querySelector('.valSeconds').textContent = `${totalSeconds.toLocaleString()} Seconds`;
+                    card.querySelector('.valNextBday').textContent = `${diffNextBday} Days remaining`;
+
+                    resultsSection.classList.add('visible');
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
