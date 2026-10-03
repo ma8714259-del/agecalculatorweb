@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ✅ GOOGLE SEARCH CONSOLE VERIFICATION -->
+<meta name="google-site-verification" content="ciN3sxAUx0Qh9km6RDC_45HanulO6IKz_B3VWpVpDjI" />
+
 <title>Age Calculator — Discover Your Exact Age | CosmicAge</title>
 <meta name="description" content="Calculate your exact age in years, months, days, hours, minutes and seconds. Free instant age calculator with live birthday countdown.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://agecalculatorwebcom.vercel.app/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,10 +251,8 @@ footer a:hover{color:var(--gold)}
 </footer>
 
 <script>
-// ===== Year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== Stars =====
 (function(){
   const c = document.getElementById('stars'), x = c.getContext('2d');
   let s = [];
@@ -272,16 +275,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
     });
     requestAnimationFrame(draw);
   }
-  resize();
-  addEventListener('resize', resize);
-  draw();
+  resize(); addEventListener('resize', resize); draw();
 })();
 
-// ===== Elements =====
 const birthInput = document.getElementById('birthDate');
 let countdownInterval = null;
 
-// ===== Set max birth date to today =====
 (function(){
   const t = new Date();
   const iso = t.getFullYear() + '-' +
@@ -290,12 +289,10 @@ let countdownInterval = null;
   birthInput.max = iso;
 })();
 
-// ===== Buttons =====
 document.getElementById('calcBtn').onclick = calculate;
 document.getElementById('resetBtn').onclick = reset;
 birthInput.addEventListener('keydown', e => { if(e.key === 'Enter') calculate(); });
 
-// ===== MAIN CALCULATE FUNCTION =====
 function calculate(){
   if(!birthInput.value){
     shake();
@@ -303,22 +300,15 @@ function calculate(){
     birthInput.focus();
     return;
   }
-
   const birth = parseDate(birthInput.value);
-  const now = new Date(); // AUTOMATIC TODAY
-
+  const now = new Date();
   if(birth > now){
     alert('Date of birth cannot be in the future.');
     return;
   }
-
   const r = breakdown(birth, now);
-
-  // Show sections
   document.getElementById('orbSection').style.display = 'flex';
   document.getElementById('results').style.display = 'block';
-
-  // Fill numbers
   anim('rYears', r.years);
   anim('rMonths', r.totalMonths);
   anim('rWeeks', r.totalWeeks);
@@ -327,49 +317,35 @@ function calculate(){
   anim('rMinutes', r.totalMinutes);
   anim('rSeconds', r.totalSeconds);
   anim('rHeartbeats', Math.round(r.totalMinutes * 72));
-
   document.getElementById('orbYears').textContent = r.years;
   const pct = Math.min(r.months / 12, 1);
   document.getElementById('orbProgress').style.strokeDashoffset = 628 - (628 * pct);
-
-  // Extra info
   document.getElementById('zodiac').textContent = getZodiac(birth);
   document.getElementById('birthDay').textContent =
     birth.toLocaleDateString('en-US', { weekday: 'long' });
   document.getElementById('sleepHours').textContent =
     Math.round(r.totalHours * 0.33).toLocaleString();
-
-  // Countdown
   startCountdown(birth);
-
-  // Scroll
   setTimeout(() => {
     document.getElementById('results').scrollIntoView({ behavior:'smooth', block:'start' });
   }, 200);
 }
 
-// ===== Parse date safely (avoid timezone issue) =====
 function parseDate(str){
   const p = str.split('-');
   return new Date(parseInt(p[0]), parseInt(p[1]) - 1, parseInt(p[2]));
 }
 
-// ===== Breakdown =====
 function breakdown(birth, now){
   let years = now.getFullYear() - birth.getFullYear();
   let months = now.getMonth() - birth.getMonth();
   let days = now.getDate() - birth.getDate();
-
   if(days < 0){
     months--;
     const prevMonthDays = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
     days += prevMonthDays;
   }
-  if(months < 0){
-    years--;
-    months += 12;
-  }
-
+  if(months < 0){ years--; months += 12; }
   const ms = now - birth;
   const totalSeconds = Math.floor(ms / 1000);
   const totalMinutes = Math.floor(totalSeconds / 60);
@@ -377,12 +353,10 @@ function breakdown(birth, now){
   const totalDays    = Math.floor(totalHours / 24);
   const totalWeeks   = Math.floor(totalDays / 7);
   const totalMonths  = years * 12 + months;
-
   return { years, months, days, totalMonths, totalWeeks, totalDays,
            totalHours, totalMinutes, totalSeconds };
 }
 
-// ===== Zodiac =====
 function getZodiac(dt){
   const d = dt.getDate(), m = dt.getMonth() + 1;
   const z = [
@@ -400,19 +374,16 @@ function getZodiac(dt){
   return 'Capricorn ♑';
 }
 
-// ===== Countdown =====
 function startCountdown(birth){
   if(countdownInterval) clearInterval(countdownInterval);
   const now = new Date();
   let next = new Date(now.getFullYear(), birth.getMonth(), birth.getDate());
   if(next < now) next.setFullYear(now.getFullYear() + 1);
-
   document.getElementById('nextBdayDay').textContent =
     next.toLocaleDateString('en-US', { weekday: 'long' });
   document.getElementById('nextBdayInfo').textContent =
     '🎈 Your next birthday: ' +
     next.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-
   function tick(){
     const diff = next - new Date();
     if(diff <= 0) return;
@@ -429,7 +400,6 @@ function startCountdown(birth){
   countdownInterval = setInterval(tick, 1000);
 }
 
-// ===== Animate numbers =====
 function anim(id, end){
   const el = document.getElementById(id);
   const dur = 900, start = performance.now();
@@ -445,7 +415,6 @@ function anim(id, end){
   requestAnimationFrame(frame);
 }
 
-// ===== Copy =====
 document.getElementById('copyBtn').onclick = function(){
   const text =
     'My exact age: ' + document.getElementById('rYears').textContent + ' years, ' +
@@ -458,7 +427,6 @@ document.getElementById('copyBtn').onclick = function(){
   });
 };
 
-// ===== Share =====
 document.getElementById('shareBtn').onclick = async function(){
   if(navigator.share){
     try{
@@ -474,7 +442,6 @@ document.getElementById('shareBtn').onclick = async function(){
   }
 };
 
-// ===== Reset =====
 function reset(){
   birthInput.value = '';
   document.getElementById('results').style.display = 'none';
@@ -484,7 +451,6 @@ function reset(){
   birthInput.focus();
 }
 
-// ===== Shake =====
 function shake(){
   const card = document.querySelector('.calc');
   card.animate([
